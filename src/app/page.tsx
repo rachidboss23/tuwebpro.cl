@@ -6,6 +6,7 @@ import PortfolioSection from "@/components/sections/PortfolioSection";
 import StackSection from "@/components/sections/StackSection";
 import ProcessSection from "@/components/sections/ProcessSection";
 import CTASection from "@/components/sections/CTASection";
+import AboutSection from "@/components/sections/AboutSection";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <PortfolioSection />
       <StackSection />
       <ProcessSection />
+      <AboutSection />
       <CTASection />
       <Footer />
     </main>

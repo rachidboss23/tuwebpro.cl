@@ -11,6 +11,7 @@ const navLinks = [
   { label: "Proyectos", href: "#proyectos" },
   { label: "Stack", href: "#stack" },
   { label: "Proceso", href: "#proceso" },
+  { label: "Nosotros", href: "#nosotros" },
 ];
 
 export default function Navbar() {

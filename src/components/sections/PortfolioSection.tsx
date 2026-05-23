@@ -21,12 +21,12 @@ const projects = [
     year: "2024",
   },
   {
-    title: "Paula Guerra Chamorro",
-    url: "https://paulaguerrachamorro.cl",
+    title: "Musaika",
+    url: "https://musaika.cl",
     description:
-      "Sitio web profesional moderno orientado a presencia digital y branding personal. Diseño elegante, optimización SEO y experiencia de usuario premium.",
-    tags: ["Next.js", "Framer Motion", "Tailwind"],
-    category: "Branding & Web",
+      "Plataforma musical moderna con catálogo de artistas, gestión de contenido y experiencia de usuario enfocada en el ecosistema musical chileno.",
+    tags: ["Next.js", "Tailwind", "TypeScript"],
+    category: "Web Platform",
     color: "violet",
     gradient: "from-violet-600/20 to-pink-600/20",
     accentColor: "text-violet-400",
