@@ -1,6 +1,7 @@
 "use client";
 
-import { Zap, Github, Linkedin, Mail, MessageSquare } from "lucide-react";
+import Image from "next/image";
+import { Github, Linkedin, Mail, MessageSquare } from "lucide-react";
 
 const socials = [
   { icon: Github, label: "GitHub", href: "https://github.com/rachidboss23" },
@@ -20,10 +21,8 @@ const navLinks = [
 
 export default function Footer() {
   const handleScroll = (href: string) => {
-    if (href.startsWith("#")) {
-      const el = document.querySelector(href);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -33,16 +32,14 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="sm:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-violet-500 flex items-center justify-center">
-                <Zap className="w-4 h-4 text-white" />
-              </div>
-              <span
-                className="font-bold text-lg text-white"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                TuWebPro
-              </span>
+            <div className="mb-4">
+              <Image
+                src="/images/logo_tuwebpro.png"
+                alt="TuWebPro"
+                width={130}
+                height={38}
+                className="object-contain h-8 w-auto"
+              />
             </div>
             <p className="text-white/38 text-sm leading-relaxed max-w-xs">
               Sistemas inteligentes que automatizan, escalan y transforman negocios modernos.
@@ -98,7 +95,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
+        {/* Bottom */}
         <div className="border-t border-white/[0.05] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/22">
             © {new Date().getFullYear()} TuWebPro · Rachid Boss Ibarra

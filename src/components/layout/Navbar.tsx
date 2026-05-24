@@ -46,28 +46,20 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
+            {/* Logo — image includes icon + wordmark, no extra text needed */}
             <motion.a
               href="#"
-              className="flex items-center gap-2.5 group"
+              className="flex items-center group"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="w-8 h-8 relative flex-shrink-0">
-                <Image
-                  src="/images/logo_tuwebpro.png"
-                  alt="TuWebPro"
-                  width={32}
-                  height={32}
-                  className="object-contain w-full h-full"
-                  priority
-                />
-              </div>
-              <span
-                className="font-bold text-lg tracking-tight text-white"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                TuWebPro
-              </span>
+              <Image
+                src="/images/logo_tuwebpro.png"
+                alt="TuWebPro"
+                width={148}
+                height={44}
+                className="object-contain h-9 w-auto"
+                priority
+              />
             </motion.a>
 
             {/* Desktop Nav */}
@@ -85,17 +77,10 @@ export default function Navbar() {
 
             {/* CTA */}
             <div className="hidden md:flex items-center gap-3">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => handleNavClick("#contacto")}
-              >
+              <Button variant="outline" size="sm" onClick={() => handleNavClick("#contacto")}>
                 Contactar
               </Button>
-              <Button
-                size="sm"
-                onClick={() => handleNavClick("#proyectos")}
-              >
+              <Button size="sm" onClick={() => handleNavClick("#proyectos")}>
                 Ver proyectos
               </Button>
             </div>
@@ -136,19 +121,10 @@ export default function Navbar() {
                 </motion.button>
               ))}
               <div className="flex flex-col gap-3 mt-6">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="w-full"
-                  onClick={() => handleNavClick("#contacto")}
-                >
+                <Button variant="outline" size="lg" className="w-full" onClick={() => handleNavClick("#contacto")}>
                   Contactar
                 </Button>
-                <Button
-                  size="lg"
-                  className="w-full"
-                  onClick={() => handleNavClick("#proyectos")}
-                >
+                <Button size="lg" className="w-full" onClick={() => handleNavClick("#proyectos")}>
                   Ver proyectos
                 </Button>
               </div>

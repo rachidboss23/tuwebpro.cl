@@ -17,19 +17,19 @@ const projects = [
     image: "/images/corredoresapp.png",
     borderColor: "border-blue-500/20 hover:border-blue-500/40",
     gradient: "from-blue-600/20 to-violet-600/20",
-    year: "2024",
+    year: "2026",
   },
   {
     title: "Musaika",
     url: "https://musaika.cl",
     description:
       "Plataforma web desarrollada para Musaika Escuela en Línea, enfocada en educación alternativa, acompañamiento homeschooling y experiencia digital moderna para familias y estudiantes.",
-    tags: ["WordPress", "Diseño Web", "UX"],
+    tags: ["Next.js", "TypeScript", "Tailwind", "Vercel"],
     category: "Web Platform",
     image: "/images/musaika.png",
     borderColor: "border-violet-500/20 hover:border-violet-500/40",
     gradient: "from-violet-600/20 to-pink-600/20",
-    year: "2024",
+    year: "2026",
   },
   {
     title: "Paula Guerra",
@@ -41,34 +41,22 @@ const projects = [
     image: "/images/paulaguerra.png",
     borderColor: "border-orange-500/20 hover:border-orange-500/40",
     gradient: "from-orange-600/20 to-red-600/20",
-    year: "2024",
+    year: "2025",
   },
 ];
 
 function ProjectImage({ project }: { project: typeof projects[0] }) {
   return (
     <div className="relative rounded-xl overflow-hidden border border-white/[0.06] aspect-[16/9] bg-black/40">
-      {/* Browser chrome */}
-      <div className="absolute top-0 left-0 right-0 z-10 flex items-center gap-1.5 px-3 py-2 bg-black/60 backdrop-blur-sm border-b border-white/[0.05]">
-        <div className="w-2 h-2 rounded-full bg-red-400/60" />
-        <div className="w-2 h-2 rounded-full bg-yellow-400/60" />
-        <div className="w-2 h-2 rounded-full bg-green-400/60" />
-        <div className="ml-2 flex-1 bg-white/[0.06] rounded px-2 py-0.5">
-          <span className="text-[10px] text-white/30 font-mono">{project.url}</span>
-        </div>
-      </div>
-
-      {/* Real screenshot */}
       <Image
         src={project.image}
         alt={project.title}
         fill
-        className="object-cover object-top pt-7"
+        className="object-cover object-top"
         sizes="(max-width: 768px) 100vw, 50vw"
       />
-
-      {/* Subtle gradient overlay at bottom */}
-      <div className={`absolute inset-0 bg-gradient-to-t ${project.gradient} opacity-20 pointer-events-none`} />
+      {/* Subtle bottom fade only */}
+      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
     </div>
   );
 }
@@ -157,7 +145,7 @@ export default function PortfolioSection() {
                   </div>
                 </div>
 
-                {/* Right: Real screenshot */}
+                {/* Right: Screenshot */}
                 <div className="p-6 lg:p-8 flex items-center">
                   <div className="w-full">
                     <ProjectImage project={project} />
