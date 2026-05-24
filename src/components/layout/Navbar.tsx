@@ -55,9 +55,9 @@ export default function Navbar() {
               <Image
                 src="/images/logo_tuwebpro.png"
                 alt="TuWebPro"
-                width={148}
-                height={44}
-                className="object-contain h-9 w-auto"
+                width={440}
+                height={132}
+                className="object-contain h-[112px] w-auto"
                 priority
               />
             </motion.a>

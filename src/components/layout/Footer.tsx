@@ -36,9 +36,9 @@ export default function Footer() {
               <Image
                 src="/images/logo_tuwebpro.png"
                 alt="TuWebPro"
-                width={130}
-                height={38}
-                className="object-contain h-8 w-auto"
+                width={440}
+                height={132}
+                className="object-contain h-[112px] w-auto"
               />
             </div>
             <p className="text-white/38 text-sm leading-relaxed max-w-xs">
