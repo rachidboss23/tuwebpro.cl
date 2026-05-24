@@ -47,16 +47,15 @@ const projects = [
 
 function ProjectImage({ project }: { project: typeof projects[0] }) {
   return (
-    <div className="relative rounded-xl overflow-hidden border border-white/[0.06] aspect-[16/9] bg-black/40">
+    <div className="relative rounded-xl overflow-hidden border border-white/[0.06] bg-black/40">
       <Image
         src={project.image}
         alt={project.title}
-        fill
-        className="object-cover object-top"
+        width={1280}
+        height={720}
+        className="w-full h-auto object-contain"
         sizes="(max-width: 768px) 100vw, 50vw"
       />
-      {/* Subtle bottom fade only */}
-      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
     </div>
   );
 }
