@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -48,14 +49,21 @@ export default function Navbar() {
             {/* Logo */}
             <motion.a
               href="#"
-              className="flex items-center gap-2 group"
+              className="flex items-center gap-2.5 group"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-violet-500 flex items-center justify-center shadow-lg shadow-blue-500/30">
-                <Zap className="w-4 h-4 text-white" />
+              <div className="w-8 h-8 relative flex-shrink-0">
+                <Image
+                  src="/images/logo_tuwebpro.png"
+                  alt="TuWebPro"
+                  width={32}
+                  height={32}
+                  className="object-contain w-full h-full"
+                  priority
+                />
               </div>
               <span
-                className="font-display font-bold text-lg tracking-tight text-white"
+                className="font-bold text-lg tracking-tight text-white"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 TuWebPro

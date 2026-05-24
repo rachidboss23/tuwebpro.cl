@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -13,92 +14,61 @@ const projects = [
       "Plataforma inmobiliaria moderna orientada a corredores y gestión de propiedades. Incluye tasador con IA, marketplace, autenticación avanzada y herramientas de prospección.",
     tags: ["Next.js", "Supabase", "TypeScript", "IA"],
     category: "SaaS Platform",
-    color: "blue",
-    gradient: "from-blue-600/20 to-violet-600/20",
-    accentColor: "text-blue-400",
+    image: "/images/corredoresapp.png",
     borderColor: "border-blue-500/20 hover:border-blue-500/40",
-    mockupBg: "bg-gradient-to-br from-blue-900/40 to-violet-900/40",
+    gradient: "from-blue-600/20 to-violet-600/20",
     year: "2024",
   },
   {
     title: "Musaika",
     url: "https://musaika.cl",
     description:
-      "Plataforma musical moderna con catálogo de artistas, gestión de contenido y experiencia de usuario enfocada en el ecosistema musical chileno.",
-    tags: ["Next.js", "Tailwind", "TypeScript"],
+      "Plataforma web desarrollada para Musaika Escuela en Línea, enfocada en educación alternativa, acompañamiento homeschooling y experiencia digital moderna para familias y estudiantes.",
+    tags: ["WordPress", "Diseño Web", "UX"],
     category: "Web Platform",
-    color: "violet",
-    gradient: "from-violet-600/20 to-pink-600/20",
-    accentColor: "text-violet-400",
+    image: "/images/musaika.png",
     borderColor: "border-violet-500/20 hover:border-violet-500/40",
-    mockupBg: "bg-gradient-to-br from-violet-900/40 to-pink-900/40",
+    gradient: "from-violet-600/20 to-pink-600/20",
     year: "2024",
   },
   {
-    title: "React Pizzería",
-    url: "https://react-ii-pizzeria.vercel.app",
+    title: "Paula Guerra",
+    url: "https://paulaguerrachamorro.cl",
     description:
-      "Aplicación web moderna desarrollada en React enfocada en experiencia interactiva y frontend dinámico. UI fluida con carrito de compras y gestión de pedidos.",
-    tags: ["React", "JavaScript", "CSS Modules"],
-    category: "Web App",
-    color: "orange",
-    gradient: "from-orange-600/20 to-red-600/20",
-    accentColor: "text-orange-400",
+      "Sitio web desarrollado para Paula Guerra Chamorro, enfocado en arte en cerámica y mosaicos, identidad visual y experiencia digital moderna para una marca artística internacional.",
+    tags: ["WordPress", "Diseño Web", "Branding"],
+    category: "Branding & Web",
+    image: "/images/paulaguerra.png",
     borderColor: "border-orange-500/20 hover:border-orange-500/40",
-    mockupBg: "bg-gradient-to-br from-orange-900/40 to-red-900/40",
-    year: "2023",
+    gradient: "from-orange-600/20 to-red-600/20",
+    year: "2024",
   },
 ];
 
-function ProjectMockup({ project }: { project: typeof projects[0] }) {
+function ProjectImage({ project }: { project: typeof projects[0] }) {
   return (
-    <div className={`relative rounded-xl overflow-hidden ${project.mockupBg} border border-white/[0.06] aspect-[16/9]`}>
+    <div className="relative rounded-xl overflow-hidden border border-white/[0.06] aspect-[16/9] bg-black/40">
       {/* Browser chrome */}
-      <div className="absolute top-0 left-0 right-0 flex items-center gap-1.5 px-3 py-2 bg-black/30 border-b border-white/[0.05]">
-        <div className="w-2 h-2 rounded-full bg-red-400/50" />
-        <div className="w-2 h-2 rounded-full bg-yellow-400/50" />
-        <div className="w-2 h-2 rounded-full bg-green-400/50" />
-        <div className="ml-2 flex-1 bg-white/[0.05] rounded px-2 py-0.5">
-          <span className="text-[10px] text-white/25 font-mono">{project.url}</span>
+      <div className="absolute top-0 left-0 right-0 z-10 flex items-center gap-1.5 px-3 py-2 bg-black/60 backdrop-blur-sm border-b border-white/[0.05]">
+        <div className="w-2 h-2 rounded-full bg-red-400/60" />
+        <div className="w-2 h-2 rounded-full bg-yellow-400/60" />
+        <div className="w-2 h-2 rounded-full bg-green-400/60" />
+        <div className="ml-2 flex-1 bg-white/[0.06] rounded px-2 py-0.5">
+          <span className="text-[10px] text-white/30 font-mono">{project.url}</span>
         </div>
       </div>
 
-      {/* Mockup content */}
-      <div className="absolute inset-0 pt-8 p-4 flex items-center justify-center">
-        <div className="w-full space-y-3">
-          {/* Fake navbar */}
-          <div className="flex items-center justify-between px-4 py-2 glass rounded-lg">
-            <div className="w-16 h-2 bg-white/20 rounded" />
-            <div className="flex gap-2">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="w-8 h-1.5 bg-white/10 rounded" />
-              ))}
-            </div>
-          </div>
-          {/* Fake hero */}
-          <div className="px-4 py-6 text-center space-y-2">
-            <div className="w-3/4 h-4 bg-white/20 rounded mx-auto" />
-            <div className="w-1/2 h-3 bg-white/10 rounded mx-auto" />
-            <div className="flex justify-center gap-2 mt-3">
-              <div className="w-20 h-6 rounded-lg bg-blue-500/40" />
-              <div className="w-20 h-6 rounded-lg bg-white/10" />
-            </div>
-          </div>
-          {/* Fake cards */}
-          <div className="grid grid-cols-3 gap-2 px-2">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="glass rounded-lg p-3 space-y-1.5">
-                <div className="w-6 h-6 rounded-lg bg-blue-500/30" />
-                <div className="w-full h-1.5 bg-white/15 rounded" />
-                <div className="w-2/3 h-1.5 bg-white/08 rounded" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      {/* Real screenshot */}
+      <Image
+        src={project.image}
+        alt={project.title}
+        fill
+        className="object-cover object-top pt-7"
+        sizes="(max-width: 768px) 100vw, 50vw"
+      />
 
-      {/* Overlay glow */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-30`} />
+      {/* Subtle gradient overlay at bottom */}
+      <div className={`absolute inset-0 bg-gradient-to-t ${project.gradient} opacity-20 pointer-events-none`} />
     </div>
   );
 }
@@ -131,7 +101,7 @@ export default function PortfolioSection() {
           </p>
         </motion.div>
 
-        {/* Projects grid */}
+        {/* Projects */}
         <div className="space-y-6">
           {projects.map((project, index) => (
             <motion.div
@@ -174,7 +144,7 @@ export default function PortfolioSection() {
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-3">
+                  <div>
                     <Button
                       variant="outline"
                       size="sm"
@@ -187,10 +157,10 @@ export default function PortfolioSection() {
                   </div>
                 </div>
 
-                {/* Right: Mockup */}
+                {/* Right: Real screenshot */}
                 <div className="p-6 lg:p-8 flex items-center">
                   <div className="w-full">
-                    <ProjectMockup project={project} />
+                    <ProjectImage project={project} />
                   </div>
                 </div>
               </div>
