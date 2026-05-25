@@ -33,7 +33,7 @@ const projects = [
   },
   {
     title: "Paula Guerra",
-    url: "https://paulaguerrachamorro.com",
+    url: "https://paulaguerrachamorro.cl",
     description:
       "Sitio web desarrollado para Paula Guerra Chamorro, enfocado en arte en cerámica y mosaicos, identidad visual y experiencia digital moderna para una marca artística internacional.",
     tags: ["WordPress", "Diseño Web", "Branding"],
