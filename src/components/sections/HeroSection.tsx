@@ -199,13 +199,13 @@ export default function HeroSection() {
               className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              <span className="text-white">Automatizamos</span>
+              <span className="text-white">Tu negocio,</span>
               <br />
-              <span className="gradient-text">negocios con</span>
+              <span className="gradient-text">sin límites.</span>
               <br />
-              <span className="text-white">IA y software</span>
+              <span className="text-white">Software que</span>
               <br />
-              <span className="text-white/40">a medida.</span>
+              <span className="text-white/40">trabaja solo.</span>
             </motion.h1>
 
             {/* Subheadline */}
@@ -215,8 +215,8 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg text-white/50 leading-relaxed mb-10 max-w-md"
             >
-              Construimos sistemas inteligentes: plataformas SaaS, automatizaciones,
-              dashboards y apps que transforman la operación de tu empresa.
+              Desarrollamos plataformas SaaS, automatizaciones con IA y software a medida
+              para empresas en Chile que quieren dejar de operar en Excel.
             </motion.p>
 
             {/* CTAs */}
