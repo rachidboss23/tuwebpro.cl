@@ -75,7 +75,7 @@ export default function CTASection() {
                 size="xl"
                 variant="glow"
                 className="group w-full sm:w-auto"
-                onClick={() => window.open("mailto:rachidboss027@gmail.com", "_blank")}
+                onClick={() => window.open("mailto:contacto@tuwebpro.cl", "_blank")}
               >
                 <Mail className="w-4 h-4" />
                 Escribir por email

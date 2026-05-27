@@ -42,7 +42,7 @@ const links = [
   },
   {
     label: "Email",
-    href: "mailto:rachidboss027@gmail.com",
+    href: "mailto:contacto@tuwebpro.cl",
     icon: Mail,
     variant: "default",
   },

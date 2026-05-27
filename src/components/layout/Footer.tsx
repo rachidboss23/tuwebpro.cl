@@ -7,7 +7,7 @@ const socials = [
   { icon: Github, label: "GitHub", href: "https://github.com/rachidboss23" },
   { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/rachid-boss-ibarra/" },
   { icon: MessageSquare, label: "WhatsApp", href: "https://wa.me/56936745644" },
-  { icon: Mail, label: "Email", href: "mailto:rachidboss027@gmail.com" },
+  { icon: Mail, label: "Email", href: "mailto:contacto@tuwebpro.cl" },
 ];
 
 const navLinks = [
