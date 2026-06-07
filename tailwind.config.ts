@@ -56,6 +56,7 @@ const config: Config = {
         "glow-pulse": "glowPulse 2s ease-in-out infinite",
         "border-spin": "borderSpin 4s linear infinite",
         "float": "float 6s ease-in-out infinite",
+        "marquee": "marquee var(--duration) linear infinite",
       },
       keyframes: {
         fadeIn: {
@@ -77,6 +78,10 @@ const config: Config = {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-10px)" },
+        },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - var(--gap)))" },
         },
       },
       backgroundImage: {
