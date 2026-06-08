@@ -31,7 +31,7 @@ const projects = [
     gradient: "from-violet-600/20 to-pink-600/20",
     year: "2026",
   },
-  {
+  /* {
     title: "Paula Guerra",
     url: "https://www.paulaguerrachamorro.com",
     description:
@@ -42,7 +42,7 @@ const projects = [
     borderColor: "border-orange-500/20 hover:border-orange-500/40",
     gradient: "from-orange-600/20 to-red-600/20",
     year: "2025",
-  },
+  }, */
 ];
 
 function ProjectImage({ project }: { project: typeof projects[0] }) {
@@ -84,7 +84,7 @@ export default function PortfolioSection() {
             <span className="gradient-text">resultados reales</span>
           </h2>
           <p className="text-white/45 text-lg max-w-lg mx-auto">
-            Proyectos lanzados en producción para clientes reales.
+            Algunos de los proyectos lanzados en producción para clientes reales.
           </p>
         </motion.div>
 
