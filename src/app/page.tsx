@@ -1,6 +1,5 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import HeroSection from "@/components/sections/HeroSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import PricingSection from "@/components/sections/PricingSection";
@@ -25,7 +24,6 @@ export default function Home() {
       <AboutSection />
       <CTASection />
       <Footer />
-      <WhatsAppButton />
     </main>
   );
 }

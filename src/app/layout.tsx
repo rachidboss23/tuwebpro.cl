@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tuwebpro.cl"),
@@ -84,7 +85,10 @@ export default function RootLayout({
         <meta name="geo.placename" content="Santiago, Chile" />
         <meta name="language" content="es" />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <WhatsAppButton />
+      </body>
     </html>
   );
 }
