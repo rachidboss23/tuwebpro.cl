@@ -2,14 +2,14 @@
 
 export default function WhatsAppButton() {
   return (
-    <div className="fixed bottom-6 right-6 z-50 group">
+    <div className="fixed bottom-5 right-5 z-50 group">
       <a
         href="https://wa.me/56987257444?text=Hola%20Rachid%2C%20me%20interesa%20cotizar%20un%20proyecto"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Escríbeme por WhatsApp"
-        className="relative flex items-center justify-center rounded-full shadow-lg"
-        style={{ width: 56, height: 56, backgroundColor: "#25D366" }}
+        className="relative flex items-center justify-center rounded-full shadow-lg w-12 h-12 md:w-14 md:h-14"
+        style={{ backgroundColor: "#25D366" }}
       >
         {/* Pulse ring */}
         <span
