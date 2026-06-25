@@ -130,7 +130,7 @@ function ComingSoonCard() {
 
 export default function PortfolioSection() {
   return (
-    <section id="proyectos" className="py-28 relative">
+    <section id="proyectos" className="py-28 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.01] to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

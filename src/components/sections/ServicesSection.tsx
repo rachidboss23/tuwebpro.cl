@@ -107,7 +107,7 @@ const item = {
 
 export default function ServicesSection() {
   return (
-    <section id="servicios" className="py-28 relative">
+    <section id="servicios" className="py-28 relative overflow-hidden">
       <div className="absolute inset-0 dot-pattern opacity-40" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

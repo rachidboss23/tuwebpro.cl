@@ -52,7 +52,7 @@ const links = [
 
 export default function AboutSection() {
   return (
-    <section id="nosotros" className="py-28 relative">
+    <section id="nosotros" className="py-28 relative overflow-hidden">
       <div className="absolute inset-0 dot-pattern opacity-30" />
       <div className="absolute top-1/2 right-0 w-96 h-96 bg-violet-500/[0.04] rounded-full blur-3xl -translate-y-1/2" />
 

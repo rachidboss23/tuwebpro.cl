@@ -35,7 +35,7 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section id="testimonios" className="py-28 relative">
+    <section id="testimonios" className="py-28 relative overflow-hidden">
       <div className="absolute inset-0 dot-pattern opacity-30" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] bg-blue-500/[0.04] rounded-full blur-3xl" />
 

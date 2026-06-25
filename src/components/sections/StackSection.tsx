@@ -90,7 +90,7 @@ const item = {
 
 export default function StackSection() {
   return (
-    <section id="stack" className="py-28 relative">
+    <section id="stack" className="py-28 relative overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-30" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
