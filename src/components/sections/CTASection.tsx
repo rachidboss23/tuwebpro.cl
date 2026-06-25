@@ -5,7 +5,7 @@ import { Mail, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const WA_URL =
-  "https://wa.me/56936745644?text=Hola%20Rachid%2C%20quiero%20cotizar%20un%20proyecto";
+  "https://wa.me/56987257444?text=Hola%20Rachid%2C%20quiero%20cotizar%20un%20proyecto";
 
 const checklist = [
   "Respuesta en 24–48h",

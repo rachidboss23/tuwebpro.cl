@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 const testimonials = [
   {
     quote:
-      "Necesitábamos una plataforma que centralizara propiedades, clientes y documentos en un solo lugar. TuWebPro entregó exactamente eso — y con un tasador IA que ningún competidor tiene. Hoy gestiono todo desde un panel, sin planillas ni caos.",
-    author: "Cliente CorredoresApp",
+      "Llevaba años usando Excel y WhatsApp para gestionar mis propiedades. Con CorredoresApp tengo todo centralizado — fichas, clientes, visitas y documentos. El tasador con IA me ahorra horas cada semana. No volvería atrás.",
+    author: "Pedro Q.",
     company: "CorredoresApp",
-    role: "Corredor de Propiedades · Santiago",
+    role: "Corredor independiente · Santiago",
     stars: 5,
     color: "blue",
     border: "border-blue-500/20",

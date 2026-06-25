@@ -4,7 +4,7 @@ export default function WhatsAppButton() {
   return (
     <div className="fixed bottom-6 right-6 z-50 group">
       <a
-        href="https://wa.me/56936745644?text=Hola%20Rachid%2C%20me%20interesa%20cotizar%20un%20proyecto"
+        href="https://wa.me/56987257444?text=Hola%20Rachid%2C%20me%20interesa%20cotizar%20un%20proyecto"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Escríbeme por WhatsApp"
