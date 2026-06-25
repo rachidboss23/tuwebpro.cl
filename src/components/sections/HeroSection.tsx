@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, ChevronRight, Terminal } from "lucide-react";
+import { ArrowRight, ChevronRight, Code2, Layers, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const floatVariants = {
   initial: { y: 0 },
@@ -12,7 +13,7 @@ const floatVariants = {
   },
 };
 
-function DashboardMockup() {
+function ProjectMockup() {
   return (
     <div className="relative w-full max-w-2xl mx-auto">
       {/* Glow behind */}
@@ -31,104 +32,43 @@ function DashboardMockup() {
           <div className="w-3 h-3 rounded-full bg-yellow-400/60" />
           <div className="w-3 h-3 rounded-full bg-green-400/60" />
           <div className="ml-4 flex-1 bg-white/[0.05] rounded-md px-3 py-1 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400" />
-            <span className="text-xs text-white/30 font-mono">app.tuwebpro.com/dashboard</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-xs text-white/30 font-mono">corredoresapp.cl</span>
           </div>
         </div>
 
-        {/* Dashboard content */}
-        <div className="p-5">
-          {/* Stats row */}
-          <div className="grid grid-cols-3 gap-3 mb-4">
-            {[
-              { label: "Ingresos", value: "$48.2K", change: "+12.5%", color: "emerald" },
-              { label: "Usuarios", value: "1,847", change: "+8.3%", color: "blue" },
-              { label: "Conversión", value: "4.92%", change: "+2.1%", color: "violet" },
-            ].map((stat) => (
-              <div key={stat.label} className="glass rounded-xl p-3">
-                <p className="text-xs text-white/40 mb-1">{stat.label}</p>
-                <p className="text-lg font-bold text-white font-display" style={{ fontFamily: "var(--font-display)" }}>
-                  {stat.value}
-                </p>
-                <span
-                  className={`text-xs font-medium ${
-                    stat.color === "emerald"
-                      ? "text-emerald-400"
-                      : stat.color === "blue"
-                      ? "text-blue-400"
-                      : "text-violet-400"
-                  }`}
-                >
-                  {stat.change}
-                </span>
-              </div>
-            ))}
-          </div>
+        {/* Screenshot */}
+        <div className="relative">
+          <Image
+            src="/images/corredoresapp.png"
+            alt="CorredoresApp — plataforma inmobiliaria con IA"
+            width={1280}
+            height={720}
+            className="w-full h-auto object-cover"
+            priority
+          />
+          {/* Overlay gradient at bottom */}
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/60 to-transparent" />
+        </div>
 
-          {/* Chart area */}
-          <div className="glass rounded-xl p-4 mb-4">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-medium text-white/50">Actividad en tiempo real</span>
-              <span className="flex items-center gap-1 text-xs text-emerald-400">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                Live
-              </span>
-            </div>
-            {/* Bars */}
-            <div className="flex items-end gap-1.5 h-16">
-              {[40, 65, 45, 80, 55, 90, 70, 85, 60, 95, 75, 88].map((h, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ scaleY: 0 }}
-                  animate={{ scaleY: 1 }}
-                  transition={{ delay: i * 0.05, duration: 0.4, ease: "easeOut" }}
-                  className="flex-1 rounded-sm origin-bottom"
-                  style={{
-                    height: `${h}%`,
-                    background:
-                      i === 10
-                        ? "linear-gradient(to top, rgb(59,130,246), rgb(139,92,246))"
-                        : "rgba(255,255,255,0.08)",
-                  }}
-                />
-              ))}
-            </div>
+        {/* Bottom bar */}
+        <div className="px-5 py-3 bg-white/[0.02] border-t border-white/[0.06] flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <span className="flex items-center gap-1.5 text-xs text-emerald-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              En producción
+            </span>
           </div>
-
-          {/* AI Activity feed */}
-          <div className="glass rounded-xl p-4">
-            <div className="flex items-center gap-2 mb-3">
-              <Terminal className="w-3 h-3 text-blue-400" />
-              <span className="text-xs text-white/40 font-mono">IA Automation Log</span>
-            </div>
-            <div className="space-y-2">
-              {[
-                { action: "Lead capturado vía WhatsApp", time: "2s ago", color: "blue" },
-                { action: "CRM actualizado automáticamente", time: "8s ago", color: "emerald" },
-                { action: "Email de bienvenida enviado", time: "15s ago", color: "violet" },
-              ].map((item, i) => (
-                <div key={i} className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span
-                      className={`w-1.5 h-1.5 rounded-full ${
-                        item.color === "blue"
-                          ? "bg-blue-400"
-                          : item.color === "emerald"
-                          ? "bg-emerald-400"
-                          : "bg-violet-400"
-                      }`}
-                    />
-                    <span className="text-xs text-white/60">{item.action}</span>
-                  </div>
-                  <span className="text-xs text-white/25">{item.time}</span>
-                </div>
-              ))}
-            </div>
+          <div className="flex items-center gap-3">
+            <span className="flex items-center gap-1.5 text-xs text-white/30">
+              <Code2 className="w-3 h-3" />
+              Next.js · Supabase · IA
+            </span>
           </div>
         </div>
       </motion.div>
 
-      {/* Floating badges */}
+      {/* Floating badge left */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
@@ -136,11 +76,12 @@ function DashboardMockup() {
         className="absolute -left-4 top-1/3 glass-strong rounded-xl px-3 py-2 border border-white/[0.08]"
       >
         <div className="flex items-center gap-2">
-          <Sparkles className="w-3 h-3 text-yellow-400" />
-          <span className="text-xs font-medium text-white">IA Activa</span>
+          <Zap className="w-3 h-3 text-yellow-400" />
+          <span className="text-xs font-medium text-white">Entrega en 3–5 días</span>
         </div>
       </motion.div>
 
+      {/* Floating badge right */}
       <motion.div
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
@@ -148,8 +89,8 @@ function DashboardMockup() {
         className="absolute -right-4 bottom-1/3 glass-strong rounded-xl px-3 py-2 border border-white/[0.08]"
       >
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-xs font-medium text-white">Deploy en vivo</span>
+          <Layers className="w-3 h-3 text-violet-400" />
+          <span className="text-xs font-medium text-white">Código es tuyo</span>
         </div>
       </motion.div>
     </div>
@@ -186,7 +127,7 @@ export default function HeroSection() {
             >
               <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
               <span className="text-xs font-medium text-white/60">
-                Agencia tecnológica premium — Chile
+                Desarrollo web profesional — Chile
               </span>
               <ChevronRight className="w-3 h-3 text-white/30" />
             </motion.div>
@@ -252,9 +193,9 @@ export default function HeroSection() {
               className="flex items-center gap-8"
             >
               {[
-                { value: "30+", label: "Proyectos" },
-                { value: "100%", label: "Clientes satisfechos" },
-                { value: "48h", label: "Tiempo de respuesta" },
+                { value: "4", label: "Proyectos lanzados" },
+                { value: "100%", label: "Entregas a tiempo" },
+                { value: "24h", label: "Tiempo de respuesta" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <div
@@ -269,14 +210,14 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right: Mockup */}
+          {/* Right: Project mockup */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="hidden lg:block"
           >
-            <DashboardMockup />
+            <ProjectMockup />
           </motion.div>
         </div>
       </div>

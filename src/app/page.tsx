@@ -1,11 +1,13 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import HeroSection from "@/components/sections/HeroSection";
 import ServicesSection from "@/components/sections/ServicesSection";
+import PricingSection from "@/components/sections/PricingSection";
 import PortfolioSection from "@/components/sections/PortfolioSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import StackSection from "@/components/sections/StackSection";
 import ProcessSection from "@/components/sections/ProcessSection";
-// import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import AboutSection from "@/components/sections/AboutSection";
 import CTASection from "@/components/sections/CTASection";
 
@@ -15,13 +17,15 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <ServicesSection />
+      <PricingSection />
       <PortfolioSection />
-      {/* <TestimonialsSection /> */}
+      <TestimonialsSection />
       <StackSection />
       <ProcessSection />
       <AboutSection />
       <CTASection />
       <Footer />
+      <WhatsAppButton />
     </main>
   );
 }

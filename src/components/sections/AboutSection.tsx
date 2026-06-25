@@ -8,15 +8,17 @@ const stack = [
   "PostgreSQL", "Express", "Git", "Supabase",
 ];
 
-const skills = [
-  { label: "Frontend / UI", pct: 95 },
-  { label: "Backend / APIs", pct: 85 },
-  { label: "Automatización IA", pct: 80 },
-  { label: "Base de datos", pct: 80 },
+const specialties = [
+  "Frontend & UI",
+  "Backend & APIs",
+  "Bases de datos",
+  "Automatización IA",
+  "Deploy & DevOps",
+  "SaaS & Productos",
 ];
 
 const stats = [
-  { value: "5+", label: "Proyectos lanzados" },
+  { value: "4", label: "Proyectos lanzados" },
   { value: "2024", label: "Cert. Full Stack" },
   { value: "100%", label: "Remoto & disponible" },
 ];
@@ -36,7 +38,7 @@ const links = [
   },
   {
     label: "WhatsApp",
-    href: "https://wa.me/56936745644",
+    href: "https://wa.me/56987257444",
     icon: MessageSquare,
     variant: "green",
   },
@@ -148,26 +150,17 @@ export default function AboutSection() {
               </div>
             </div>
 
-            {/* Skills */}
+            {/* Specialties */}
             <div>
               <p className="code-label text-white/22 mb-4">Especialidades</p>
-              <div className="flex flex-col gap-4">
-                {skills.map((skill) => (
-                  <div key={skill.label}>
-                    <div className="flex justify-between mb-1.5">
-                      <span className="text-xs text-white/55">{skill.label}</span>
-                      <span className="text-xs text-white/28 font-mono">{skill.pct}%</span>
-                    </div>
-                    <div className="h-[3px] rounded-full bg-white/[0.07]">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.pct}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                        className="h-[3px] rounded-full bg-gradient-to-r from-blue-500 to-violet-500"
-                      />
-                    </div>
-                  </div>
+              <div className="flex flex-wrap gap-2">
+                {specialties.map((s) => (
+                  <span
+                    key={s}
+                    className="text-xs font-medium text-white/55 bg-white/[0.04] border border-white/[0.07] rounded-full px-3 py-1.5"
+                  >
+                    {s}
+                  </span>
                 ))}
               </div>
             </div>

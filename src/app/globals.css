@@ -180,6 +180,20 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
+/* WhatsApp button pulse */
+@keyframes whatsapp-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.35); opacity: 0; }
+}
+
+/* Mobile WhatsApp button size */
+@media (max-width: 640px) {
+  .whatsapp-btn {
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
+
 /* Shine effect on hover */
 .shine {
   position: relative;

@@ -1,8 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, MessageSquare } from "lucide-react";
+import { Mail, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const WA_URL =
+  "https://wa.me/56936745644?text=Hola%20Rachid%2C%20quiero%20cotizar%20un%20proyecto";
+
+const checklist = [
+  "Respuesta en 24–48h",
+  "Propuesta sin costo",
+  "Código siempre es tuyo",
+  "Soporte real post-lanzamiento",
+];
 
 export default function CTASection() {
   return (
@@ -46,11 +56,9 @@ export default function CTASection() {
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Construyamos tu{" "}
+              ¿Tienes un proyecto
               <br />
-              <span className="gradient-text">próximo sistema</span>
-              <br />
-              inteligente
+              <span className="gradient-text">en mente?</span>
             </motion.h2>
 
             <motion.p
@@ -60,8 +68,8 @@ export default function CTASection() {
               transition={{ delay: 0.2 }}
               className="text-white/45 text-lg leading-relaxed mb-10 max-w-xl mx-auto"
             >
-              Cuéntanos tu idea. En menos de 48 horas tendrás una propuesta
-              clara con arquitectura, tiempos y presupuesto.
+              Cuéntame tu idea. En 24–48h tendrás una propuesta clara con tiempos
+              y presupuesto. Sin costo, sin compromiso.
             </motion.p>
 
             <motion.div
@@ -75,11 +83,10 @@ export default function CTASection() {
                 size="xl"
                 variant="glow"
                 className="group w-full sm:w-auto"
-                onClick={() => window.open("mailto:contacto@tuwebpro.cl", "_blank")}
+                onClick={() => window.open(WA_URL, "_blank")}
               >
-                <Mail className="w-4 h-4" />
-                Escribir por email
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <MessageSquare className="w-4 h-4" />
+                WhatsApp directo
               </Button>
 
               <Button
@@ -87,30 +94,25 @@ export default function CTASection() {
                 variant="outline"
                 className="group w-full sm:w-auto"
                 onClick={() =>
-                  window.open("https://wa.me/56900000000?text=Hola! Quiero hablar sobre un proyecto con TuWebPro", "_blank")
+                  window.open("mailto:contacto@tuwebpro.cl", "_blank")
                 }
               >
-                <MessageSquare className="w-4 h-4" />
-                WhatsApp directo
+                <Mail className="w-4 h-4" />
+                Enviar email
               </Button>
             </motion.div>
 
-            {/* Trust badges */}
+            {/* Checklist */}
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.35 }}
-              className="flex flex-wrap items-center justify-center gap-6 text-xs text-white/30"
+              className="flex flex-wrap items-center justify-center gap-5 text-xs text-white/30"
             >
-              {[
-                "✓ Respuesta en 24–48h",
-                "✓ Propuesta sin costo",
-                "✓ Código de calidad",
-                "✓ Soporte continuo",
-              ].map((item) => (
+              {checklist.map((item) => (
                 <span key={item} className="font-medium">
-                  {item}
+                  ✓ {item}
                 </span>
               ))}
             </motion.div>

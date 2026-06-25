@@ -18,6 +18,7 @@ const projects = [
     borderColor: "border-blue-500/20 hover:border-blue-500/40",
     gradient: "from-blue-600/20 to-violet-600/20",
     year: "2026",
+    live: true,
   },
   {
     title: "Musaika",
@@ -30,19 +31,8 @@ const projects = [
     borderColor: "border-violet-500/20 hover:border-violet-500/40",
     gradient: "from-violet-600/20 to-pink-600/20",
     year: "2026",
+    live: true,
   },
-  /* {
-    title: "Paula Guerra",
-    url: "https://www.paulaguerrachamorro.com",
-    description:
-      "Sitio web desarrollado para Paula Guerra Chamorro, enfocado en arte en cerámica y mosaicos, identidad visual y experiencia digital moderna para una marca artística internacional.",
-    tags: ["WordPress", "Diseño Web", "Branding"],
-    category: "Branding & Web",
-    image: "/images/paulaguerra.png",
-    borderColor: "border-orange-500/20 hover:border-orange-500/40",
-    gradient: "from-orange-600/20 to-red-600/20",
-    year: "2025",
-  }, */
 ];
 
 function ProjectImage({ project }: { project: typeof projects[0] }) {
@@ -60,6 +50,84 @@ function ProjectImage({ project }: { project: typeof projects[0] }) {
   );
 }
 
+function ComingSoonCard() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      className="group glass rounded-2xl border border-white/[0.07] overflow-hidden"
+    >
+      <div className="grid md:grid-cols-2 gap-0">
+        {/* Left: Info */}
+        <div className="p-8 lg:p-10 flex flex-col justify-center">
+          <div className="flex items-center gap-3 mb-6">
+            <Badge variant="secondary" className="code-label">2026</Badge>
+            <span className="text-[10px] font-medium px-2 py-0.5 rounded-full border bg-emerald-500/10 text-emerald-400 border-emerald-500/20">
+              En progreso
+            </span>
+          </div>
+
+          <h3
+            className="text-2xl sm:text-3xl font-bold text-white mb-3"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Próximo proyecto
+          </h3>
+
+          <p className="text-white/40 text-sm leading-relaxed mb-6 max-w-sm">
+            Algo nuevo está siendo construido.
+          </p>
+
+          <div className="flex flex-wrap gap-2 mb-8">
+            {["???", "Next.js", "TypeScript"].map((tag) => (
+              <span
+                key={tag}
+                className="text-xs font-medium text-white/25 bg-white/[0.03] border border-white/[0.05] rounded-full px-3 py-1"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <div>
+            <span className="inline-flex items-center gap-2 text-xs text-white/25 font-mono">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              2026 · En progreso
+            </span>
+          </div>
+        </div>
+
+        {/* Right: Mystery visual */}
+        <div className="p-6 lg:p-8 flex items-center">
+          <div className="w-full relative rounded-xl overflow-hidden border border-white/[0.06] bg-black/60 aspect-video flex items-center justify-center">
+            {/* Blurred grid background */}
+            <div className="absolute inset-0 grid-bg opacity-40" />
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-violet-500/10 to-cyan-500/10" />
+
+            {/* Center content */}
+            <div className="relative z-10 text-center px-6 filter blur-[1px]">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/30 to-violet-500/30 border border-white/10 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl">✦</span>
+              </div>
+              <p className="text-white/50 text-sm font-mono">En construcción...</p>
+              <p className="text-white/20 text-xs mt-1">Lanzamiento próximo</p>
+            </div>
+
+            {/* Corner badge */}
+            <div className="absolute top-3 right-3">
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/20">
+                2026 · En progreso
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function PortfolioSection() {
   return (
     <section id="proyectos" className="py-28 relative">
@@ -74,7 +142,7 @@ export default function PortfolioSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="code-label text-violet-400/70 block mb-4">{'// Proyectos'}</span>
+          <span className="code-label text-violet-400/70 block mb-4">{"// Proyectos"}</span>
           <h2
             className="text-4xl sm:text-5xl font-bold text-white mb-5"
             style={{ fontFamily: "var(--font-display)" }}
@@ -84,7 +152,7 @@ export default function PortfolioSection() {
             <span className="gradient-text">resultados reales</span>
           </h2>
           <p className="text-white/45 text-lg max-w-lg mx-auto">
-            Algunos de los proyectos lanzados en producción para clientes reales.
+            Proyectos lanzados en producción para clientes reales.
           </p>
         </motion.div>
 
@@ -153,6 +221,9 @@ export default function PortfolioSection() {
               </div>
             </motion.div>
           ))}
+
+          {/* Coming soon card */}
+          <ComingSoonCard />
         </div>
       </div>
     </section>

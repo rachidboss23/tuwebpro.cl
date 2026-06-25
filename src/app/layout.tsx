@@ -4,11 +4,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://tuwebpro.cl"),
   title: {
-    default: "TuWebPro — Desarrollo Web, IA y Automatización en Chile",
+    default: "TuWebPro — Desarrollo Web y SaaS en Chile | Desde $290.000 CLP",
     template: "%s | TuWebPro",
   },
   description:
-    "Agencia tecnológica en Santiago, Chile. Desarrollamos plataformas SaaS, automatizaciones con IA, dashboards, apps web y software personalizado para empresas y emprendedores.",
+    "Desarrollo web profesional en Santiago, Chile. Sitios web desde $290.000 CLP, plataformas SaaS y automatización con IA. 4 proyectos lanzados. Respuesta en 24h.",
   keywords: [
     "agencia tecnológica Chile",
     "desarrollo web Santiago",
@@ -22,6 +22,10 @@ export const metadata: Metadata = {
     "inteligencia artificial empresas Chile",
     "dashboard empresarial Chile",
     "TuWebPro",
+    "desarrollo web precio Chile",
+    "crear sitio web Santiago",
+    "cuanto cuesta pagina web Chile",
+    "freelancer desarrollo web Chile",
   ],
   authors: [{ name: "Rachid Boss Ibarra", url: "https://tuwebpro.cl" }],
   creator: "TuWebPro",
