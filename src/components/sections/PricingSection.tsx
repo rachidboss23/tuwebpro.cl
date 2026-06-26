@@ -9,6 +9,28 @@ const WA_BASE =
 
 const plans = [
   {
+    name: "Web Básica",
+    price: "$150.000",
+    currency: "CLP",
+    idealFor: "Emprendedores que recién comienzan",
+    time: "2–3 días hábiles",
+    popular: false,
+    color: "emerald",
+    border: "border-white/[0.07] hover:border-emerald-500/30",
+    gradient: "",
+    badge: "MEJOR PRECIO",
+    features: [
+      "Sitio web de 1 a 3 páginas",
+      "Diseño limpio y responsivo",
+      "Formulario de contacto",
+      "Dominio + deploy en producción",
+      "SSL incluido",
+      "1 semana de soporte post-lanzamiento",
+    ],
+    ctaLabel: "Lo quiero",
+    ctaMessage: "Hola%20Rachid%2C%20me%20interesa%20el%20plan%20Web%20B%C3%A1sica",
+  },
+  {
     name: "Landing Page",
     price: "$290.000",
     currency: "CLP",
@@ -107,7 +129,7 @@ export default function PricingSection() {
         </motion.div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
@@ -122,10 +144,16 @@ export default function PricingSection() {
                 <div className={`absolute inset-0 rounded-2xl ${plan.gradient} pointer-events-none`} />
               )}
 
-              {/* Popular badge */}
+              {/* Badge */}
               {plan.badge && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold tracking-widest bg-violet-500 text-white shadow-lg shadow-violet-500/30">
+                  <span
+                    className={`inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold tracking-widest text-white shadow-lg ${
+                      plan.badge === "MEJOR PRECIO"
+                        ? "bg-emerald-500 shadow-emerald-500/30"
+                        : "bg-violet-500 shadow-violet-500/30"
+                    }`}
+                  >
                     {plan.badge}
                   </span>
                 </div>
@@ -168,6 +196,8 @@ export default function PricingSection() {
                             ? "text-violet-400"
                             : plan.color === "cyan"
                             ? "text-cyan-400"
+                            : plan.color === "emerald"
+                            ? "text-emerald-400"
                             : "text-blue-400"
                         }`}
                       />
