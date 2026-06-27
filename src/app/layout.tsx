@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tuwebpro.cl"),
@@ -88,6 +89,7 @@ export default function RootLayout({
       <body className="antialiased">
         {children}
         <WhatsAppButton />
+        <Analytics />
       </body>
     </html>
   );
