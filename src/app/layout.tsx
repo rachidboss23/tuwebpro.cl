@@ -7,11 +7,11 @@ import Script from "next/script";
 export const metadata: Metadata = {
   metadataBase: new URL("https://tuwebpro.cl"),
   title: {
-    default: "TuWebPro — Desarrollo Web y SaaS en Chile | Desde $290.000 CLP",
+    default: "TuWebPro — Desarrollo Web y SaaS en Chile | Software a Medida",
     template: "%s | TuWebPro",
   },
   description:
-    "Desarrollo web profesional en Santiago, Chile. Sitios web desde $290.000 CLP, plataformas SaaS y automatización con IA. 4 proyectos lanzados. Respuesta en 24h.",
+    "Desarrollo web profesional en Santiago, Chile. Sitios web, plataformas SaaS y automatización con IA para pymes y emprendedores. 2 proyectos lanzados, respuesta en 24h.",
   keywords: [
     "agencia tecnológica Chile",
     "desarrollo web Santiago",
