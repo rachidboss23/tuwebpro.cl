@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tuwebpro.cl"),
+  metadataBase: new URL("https://www.tuwebpro.cl"),
   title: {
     default: "TuWebPro — Desarrollo Web y SaaS en Chile | Software a Medida",
     template: "%s | TuWebPro",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "cuanto cuesta pagina web Chile",
     "freelancer desarrollo web Chile",
   ],
-  authors: [{ name: "Rachid Boss Ibarra", url: "https://tuwebpro.cl" }],
+  authors: [{ name: "Rachid Boss Ibarra", url: "https://www.tuwebpro.cl" }],
   creator: "TuWebPro",
   publisher: "TuWebPro",
   robots: {
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_CL",
-    url: "https://tuwebpro.cl",
+    url: "https://www.tuwebpro.cl",
     siteName: "TuWebPro",
     title: "TuWebPro — Desarrollo Web, IA y Automatización en Chile",
     description:
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   alternates: {
-    canonical: "https://tuwebpro.cl",
+    canonical: "https://www.tuwebpro.cl",
   },
   verification: {
     google: "spOTAGzWNeqWTcm5STstXO5ahuxBdMm8CvfTosCQo_A",
@@ -85,7 +85,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="canonical" href="https://tuwebpro.cl" />
+        <link rel="canonical" href="https://www.tuwebpro.cl" />
         <meta name="geo.region" content="CL-RM" />
         <meta name="geo.placename" content="Santiago, Chile" />
         <meta name="language" content="es" />
