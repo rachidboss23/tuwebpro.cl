@@ -70,6 +70,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://tuwebpro.cl",
   },
+  verification: {
+    google: "spOTAGzWNeqWTcm5STstXO5ahuxBdMm8CvfTosCQo_A",
+  },
 };
 
 export default function RootLayout({
