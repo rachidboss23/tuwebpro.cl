@@ -33,6 +33,19 @@ const projects = [
     year: "2026",
     live: true,
   },
+  {
+    title: "Paula Guerra",
+    url: "https://www.paulaguerrachamorro.com",
+    description:
+      "Sitio web desarrollado para Paula Guerra Chamorro, enfocado en arte en cerámica y mosaicos, identidad visual y experiencia digital moderna para una marca artística internacional.",
+    tags: ["WordPress", "Diseño Web", "Branding"],
+    category: "Branding & Web",
+    image: "/images/paulaguerra.png",
+    borderColor: "border-orange-500/20 hover:border-orange-500/40",
+    gradient: "from-orange-600/20 to-red-600/20",
+    year: "2025",
+    live: true,
+  },
 ];
 
 function ProjectImage({ project }: { project: typeof projects[0] }) {

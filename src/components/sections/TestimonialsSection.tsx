@@ -31,6 +31,20 @@ const testimonials = [
     initial: "M",
     avatarGradient: "from-violet-500 to-violet-700",
   },
+  {
+    quote:
+      "Quería una presencia digital que hablara de mi trabajo sin necesidad de que yo explicara nada. El sitio que desarrollaron transmite exactamente la identidad de mi marca artística — clientes internacionales llegan directamente por la web.",
+    author: "Paula Guerra Chamorro",
+    company: "Paula Guerra",
+    role: "Artista Ceramista y Muralista · España",
+    stars: 5,
+    color: "orange",
+    border: "border-orange-500/20",
+    accent: "text-orange-400",
+    bg: "from-orange-500/[0.05] to-transparent",
+    initial: "P",
+    avatarGradient: "from-orange-500 to-orange-700",
+  },
 ];
 
 export default function TestimonialsSection() {
@@ -63,7 +77,7 @@ export default function TestimonialsSection() {
         </motion.div>
 
         {/* Grid 2 columnas desktop, 1 mobile */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {testimonials.map((t, index) => (
             <motion.div
               key={t.author}
@@ -107,7 +121,9 @@ export default function TestimonialsSection() {
                       className={`text-[10px] font-medium px-2 py-0.5 rounded-full border ${
                         t.color === "blue"
                           ? "bg-blue-500/10 text-blue-400 border-blue-500/20"
-                          : "bg-violet-500/10 text-violet-400 border-violet-500/20"
+                          : t.color === "violet"
+                          ? "bg-violet-500/10 text-violet-400 border-violet-500/20"
+                          : "bg-orange-500/10 text-orange-400 border-orange-500/20"
                       }`}
                     >
                       {t.company}
