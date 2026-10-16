@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { Github, Linkedin, Mail, MessageSquare } from "lucide-react";
+import { Github, Linkedin, Mail, MessageSquare, Star } from "lucide-react";
+import { GOOGLE_REVIEW_URL, trackReviewClick } from "@/lib/reviews";
 
 const socials = [
   { icon: Github, label: "GitHub", href: "https://github.com/rachidboss23" },
@@ -91,6 +92,18 @@ export default function Footer() {
                   {label}
                 </a>
               ))}
+              <a
+                href={GOOGLE_REVIEW_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={trackReviewClick}
+                className="group flex min-h-11 items-center gap-3 rounded-lg text-sm text-white/45 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:transition-none"
+              >
+                <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] transition-colors group-hover:border-white/20">
+                  <Star className="h-3.5 w-3.5" aria-hidden="true" />
+                </div>
+                Reseña en Google
+              </a>
             </div>
           </div>
         </div>

@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { GOOGLE_REVIEW_URL, trackReviewClick } from "@/lib/reviews";
 
 const testimonials = [
   {
@@ -133,6 +135,58 @@ export default function TestimonialsSection() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="glass card-hover glow-blue relative max-w-6xl mx-auto mt-8 overflow-hidden rounded-2xl border border-blue-500/30 p-7 sm:p-9 motion-reduce:transform-none motion-reduce:transition-none">
+          <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/[0.12] via-violet-500/[0.05] to-transparent" />
+          <div className="relative z-10 flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-2xl">
+              <span className="code-label mb-3 block text-blue-400/80">
+                {"// Tu opinión"}
+              </span>
+              <h3
+                className="mb-3 text-2xl font-bold text-white sm:text-3xl"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                ¿Trabajaste con TuWebPro?
+              </h3>
+              <p className="text-sm leading-relaxed text-white/70 sm:text-base">
+                Tu reseña en Google ayuda a otros negocios a decidir. Cuéntanos
+                cómo fue la experiencia.
+              </p>
+              <div
+                className="mt-4 flex items-center gap-0.5"
+                aria-hidden="true"
+              >
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <span key={index} className="text-base text-yellow-400">
+                    ★
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="w-full shrink-0 md:w-auto">
+              <Button
+                asChild
+                variant="glow"
+                size="lg"
+                className="min-h-11 w-full motion-reduce:transition-none md:w-auto"
+              >
+                <a
+                  href={GOOGLE_REVIEW_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={trackReviewClick}
+                >
+                  Dejar reseña en Google
+                </a>
+              </Button>
+              <p className="mt-3 text-center text-xs leading-relaxed text-white/60 md:text-left">
+                Toma menos de 1 minuto. Necesitas una cuenta de Google.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
