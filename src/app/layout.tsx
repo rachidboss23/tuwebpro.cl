@@ -27,8 +27,7 @@ export const metadata: Metadata = {
     default: "Desarrollo web y software a medida para pymes | TuWebPro",
     template: "%s | TuWebPro",
   },
-  description:
-    "Desarrollo web en Santiago y software a medida en Chile. Sistemas de gestión para pymes y automatización para empresas, con soluciones adaptadas a cada operación.",
+  description: `Desarrollo web en Santiago y software a medida en Chile. ${siteConfig.projectsInProduction} proyectos lanzados. Sistemas de gestión para pymes y automatización para empresas, con soluciones adaptadas a cada operación.`,
   keywords: [
     "agencia tecnológica Chile",
     "desarrollo web Santiago",
