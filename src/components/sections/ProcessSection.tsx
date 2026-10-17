@@ -62,7 +62,7 @@ const steps = [
     title: "Deploy & Soporte",
     description:
       "Lanzamos en producción con CI/CD, monitoreo y soporte continuo. Tu producto está en buenas manos desde el día uno.",
-    duration: "Ongoing",
+    duration: "Continuo",
     color: "emerald",
     iconColor: "text-emerald-400",
     borderColor: "border-emerald-500/20",
@@ -98,6 +98,9 @@ export default function ProcessSection() {
           <p className="text-white/45 text-lg max-w-lg mx-auto">
             Metodología ágil y transparente. Sabrás exactamente en qué etapa está tu proyecto en todo momento.
           </p>
+          <p className="mt-4 text-sm font-semibold text-cyan-200">
+            Duración estimada por etapa
+          </p>
         </motion.div>
 
         {/* Timeline */}
@@ -129,9 +132,7 @@ export default function ProcessSection() {
                   {/* Card */}
                   <div className={`glass rounded-2xl p-5 border ${step.borderColor} hover:bg-white/[0.03] transition-colors duration-300`}>
                     <div className="flex items-center justify-between mb-3">
-                      <span
-                        className="text-xs font-bold text-white/20 font-mono"
-                      >
+                      <span className="text-xs font-bold text-white/70 font-mono">
                         {step.number}
                       </span>
                       <span
@@ -148,7 +149,7 @@ export default function ProcessSection() {
                       {step.title}
                     </h3>
 
-                    <p className="text-xs text-white/40 leading-relaxed">
+                    <p className="text-xs text-white/75 leading-relaxed">
                       {step.description}
                     </p>
                   </div>
@@ -157,6 +158,14 @@ export default function ProcessSection() {
             })}
           </div>
         </div>
+
+        <p className="mt-8 text-center text-sm leading-relaxed text-white/75">
+          El plazo total depende del alcance del proyecto.
+        </p>
+        <p className="mt-6 text-center text-base font-semibold text-cyan-100">
+          Diagnóstico inicial sin costo: conversamos tu caso y te propongo una
+          solución.
+        </p>
       </div>
     </section>
   );

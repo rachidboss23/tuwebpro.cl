@@ -73,7 +73,7 @@ export default function TestimonialsSection() {
             <br />
             <span className="gradient-text">trabajaron con nosotros</span>
           </h2>
-          <p className="text-white/45 text-lg max-w-lg mx-auto">
+          <p className="text-white/75 text-lg max-w-lg mx-auto">
             Proyectos reales, resultados reales, clientes reales.
           </p>
         </motion.div>
@@ -96,14 +96,18 @@ export default function TestimonialsSection() {
 
               <div className="relative z-10 flex flex-col h-full">
                 {/* Stars */}
-                <div className="flex items-center gap-0.5 mb-5">
+                <div
+                  className="mb-5 flex items-center gap-0.5"
+                  role="img"
+                  aria-label={`${t.stars} de 5 estrellas`}
+                >
                   {Array.from({ length: t.stars }).map((_, i) => (
-                    <span key={i} className="text-yellow-400 text-base">★</span>
+                    <span key={i} className="text-yellow-300 text-base" aria-hidden="true">★</span>
                   ))}
                 </div>
 
                 {/* Quote */}
-                <p className="text-sm text-white/60 leading-relaxed flex-1 mb-6">
+                <p className="text-sm text-white/80 leading-relaxed flex-1 mb-6">
                   &ldquo;{t.quote}&rdquo;
                 </p>
 
@@ -116,7 +120,7 @@ export default function TestimonialsSection() {
                   </div>
                   <div>
                     <div className="text-sm font-semibold text-white">{t.author}</div>
-                    <div className="text-xs text-white/35">{t.role}</div>
+                    <div className="text-xs text-white/75">{t.role}</div>
                   </div>
                   <div className="ml-auto">
                     <span

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, MessageSquare } from "lucide-react";
+import { siteConfig } from "@/lib/siteConfig";
 
 const stack = [
   "React.js", "Node.js", "JavaScript", "TypeScript",
@@ -18,7 +19,7 @@ const specialties = [
 ];
 
 const stats = [
-  { value: "4", label: "Proyectos lanzados" },
+  { value: String(siteConfig.projectsInProduction), label: "Proyectos lanzados" },
   { value: "2024", label: "Cert. Full Stack" },
   { value: "100%", label: "Remoto & disponible" },
 ];
@@ -26,25 +27,25 @@ const stats = [
 const links = [
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/rachid-boss-ibarra/",
+    href: siteConfig.socialLinks.linkedin,
     icon: Linkedin,
     variant: "blue",
   },
   {
     label: "GitHub",
-    href: "https://github.com/rachidboss23",
+    href: siteConfig.socialLinks.github,
     icon: Github,
     variant: "default",
   },
   {
     label: "WhatsApp",
-    href: "https://wa.me/56987257444",
+    href: siteConfig.socialLinks.whatsapp,
     icon: MessageSquare,
     variant: "green",
   },
   {
     label: "Email",
-    href: "mailto:contacto@tuwebpro.cl",
+    href: siteConfig.email,
     icon: Mail,
     variant: "default",
   },
@@ -98,14 +99,14 @@ export default function AboutSection() {
               >
                 Rachid Boss Ibarra
               </h3>
-              <p className="text-sm text-white/38 mt-0.5">
+              <p className="text-sm text-white/75 mt-0.5">
                 Fundador & Full Stack Developer — TuWebPro
               </p>
             </div>
           </div>
 
           {/* Bio */}
-          <p className="text-sm text-white/48 leading-relaxed mb-10 max-w-2xl">
+          <p className="text-sm text-white/80 leading-relaxed mb-10 max-w-2xl">
             Desarrollador Full Stack especializado en JavaScript, React y Node.js.
             Construyo los sistemas que ofrezco en TuWebPro: desde la arquitectura
             hasta el deploy. Sin intermediarios.
@@ -122,7 +123,7 @@ export default function AboutSection() {
                   >
                     {stat.value}
                   </div>
-                  <div className="text-xs text-white/28 uppercase tracking-widest mt-0.5 font-mono">
+                  <div className="text-xs text-white/70 uppercase tracking-widest mt-0.5 font-mono">
                     {stat.label}
                   </div>
                 </div>
@@ -137,12 +138,12 @@ export default function AboutSection() {
           <div className="grid sm:grid-cols-2 gap-10 mb-10">
             {/* Stack */}
             <div>
-              <p className="code-label text-white/22 mb-4">Stack principal</p>
+              <p className="code-label text-white/75 mb-4">Stack principal</p>
               <div className="flex flex-wrap gap-2">
                 {stack.map((tech) => (
                   <span
                     key={tech}
-                    className="text-xs font-mono text-white/55 bg-white/[0.04] border border-white/[0.07] rounded-lg px-3 py-1.5"
+                    className="text-xs font-mono text-white/80 bg-white/[0.04] border border-white/[0.07] rounded-lg px-3 py-1.5"
                   >
                     {tech}
                   </span>
@@ -152,12 +153,12 @@ export default function AboutSection() {
 
             {/* Specialties */}
             <div>
-              <p className="code-label text-white/22 mb-4">Especialidades</p>
+              <p className="code-label text-white/75 mb-4">Especialidades</p>
               <div className="flex flex-wrap gap-2">
                 {specialties.map((s) => (
                   <span
                     key={s}
-                    className="text-xs font-medium text-white/55 bg-white/[0.04] border border-white/[0.07] rounded-full px-3 py-1.5"
+                    className="text-xs font-medium text-white/80 bg-white/[0.04] border border-white/[0.07] rounded-full px-3 py-1.5"
                   >
                     {s}
                   </span>
@@ -172,9 +173,9 @@ export default function AboutSection() {
               <a
                 key={label}
                 href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border text-xs font-medium transition-all duration-200 hover:scale-[1.02] ${
+                target={href.startsWith("mailto:") ? undefined : "_blank"}
+                rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                className={`inline-flex min-h-11 items-center gap-2 px-4 py-2.5 rounded-xl border text-xs font-medium transition-all duration-200 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 ${
                   variant === "blue"
                     ? "border-blue-500/30 bg-blue-500/10 text-blue-400 hover:bg-blue-500/15"
                     : variant === "green"
@@ -191,7 +192,7 @@ export default function AboutSection() {
           {/* Available */}
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-xs text-white/30">
+            <span className="text-xs text-white/75">
               Disponible para proyectos freelance y trabajo remoto
             </span>
           </div>

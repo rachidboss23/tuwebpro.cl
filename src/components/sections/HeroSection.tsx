@@ -204,7 +204,7 @@ export default function HeroSection() {
                   value: String(siteConfig.projectsInProduction),
                   label: "proyectos en producción",
                 },
-                { value: `Menos de ${siteConfig.responseTime}`, label: "para responder" },
+                { value: "Respondo", label: `en menos de ${siteConfig.responseTime}` },
               ].map((stat) => (
                 <div key={stat.label}>
                   <div
@@ -213,7 +213,7 @@ export default function HeroSection() {
                   >
                     {stat.value}
                   </div>
-                  <div className="text-xs text-white/35">{stat.label}</div>
+                  <div className="text-xs text-white/75">{stat.label}</div>
                 </div>
               ))}
             </motion.div>

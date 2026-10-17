@@ -10,54 +10,61 @@ const projects = [
   {
     title: "CorredoresApp",
     url: "https://corredoresapp.cl",
-    description:
+    problem: "La gestión de propiedades se llevaba con Excel y WhatsApp.",
+    solution:
       "Plataforma inmobiliaria moderna orientada a corredores y gestión de propiedades. Incluye tasador con IA, marketplace, autenticación avanzada y herramientas de prospección.",
+    result:
+      "Fichas, clientes, visitas y documentos quedan centralizados, según el testimonio publicado.",
     tags: ["Next.js", "Supabase", "TypeScript", "IA"],
     category: "SaaS Platform",
     image: "/images/corredoresapp.png",
-    borderColor: "border-blue-500/20 hover:border-blue-500/40",
-    gradient: "from-blue-600/20 to-violet-600/20",
+    borderColor: "border-blue-400/40 hover:border-blue-300/60",
     year: "2026",
-    live: true,
+    alt: "Captura de la plataforma inmobiliaria CorredoresApp",
   },
   {
     title: "Musaika",
     url: "https://musaika.cl",
-    description:
-      "Plataforma web desarrollada para Musaika Escuela en Línea, enfocada en educación alternativa, acompañamiento homeschooling y experiencia digital moderna para familias y estudiantes.",
+    problem:
+      "La web WordPress anterior era lenta y las planificaciones semanales en Word/PowerPoint se rompían.",
+    solution:
+      "Plataforma web para Musaika Escuela en Línea, enfocada en educación alternativa y acompañamiento homeschooling. Incluye un planificador semanal que reemplazó esas planificaciones.",
+    result:
+      "La migración buscó una experiencia digital moderna para familias y estudiantes.",
     tags: ["Next.js", "TypeScript", "Tailwind", "Vercel"],
     category: "Web Platform",
     image: "/images/musaika.png",
     borderColor: "border-violet-500/20 hover:border-violet-500/40",
-    gradient: "from-violet-600/20 to-pink-600/20",
     year: "2026",
-    live: true,
+    alt: "Captura del sitio de Musaika Escuela en Línea",
   },
   {
     title: "Paula Guerra",
     url: "https://www.paulaguerrachamorro.com",
-    description:
-      "Sitio web desarrollado para Paula Guerra Chamorro, enfocado en arte en cerámica y mosaicos, identidad visual y experiencia digital moderna para una marca artística internacional.",
+    problem: "Buscaba una presencia digital que hablara de su trabajo artístico.",
+    solution:
+      "Sitio web para Paula Guerra Chamorro, enfocado en arte en cerámica y mosaicos, identidad visual y experiencia digital moderna para una marca artística internacional.",
+    result:
+      "El sitio transmite la identidad de su marca artística; su testimonio indica que clientes internacionales llegan directamente por la web.",
     tags: ["WordPress", "Diseño Web", "Branding"],
     category: "Branding & Web",
     image: "/images/paulaguerra.png",
     borderColor: "border-orange-500/20 hover:border-orange-500/40",
-    gradient: "from-orange-600/20 to-red-600/20",
     year: "2025",
-    live: true,
+    alt: "Captura del sitio artístico de Paula Guerra",
   },
 ];
 
-function ProjectImage({ project }: { project: typeof projects[0] }) {
+function ProjectImage({ project }: { project: (typeof projects)[number] }) {
   return (
-    <div className="relative rounded-xl overflow-hidden border border-white/[0.06] bg-black/40">
+    <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black/40">
       <Image
         src={project.image}
-        alt={project.title}
-        width={1280}
-        height={720}
-        className="w-full h-auto object-contain"
-        sizes="(max-width: 768px) 100vw, 50vw"
+        alt={project.alt}
+        width={1350}
+        height={630}
+        className="h-auto w-full object-contain"
+        sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 600px"
       />
     </div>
   );
@@ -65,177 +72,184 @@ function ProjectImage({ project }: { project: typeof projects[0] }) {
 
 function ComingSoonCard() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
+    <motion.article
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
-      className="group glass rounded-2xl border border-white/[0.07] overflow-hidden"
+      transition={{ duration: 0.45 }}
+      className="glass overflow-hidden rounded-2xl border border-white/10"
     >
-      <div className="grid md:grid-cols-2 gap-0">
-        {/* Left: Info */}
-        <div className="p-8 lg:p-10 flex flex-col justify-center">
-          <div className="flex items-center gap-3 mb-6">
+      <div className="grid gap-0 md:grid-cols-2">
+        <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
+          <div className="mb-6 flex items-center gap-3">
             <Badge variant="secondary" className="code-label">2026</Badge>
-            <span className="text-[10px] font-medium px-2 py-0.5 rounded-full border bg-emerald-500/10 text-emerald-400 border-emerald-500/20">
+            <span className="rounded-full border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 text-xs font-medium text-emerald-200">
               En progreso
             </span>
           </div>
-
-          <h3
-            className="text-2xl sm:text-3xl font-bold text-white mb-3"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
+          <h3 className="mb-3 text-2xl font-bold text-white sm:text-3xl">
             Próximo proyecto
           </h3>
-
-          <p className="text-white/40 text-sm leading-relaxed mb-6 max-w-sm">
+          <p className="mb-6 max-w-sm text-sm leading-relaxed text-white/75">
             Algo nuevo está siendo construido.
           </p>
-
-          <div className="flex flex-wrap gap-2 mb-8">
+          <div className="mb-8 flex flex-wrap gap-2">
             {["???", "Next.js", "TypeScript"].map((tag) => (
               <span
                 key={tag}
-                className="text-xs font-medium text-white/25 bg-white/[0.03] border border-white/[0.05] rounded-full px-3 py-1"
+                className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-white/75"
               >
                 {tag}
               </span>
             ))}
           </div>
-
-          <div>
-            <span className="inline-flex items-center gap-2 text-xs text-white/25 font-mono">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="inline-flex items-center gap-2 text-sm text-white/75">
+            <span className="h-2 w-2 rounded-full bg-emerald-400" />
+            2026 · En progreso
+          </span>
+        </div>
+        <div className="flex items-center p-5 sm:p-7">
+          <div className="relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-black/60">
+            <div className="absolute inset-0 grid-bg opacity-40" aria-hidden="true" />
+            <div
+              className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-violet-500/10 to-cyan-500/10"
+              aria-hidden="true"
+            />
+            <div className="relative z-10 px-6 text-center">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-blue-500/30 to-violet-500/30">
+                <span className="text-2xl" aria-hidden="true">✦</span>
+              </div>
+              <p className="font-mono text-sm text-white/75">En construcción...</p>
+              <p className="mt-1 text-xs text-white/70">Lanzamiento próximo</p>
+            </div>
+            <span className="absolute right-3 top-3 rounded-full border border-emerald-400/30 bg-emerald-500/20 px-2.5 py-1 text-xs font-bold text-emerald-200">
               2026 · En progreso
             </span>
           </div>
         </div>
-
-        {/* Right: Mystery visual */}
-        <div className="p-6 lg:p-8 flex items-center">
-          <div className="w-full relative rounded-xl overflow-hidden border border-white/[0.06] bg-black/60 aspect-video flex items-center justify-center">
-            {/* Blurred grid background */}
-            <div className="absolute inset-0 grid-bg opacity-40" />
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-violet-500/10 to-cyan-500/10" />
-
-            {/* Center content */}
-            <div className="relative z-10 text-center px-6 filter blur-[1px]">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/30 to-violet-500/30 border border-white/10 mx-auto mb-4 flex items-center justify-center">
-                <span className="text-2xl">✦</span>
-              </div>
-              <p className="text-white/50 text-sm font-mono">En construcción...</p>
-              <p className="text-white/20 text-xs mt-1">Lanzamiento próximo</p>
-            </div>
-
-            {/* Corner badge */}
-            <div className="absolute top-3 right-3">
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/20">
-                2026 · En progreso
-              </span>
-            </div>
-          </div>
-        </div>
       </div>
-    </motion.div>
+    </motion.article>
   );
 }
 
 export default function PortfolioSection() {
   return (
-    <section id="proyectos" className="py-28 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.01] to-transparent" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
+    <section id="proyectos" className="relative overflow-hidden py-24 sm:py-28">
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.01] to-transparent"
+        aria-hidden="true"
+      />
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <motion.header
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="mb-12 text-center sm:mb-16"
         >
-          <span className="code-label text-violet-400/70 block mb-4">{"// Proyectos"}</span>
-          <h2
-            className="text-4xl sm:text-5xl font-bold text-white mb-5"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
+          <span className="code-label mb-4 block text-violet-300">
+            {"// Proyectos"}
+          </span>
+          <h2 className="mb-5 text-4xl font-bold text-white sm:text-5xl">
             Trabajo real,
             <br />
-            <span className="gradient-text">resultados reales</span>
+            <span className="gradient-text">soluciones en producción</span>
           </h2>
-          <p className="text-white/45 text-lg max-w-lg mx-auto">
-            Proyectos lanzados en producción para clientes reales.
+          <p className="mx-auto max-w-lg text-base text-white/75 sm:text-lg">
+            Casos desarrollados para clientes, presentados con el contexto
+            disponible y sin promesas de resultados.
           </p>
-        </motion.div>
+        </motion.header>
 
-        {/* Projects */}
         <div className="space-y-6">
           {projects.map((project, index) => (
-            <motion.div
+            <motion.article
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`group glass rounded-2xl border ${project.borderColor} overflow-hidden card-hover`}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.45, delay: index * 0.06 }}
+              className={`glass overflow-hidden rounded-2xl border ${project.borderColor} ${
+                index === 0 ? "shadow-xl shadow-blue-950/20" : ""
+              }`}
             >
-              <div className="grid md:grid-cols-2 gap-0">
-                {/* Left: Info */}
-                <div className="p-8 lg:p-10 flex flex-col justify-center">
-                  <div className="flex items-center gap-3 mb-6">
+              <div className="grid gap-0 md:grid-cols-2">
+                <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
+                  <div className="mb-5 flex flex-wrap items-center gap-2">
                     <Badge variant="secondary" className="code-label">
                       {project.year}
                     </Badge>
                     <Badge variant="tech">{project.category}</Badge>
+                    <span className="rounded-full border border-cyan-300/30 bg-cyan-400/10 px-2.5 py-1 text-xs font-semibold text-cyan-100">
+                      Proyecto real
+                    </span>
+                    {index === 0 && (
+                      <span className="rounded-full border border-blue-300/30 bg-blue-400/10 px-2.5 py-1 text-xs font-semibold text-blue-100">
+                        Caso principal
+                      </span>
+                    )}
                   </div>
-
-                  <h3
-                    className="text-2xl sm:text-3xl font-bold text-white mb-3"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
+                  <h3 className="mb-5 text-2xl font-bold text-white sm:text-3xl">
                     {project.title}
                   </h3>
-
-                  <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-sm">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-8">
+                  <dl className="space-y-4">
+                    <div>
+                      <dt className="mb-1 text-xs font-semibold uppercase tracking-wide text-blue-200">
+                        Problema
+                      </dt>
+                      <dd className="text-sm leading-relaxed text-white/80">
+                        {project.problem}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="mb-1 text-xs font-semibold uppercase tracking-wide text-cyan-200">
+                        Solución
+                      </dt>
+                      <dd className="text-sm leading-relaxed text-white/80">
+                        {project.solution}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="mb-1 text-xs font-semibold uppercase tracking-wide text-violet-200">
+                        Resultado
+                      </dt>
+                      <dd className="text-sm leading-relaxed text-white/80">
+                        {project.result}
+                      </dd>
+                    </div>
+                  </dl>
+                  <ul className="mt-6 flex flex-wrap gap-2" aria-label={`Tecnologías de ${project.title}`}>
                     {project.tags.map((tag) => (
-                      <span
+                      <li
                         key={tag}
-                        className="text-xs font-medium text-white/40 bg-white/[0.05] border border-white/[0.06] rounded-full px-3 py-1"
+                        className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-xs text-white/80"
                       >
                         {tag}
-                      </span>
+                      </li>
                     ))}
-                  </div>
-
-                  <div>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="group/btn"
-                      onClick={() => window.open(project.url, "_blank")}
+                  </ul>
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="sm"
+                    className="mt-6 w-fit"
+                  >
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       Ver proyecto
-                      <ExternalLink className="w-3 h-3 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                    </Button>
-                  </div>
+                      <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                    </a>
+                  </Button>
                 </div>
-
-                {/* Right: Screenshot */}
-                <div className="p-6 lg:p-8 flex items-center">
-                  <div className="w-full">
-                    <ProjectImage project={project} />
-                  </div>
+                <div className="flex items-center p-5 sm:p-7">
+                  <ProjectImage project={project} />
                 </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
-
-          {/* Coming soon card */}
           <ComingSoonCard />
         </div>
       </div>
