@@ -95,7 +95,7 @@ export default function ProcessSection() {
             <br />
             <span className="gradient-text">tu próximo sistema</span>
           </h2>
-          <p className="text-white/45 text-lg max-w-lg mx-auto">
+          <p className="text-white/70 text-lg max-w-lg mx-auto">
             Metodología ágil y transparente. Sabrás exactamente en qué etapa está tu proyecto en todo momento.
           </p>
           <p className="mt-4 text-sm font-semibold text-cyan-200">

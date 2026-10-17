@@ -180,7 +180,7 @@ export default function AboutSection() {
                     ? "border-blue-500/30 bg-blue-500/10 text-blue-400 hover:bg-blue-500/15"
                     : variant === "green"
                     ? "border-emerald-500/25 bg-emerald-500/08 text-emerald-400 hover:bg-emerald-500/12"
-                    : "border-white/10 bg-white/[0.04] text-white/55 hover:text-white/80 hover:bg-white/[0.07]"
+                    : "border-white/10 bg-white/[0.04] text-white/75 hover:text-white/80 hover:bg-white/[0.07]"
                 }`}
               >
                 <Icon className="w-3.5 h-3.5" />
