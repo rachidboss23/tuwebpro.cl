@@ -3,15 +3,32 @@ import "./globals.css";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
+import { siteConfig } from "@/lib/siteConfig";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "TuWebPro",
+  url: "https://www.tuwebpro.cl",
+  areaServed: {
+    "@type": "Country",
+    name: "Chile",
+  },
+  sameAs: [
+    siteConfig.socialLinks.linkedin,
+    siteConfig.socialLinks.github,
+    siteConfig.socialLinks.whatsapp,
+  ],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.tuwebpro.cl"),
   title: {
-    default: "TuWebPro — Desarrollo Web y SaaS en Chile | Software a Medida",
+    default: "Desarrollo web y software a medida para pymes | TuWebPro",
     template: "%s | TuWebPro",
   },
   description:
-    "Desarrollo web profesional en Santiago, Chile. Sitios web, plataformas SaaS y automatización con IA para pymes y emprendedores. 2 proyectos lanzados, respuesta en 24h.",
+    "Desarrollo web en Santiago y software a medida en Chile. Sistemas de gestión para pymes y automatización para empresas, con soluciones adaptadas a cada operación.",
   keywords: [
     "agencia tecnológica Chile",
     "desarrollo web Santiago",
@@ -27,7 +44,7 @@ export const metadata: Metadata = {
     "TuWebPro",
     "desarrollo web precio Chile",
     "crear sitio web Santiago",
-    "cuanto cuesta pagina web Chile",
+    "cuánto cuesta página web Chile",
     "freelancer desarrollo web Chile",
   ],
   authors: [{ name: "Rachid Boss Ibarra", url: "https://www.tuwebpro.cl" }],
@@ -48,24 +65,15 @@ export const metadata: Metadata = {
     locale: "es_CL",
     url: "https://www.tuwebpro.cl",
     siteName: "TuWebPro",
-    title: "TuWebPro — Desarrollo Web, IA y Automatización en Chile",
+    title: "TuWebPro — Software y automatización para pymes en Chile",
     description:
-      "Construimos sistemas inteligentes que automatizan, escalan y transforman negocios modernos. Plataformas SaaS, dashboards, bots IA y software personalizado.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "TuWebPro — Agencia tecnológica en Chile",
-      },
-    ],
+      "Desarrollo web, software a medida y sistemas de gestión para pymes en Chile.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "TuWebPro — Desarrollo Web, IA y Automatización en Chile",
+    title: "TuWebPro — Software y automatización para pymes en Chile",
     description:
-      "Construimos sistemas inteligentes que automatizan, escalan y transforman negocios modernos.",
-    images: ["/og-image.png"],
+      "Desarrollo web, software a medida y sistemas de gestión para pymes en Chile.",
   },
   alternates: {
     canonical: "https://www.tuwebpro.cl",
@@ -85,12 +93,15 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="canonical" href="https://www.tuwebpro.cl" />
         <meta name="geo.region" content="CL-RM" />
         <meta name="geo.placename" content="Santiago, Chile" />
         <meta name="language" content="es" />
       </head>
       <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         {children}
         <WhatsAppButton />
         <Analytics />

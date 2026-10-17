@@ -1,20 +1,9 @@
 "use client";
 
 import { siteConfig } from "@/lib/siteConfig";
-
-declare global {
-  interface Window {
-    gtag?: (command: string, eventName: string) => void;
-  }
-}
+import { trackGA4Event } from "@/lib/analytics";
 
 export default function WhatsAppButton() {
-  const trackWhatsAppClick = () => {
-    if (typeof window.gtag === "function") {
-      window.gtag("event", "whatsapp_click");
-    }
-  };
-
   return (
     <div className="fixed bottom-5 right-5 z-[10000] group">
       <a
@@ -22,7 +11,7 @@ export default function WhatsAppButton() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Escríbeme por WhatsApp"
-        onClick={trackWhatsAppClick}
+        onClick={() => trackGA4Event("whatsapp_click")}
         className="relative flex h-12 w-12 items-center justify-center rounded-full shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black md:h-14 md:w-14"
         style={{ backgroundColor: "#25D366" }}
       >

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -52,7 +53,7 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <a
+            <Link
               href="/"
               className="flex h-12 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
               aria-label="TuWebPro, ir al inicio"
@@ -67,7 +68,7 @@ export default function Navbar() {
                 className="h-12 w-auto object-contain"
                 priority
               />
-            </a>
+            </Link>
 
             <nav aria-label="Navegación principal" className="hidden lg:flex items-center gap-0.5">
               {navLinks.map((link) => (

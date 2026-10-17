@@ -3,26 +3,35 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
+import { trackGA4Event } from "@/lib/analytics";
 
 type Status = "idle" | "sending" | "success" | "error";
+
+const inputClassName =
+  "w-full rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 text-base text-white placeholder:text-white/60 focus:border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300/60";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
     setStatus("sending");
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData(form);
     formData.append("access_key", "10748499-4eab-455f-868c-2e9b029018a2");
     formData.append("subject", "Nuevo mensaje desde tuwebpro.cl");
     formData.append("from_name", "TuWebPro Formulario");
+
     try {
-      const endpoint = "https://" + "api.web3forms.com/submit";
-      const response = await fetch(endpoint, { method: "POST", body: formData });
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
       const data = await response.json();
-      if (data.success) {
+      if (response.ok && data.success) {
         setStatus("success");
-        (e.target as HTMLFormElement).reset();
+        form.reset();
+        trackGA4Event("form_submit");
       } else {
         setStatus("error");
       }
@@ -32,125 +41,168 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contacto" className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[500px] h-[250px] bg-violet-500/8 rounded-full blur-3xl" />
-        <div className="w-[300px] h-[150px] bg-blue-500/8 rounded-full blur-3xl" />
+    <section id="contacto" className="relative overflow-hidden py-24">
+      <div
+        className="pointer-events-none absolute inset-0 flex items-center justify-center"
+        aria-hidden="true"
+      >
+        <div className="h-[250px] w-[500px] rounded-full bg-violet-500/10 blur-3xl" />
+        <div className="h-[150px] w-[300px] rounded-full bg-blue-500/10 blur-3xl" />
       </div>
 
-      <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-10"
-        >
-          <span className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 border border-white/[0.08] mb-6">
-            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-            <span className="text-xs font-medium text-white/60">Contacto directo</span>
-          </span>
-
-          <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            {"Cuentame tu "}
-            <span className="gradient-text">proyecto</span>
-          </h2>
-
-          <p className="text-white/45 text-base sm:text-lg leading-relaxed">
-            Respondo en menos de 24 horas con una propuesta clara y sin costo.
-          </p>
-        </motion.div>
-
-        <motion.form
+      <div className="relative z-10 mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+        <motion.header
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          onSubmit={handleSubmit}
-          className="glass-strong rounded-2xl p-6 sm:p-8 border border-white/[0.08] space-y-5"
+          transition={{ duration: 0.5 }}
+          className="mb-10 text-center"
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            <div className="flex flex-col gap-1.5">
-              <label htmlFor="name" className="text-xs font-medium text-white/50 uppercase tracking-wider">
+          <span className="mb-6 inline-flex min-h-11 items-center gap-2 rounded-full border border-white/10 px-4 py-1.5">
+            <span
+              className="h-2 w-2 rounded-full bg-blue-300"
+              aria-hidden="true"
+            />
+            <span className="text-sm font-medium text-white/80">
+              Contacto directo
+            </span>
+          </span>
+          <h2 className="mb-4 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+            Cuéntame qué necesitas resolver
+          </h2>
+          <p className="text-base leading-relaxed text-white/80 sm:text-lg">
+            Respondo en menos de 24 horas con una propuesta clara y sin costo.
+          </p>
+        </motion.header>
+
+        <motion.form
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          onSubmit={handleSubmit}
+          aria-busy={status === "sending"}
+          className="glass-strong space-y-5 rounded-2xl border border-white/10 p-5 sm:p-8"
+        >
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+            <div className="flex flex-col gap-2">
+              <label htmlFor="name" className="text-sm font-medium text-white/90">
                 Nombre completo
               </label>
               <input
                 id="name"
                 name="name"
                 type="text"
+                autoComplete="name"
                 required
-                placeholder="Juan Perez"
-                className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-white/25 text-sm focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30 transition-all duration-200"
+                placeholder="Juan Pérez"
+                className={inputClassName}
               />
             </div>
 
-            <div className="flex flex-col gap-1.5">
-              <label htmlFor="email" className="text-xs font-medium text-white/50 uppercase tracking-wider">
+            <div className="flex flex-col gap-2">
+              <label htmlFor="email" className="text-sm font-medium text-white/90">
                 Tu email
               </label>
               <input
                 id="email"
                 name="email"
                 type="email"
+                autoComplete="email"
                 required
                 placeholder="juan@empresa.cl"
-                className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-white/25 text-sm focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30 transition-all duration-200"
+                className={inputClassName}
               />
             </div>
           </div>
 
-          <div className="flex flex-col gap-1.5">
-            <label htmlFor="message" className="text-xs font-medium text-white/50 uppercase tracking-wider">
-              {"Cuentame que necesitas"}
+          <div className="flex flex-col gap-2">
+            <label htmlFor="phone" className="text-sm font-medium text-white/90">
+              WhatsApp o teléfono (opcional)
+            </label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              autoComplete="tel"
+              placeholder="+56 9 1234 5678"
+              className={inputClassName}
+            />
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <label htmlFor="service" className="text-sm font-medium text-white/90">
+              ¿Qué quieres resolver?
+            </label>
+            <select
+              id="service"
+              name="service"
+              defaultValue=""
+              required
+              className={`${inputClassName} [color-scheme:dark]`}
+            >
+              <option value="" disabled>
+                Selecciona una opción
+              </option>
+              <option>Ordenar mis clientes y seguimientos</option>
+              <option>Automatizar tareas repetitivas</option>
+              <option>Sitio web o landing</option>
+              <option>Sistema o app a medida</option>
+              <option>No estoy seguro, necesito orientación</option>
+            </select>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <label htmlFor="message" className="text-sm font-medium text-white/90">
+              Cuéntame qué necesitas
             </label>
             <textarea
               id="message"
               name="message"
-              rows={4}
+              rows={5}
               required
-              placeholder="Cuentame que necesitas..."
-              className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-white/25 text-sm focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30 transition-all duration-200 resize-none"
+              placeholder="Describe brevemente tu proyecto o proceso."
+              className={`${inputClassName} resize-y`}
             />
           </div>
 
           <button
             type="submit"
             disabled={status === "sending"}
-            className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold rounded-xl px-6 py-3.5 text-sm transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/20"
+            className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#090909] disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none"
           >
-            <Send className="w-4 h-4" />
+            <Send className="h-4 w-4" aria-hidden="true" />
             {status === "sending" ? "Enviando..." : "Enviar mensaje"}
           </button>
 
-          {status === "success" && (
-            <motion.p
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center text-sm font-medium text-emerald-400 py-1"
-            >
-              {"Mensaje enviado. Te respondo en menos de 24 horas."}
-            </motion.p>
-          )}
+          <p
+            role="status"
+            aria-live="polite"
+            className="min-h-6 text-center text-sm font-medium text-emerald-200"
+          >
+            {status === "success"
+              ? "Mensaje enviado. Te respondo en menos de 24 horas."
+              : status === "sending"
+                ? "Enviando tu mensaje..."
+                : ""}
+          </p>
 
           {status === "error" && (
-            <motion.p
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center text-sm font-medium text-red-400 py-1"
+            <p
+              role="alert"
+              aria-live="assertive"
+              className="text-center text-sm font-medium text-red-200"
             >
-              {"Hubo un problema. "}
+              Hubo un problema al enviar el mensaje.{" "}
               <a
-                href={"https://wa.me/56987257444"}
+                href="https://wa.me/56987257444"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline underline-offset-2 hover:text-red-300 transition-colors"
+                className="underline underline-offset-2 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-200"
               >
-                {"Escribeme por WhatsApp."}
+                Escríbeme por WhatsApp.
               </a>
-            </motion.p>
+            </p>
           )}
         </motion.form>
       </div>

@@ -81,10 +81,8 @@ const plans = [
   },
   {
     name: "Automatización a medida",
-    result: "Conecta tareas y herramientas de tu operación",
     price: "Cotiza según alcance",
     currency: "",
-    idealFor: "Negocios que buscan conectar sus herramientas",
     time: "Según alcance del proyecto",
     popular: false,
     color: "cyan",
@@ -156,7 +154,7 @@ export default function PricingSection() {
           </p>
         </motion.header>
 
-        <div className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5">
+        <div className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {plans.map((plan, index) => (
             <motion.article
               key={plan.name}
@@ -177,13 +175,21 @@ export default function PricingSection() {
                   {plan.badge}
                 </span>
               )}
-              <p className="mb-2 min-h-10 text-sm font-semibold leading-snug text-cyan-200">
-                {plan.result}
-              </p>
+              {plan.result ? (
+                <p className="mb-2 min-h-10 text-sm font-semibold leading-snug text-cyan-200">
+                  {plan.result}
+                </p>
+              ) : (
+                <div className="min-h-10" aria-hidden="true" />
+              )}
               <h3 className="mb-2 text-xl font-bold text-white">{plan.name}</h3>
-              <p className="mb-5 min-h-10 text-sm text-white/75">
-                Ideal para: {plan.idealFor}
-              </p>
+              {plan.idealFor ? (
+                <p className="mb-5 min-h-10 text-sm text-white/75">
+                  Ideal para: {plan.idealFor}
+                </p>
+              ) : (
+                <div className="mb-5 min-h-10" aria-hidden="true" />
+              )}
               <div className="mb-5 min-h-[4.5rem] border-b border-white/10 pb-4">
                 <p className="text-2xl font-bold leading-tight text-white">
                   {plan.price}

@@ -34,7 +34,7 @@ function ProjectMockup() {
           <div className="w-3 h-3 rounded-full bg-green-400/60" />
           <div className="ml-4 flex-1 bg-white/[0.05] rounded-md px-3 py-1 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-xs text-white/30 font-mono">corredoresapp.cl</span>
+            <span className="text-xs text-white/75 font-mono">corredoresapp.cl</span>
           </div>
         </div>
 

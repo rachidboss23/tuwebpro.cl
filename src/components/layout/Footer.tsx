@@ -3,92 +3,86 @@
 import Image from "next/image";
 import { Github, Linkedin, Mail, MessageSquare, Star } from "lucide-react";
 import { GOOGLE_REVIEW_URL, trackReviewClick } from "@/lib/reviews";
+import { trackGA4Event } from "@/lib/analytics";
+import { siteConfig } from "@/lib/siteConfig";
 
 const socials = [
-  { icon: Github, label: "GitHub", href: "https://github.com/rachidboss23" },
-  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/rachid-boss-ibarra/" },
-  { icon: MessageSquare, label: "WhatsApp", href: "https://wa.me/56987257444" },
-  { icon: Mail, label: "Email", href: "mailto:contacto@tuwebpro.cl" },
+  { icon: Github, label: "GitHub", href: siteConfig.socialLinks.github },
+  { icon: Linkedin, label: "LinkedIn", href: siteConfig.socialLinks.linkedin },
+  { icon: MessageSquare, label: "WhatsApp", href: siteConfig.socialLinks.whatsapp },
+  { icon: Mail, label: "Email", href: siteConfig.email },
 ];
 
 const navLinks = [
+  { label: "Soluciones", href: "#soluciones" },
   { label: "Servicios", href: "#servicios" },
+  { label: "Precios", href: "#precios" },
   { label: "Proyectos", href: "#proyectos" },
-  { label: "Stack", href: "#stack" },
   { label: "Proceso", href: "#proceso" },
+  { label: "Stack", href: "#stack" },
   { label: "Nosotros", href: "#nosotros" },
   { label: "Contacto", href: "#contacto" },
 ];
 
 export default function Footer() {
-  const handleScroll = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <footer className="border-t border-white/[0.06] bg-black/40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-20 md:pb-14">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 mb-12">
-
-          {/* Brand */}
-          <div className="sm:col-span-1">
+    <footer className="border-t border-white/[0.08] bg-black/40">
+      <div className="mx-auto max-w-7xl px-4 pb-20 pt-14 sm:px-6 md:pb-14 lg:px-8">
+        <div className="mb-12 grid grid-cols-1 gap-10 sm:grid-cols-3">
+          <div>
             <div className="mb-4">
               <Image
                 src="/images/logo_tuwebpro.png"
                 alt="TuWebPro"
-                width={440}
-                height={132}
-                className="object-contain h-[112px] w-auto"
+                width={144}
+                height={96}
+                sizes="144px"
+                className="h-14 w-auto object-contain"
               />
             </div>
-            <p className="text-white/38 text-sm leading-relaxed max-w-xs">
-              Sistemas inteligentes que automatizan, escalan y transforman negocios modernos.
+            <p className="max-w-xs text-sm leading-relaxed text-white/75">
+              Sistemas inteligentes que automatizan, escalan y transforman
+              negocios modernos.
             </p>
           </div>
 
-          {/* Nav */}
-          <div>
-            <h4
-              className="text-xs font-semibold text-white/25 uppercase tracking-widest mb-5"
-              style={{ fontFamily: "var(--font-geist-mono)" }}
-            >
+          <nav aria-label="Navegación del pie de página">
+            <h2 className="mb-5 text-xs font-semibold uppercase tracking-widest text-white/75">
               Navegación
-            </h4>
-            <ul className="space-y-3">
+            </h2>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-1">
               {navLinks.map((link) => (
                 <li key={link.label}>
-                  <button
-                    onClick={() => handleScroll(link.href)}
-                    className="text-sm text-white/45 hover:text-white transition-colors duration-200 text-left"
+                  <a
+                    href={link.href}
+                    className="inline-flex min-h-11 items-center rounded-md text-sm text-white/80 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
                   >
                     {link.label}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          {/* Contact */}
           <div>
-            <h4
-              className="text-xs font-semibold text-white/25 uppercase tracking-widest mb-5"
-              style={{ fontFamily: "var(--font-geist-mono)" }}
-            >
+            <h2 className="mb-5 text-xs font-semibold uppercase tracking-widest text-white/75">
               Contacto
-            </h4>
-            <div className="flex flex-col gap-3">
+            </h2>
+            <div className="flex flex-col gap-1">
               {socials.map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
                   href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-sm text-white/45 hover:text-white transition-colors duration-200 group"
+                  target={href.startsWith("mailto:") ? undefined : "_blank"}
+                  rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                  onClick={() => {
+                    if (label === "WhatsApp") trackGA4Event("whatsapp_click");
+                  }}
+                  className="group flex min-h-11 items-center gap-3 rounded-lg text-sm text-white/80 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
                 >
-                  <div className="w-7 h-7 rounded-lg border border-white/[0.08] bg-white/[0.03] flex items-center justify-center group-hover:border-white/20 transition-colors">
-                    <Icon className="w-3.5 h-3.5" />
-                  </div>
+                  <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/15 bg-white/[0.04] transition-colors group-hover:border-white/30">
+                    <Icon className="h-4 w-4" aria-hidden="true" />
+                  </span>
                   {label}
                 </a>
               ))}
@@ -97,25 +91,26 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={trackReviewClick}
-                className="group flex min-h-11 items-center gap-3 rounded-lg text-sm text-white/45 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:transition-none"
+                className="group flex min-h-11 items-center gap-3 rounded-lg text-sm text-white/80 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
               >
-                <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] transition-colors group-hover:border-white/20">
-                  <Star className="h-3.5 w-3.5" aria-hidden="true" />
-                </div>
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/15 bg-white/[0.04] transition-colors group-hover:border-white/30">
+                  <Star className="h-4 w-4" aria-hidden="true" />
+                </span>
                 Reseña en Google
               </a>
             </div>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="border-t border-white/[0.05] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/22">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
+          <p className="text-xs text-white/70">
             © {new Date().getFullYear()} TuWebPro · Rachid Boss Ibarra
           </p>
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-xs text-white/28">Disponible para nuevos proyectos</span>
+            <span className="h-2 w-2 rounded-full bg-emerald-300" aria-hidden="true" />
+            <span className="text-xs text-white/75">
+              Disponible para nuevos proyectos
+            </span>
           </div>
         </div>
       </div>
