@@ -111,7 +111,7 @@ export default function StackSection() {
             <br />
             <span className="gradient-text">clase mundial</span>
           </h2>
-          <p className="text-white/45 text-lg max-w-lg mx-auto">
+          <p className="text-white/75 text-lg max-w-lg mx-auto">
             Usamos las tecnologías más modernas y confiables del ecosistema actual.
           </p>
         </motion.div>
@@ -144,7 +144,7 @@ export default function StackSection() {
                 <div className={`text-xs font-bold ${tech.textColor}`} style={{ fontFamily: "var(--font-display)" }}>
                   {tech.name}
                 </div>
-                <div className="text-[10px] text-white/25 mt-0.5">{tech.description}</div>
+                <div className="text-[10px] text-white/70 mt-0.5">{tech.description}</div>
               </div>
             </motion.div>
           ))}
@@ -158,7 +158,7 @@ export default function StackSection() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-16 glass rounded-2xl p-8 border border-white/[0.06] text-center"
         >
-          <p className="text-white/40 text-sm leading-relaxed max-w-2xl mx-auto">
+          <p className="text-white/75 text-sm leading-relaxed max-w-2xl mx-auto">
             También trabajamos con{" "}
             <span className="text-white/70">PostgreSQL</span>,{" "}
             <span className="text-white/70">Redis</span>,{" "}

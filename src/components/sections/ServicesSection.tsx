@@ -2,191 +2,186 @@
 
 import { motion } from "framer-motion";
 import {
+  BarChart3,
   Brain,
   Globe,
   Layers,
-  BarChart3,
+  MessageSquare,
   Plug,
   Settings2,
-  MessageSquare,
   Users,
 } from "lucide-react";
 
-const services = [
+const packages = [
   {
-    icon: Brain,
-    title: "Automatización IA",
-    description:
-      "Implementamos flujos inteligentes con modelos de lenguaje, visión y razonamiento para automatizar tareas complejas.",
-    tags: ["OpenAI", "LangChain", "n8n"],
-    gradient: "from-blue-500/10 to-blue-500/[0.03]",
-    border: "border-blue-500/20 hover:border-blue-500/40",
-    iconBg: "bg-blue-500/10 text-blue-400",
+    name: "Presencia digital",
+    summary:
+      "Sitios web y tiendas online pensados para explicar lo que haces y facilitar el contacto.",
+    ideal: "Ideal si hoy dependes solo de redes sociales.",
+    accent: "border-blue-400/30 from-blue-500/10",
+    services: [
+      {
+        icon: Globe,
+        title: "Desarrollo Web",
+        description:
+          "Sitios y aplicaciones web de alto rendimiento con las mejores tecnologías del mercado actual. También desarrollamos sitios corporativos y soluciones WordPress optimizadas para conversión y SEO.",
+        tags: ["Next.js", "React", "TypeScript", "WordPress", "WooCommerce"],
+      },
+    ],
   },
   {
-    icon: Globe,
-    title: "Desarrollo Web",
-    description:
-      "Sitios y aplicaciones web de alto rendimiento con las mejores tecnologías del mercado actual. También desarrollamos sitios corporativos y soluciones WordPress optimizadas para conversión y SEO.",
-    tags: ["Next.js", "React", "TypeScript", "WordPress", "WooCommerce"],
-    gradient: "from-violet-500/10 to-violet-500/[0.03]",
-    border: "border-violet-500/20 hover:border-violet-500/40",
-    iconBg: "bg-violet-500/10 text-violet-400",
+    name: "Automatización",
+    summary:
+      "Conecta tus herramientas y automatiza tareas repetitivas con flujos adaptados a tu operación.",
+    ideal: "Ideal si pierdes tiempo en tareas repetitivas o copiando datos.",
+    accent: "border-cyan-400/30 from-cyan-500/10",
+    services: [
+      {
+        icon: Brain,
+        title: "Automatización IA",
+        description:
+          "Implementamos flujos inteligentes con modelos de lenguaje, visión y razonamiento para automatizar tareas complejas.",
+        tags: ["OpenAI", "LangChain", "n8n"],
+      },
+      {
+        icon: Plug,
+        title: "Integraciones API",
+        description:
+          "Conectamos tus herramientas existentes: CRMs, ERPs, pasarelas de pago y servicios externos.",
+        tags: ["REST", "GraphQL", "Webhooks"],
+      },
+      {
+        icon: MessageSquare,
+        title: "Automatización WhatsApp",
+        description:
+          "Bots inteligentes para WhatsApp Business que atienden, califican y nutren leads 24/7.",
+        tags: ["WhatsApp API", "IA", "CRM"],
+      },
+    ],
   },
   {
-    icon: Layers,
-    title: "Apps SaaS",
-    description:
-      "Plataformas completas con autenticación, billing, roles y multi-tenancy listas para escalar.",
-    tags: ["Supabase", "Stripe", "Vercel"],
-    gradient: "from-cyan-500/10 to-cyan-500/[0.03]",
-    border: "border-cyan-500/20 hover:border-cyan-500/40",
-    iconBg: "bg-cyan-500/10 text-cyan-400",
-  },
-  {
-    icon: BarChart3,
-    title: "Dashboards",
-    description:
-      "Paneles de control interactivos con datos en tiempo real, gráficos avanzados y KPIs accionables.",
-    tags: ["Recharts", "Postgres", "Real-time"],
-    gradient: "from-emerald-500/10 to-emerald-500/[0.03]",
-    border: "border-emerald-500/20 hover:border-emerald-500/40",
-    iconBg: "bg-emerald-500/10 text-emerald-400",
-  },
-  {
-    icon: Plug,
-    title: "Integraciones API",
-    description:
-      "Conectamos tus herramientas existentes: CRMs, ERPs, pasarelas de pago y servicios externos.",
-    tags: ["REST", "GraphQL", "Webhooks"],
-    gradient: "from-orange-500/10 to-orange-500/[0.03]",
-    border: "border-orange-500/20 hover:border-orange-500/40",
-    iconBg: "bg-orange-500/10 text-orange-400",
-  },
-  {
-    icon: Settings2,
-    title: "Sistemas Personalizados",
-    description:
-      "Software empresarial a medida: ERP, inventarios, facturación y gestión de procesos internos.",
-    tags: ["Node.js", "PostgreSQL", "Docker"],
-    gradient: "from-pink-500/10 to-pink-500/[0.03]",
-    border: "border-pink-500/20 hover:border-pink-500/40",
-    iconBg: "bg-pink-500/10 text-pink-400",
-  },
-  {
-    icon: MessageSquare,
-    title: "Automatización WhatsApp",
-    description:
-      "Bots inteligentes para WhatsApp Business que atienden, califican y nutren leads 24/7.",
-    tags: ["WhatsApp API", "IA", "CRM"],
-    gradient: "from-green-500/10 to-green-500/[0.03]",
-    border: "border-green-500/20 hover:border-green-500/40",
-    iconBg: "bg-green-500/10 text-green-400",
-  },
-  {
-    icon: Users,
-    title: "CRM Empresariales",
-    description:
-      "Sistemas de gestión de clientes personalizados para tu industria, con pipelines, seguimiento y analítica.",
-    tags: ["CRM", "Pipeline", "Analytics"],
-    gradient: "from-indigo-500/10 to-indigo-500/[0.03]",
-    border: "border-indigo-500/20 hover:border-indigo-500/40",
-    iconBg: "bg-indigo-500/10 text-indigo-400",
+    name: "Sistema a medida",
+    summary:
+      "Software conectado a tus procesos para centralizar la gestión y consultar la información con claridad.",
+    ideal: "Ideal si tu operación vive en planillas y mensajes.",
+    accent: "border-violet-400/30 from-violet-500/10",
+    services: [
+      {
+        icon: Layers,
+        title: "Apps SaaS",
+        description:
+          "Plataformas completas con autenticación, billing, roles y multi-tenancy listas para escalar.",
+        tags: ["Supabase", "Stripe", "Vercel"],
+      },
+      {
+        icon: BarChart3,
+        title: "Dashboards",
+        description:
+          "Paneles de control interactivos con datos en tiempo real, gráficos avanzados y KPIs accionables.",
+        tags: ["Recharts", "Postgres", "Real-time"],
+      },
+      {
+        icon: Settings2,
+        title: "Sistemas Personalizados",
+        description:
+          "Software empresarial a medida: ERP, inventarios, facturación y gestión de procesos internos.",
+        tags: ["Node.js", "PostgreSQL", "Docker"],
+      },
+      {
+        icon: Users,
+        title: "CRM Empresariales",
+        description:
+          "Sistemas de gestión de clientes personalizados para tu industria, con pipelines, seguimiento y analítica.",
+        tags: ["CRM", "Pipeline", "Analytics"],
+      },
+    ],
   },
 ];
 
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.07 } },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
-};
-
 export default function ServicesSection() {
   return (
-    <section id="servicios" className="py-28 relative overflow-hidden">
-      <div className="absolute inset-0 dot-pattern opacity-40" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
+    <section id="servicios" className="relative overflow-hidden py-24 sm:py-28">
+      <div className="absolute inset-0 dot-pattern opacity-25" aria-hidden="true" />
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <motion.header
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="mb-12 text-center sm:mb-16"
         >
-          <span className="code-label text-blue-400/70 block mb-4">
-            {'// Servicios'}
+          <span className="code-label mb-4 block text-blue-300">
+            {"// Servicios"}
           </span>
-          <h2
-            className="text-4xl sm:text-5xl font-bold text-white mb-5"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            Todo lo que tu empresa
-            <br />
-            <span className="gradient-text">necesita para escalar</span>
+          <h2 className="mb-5 text-4xl font-bold text-white sm:text-5xl">
+            Soluciones para que tu empresa trabaje con más orden
           </h2>
-          <p className="text-white/45 text-lg max-w-xl mx-auto">
-            Desde sistemas simples hasta plataformas complejas. Tecnología a medida para negocios que quieren crecer.
+          <p className="mx-auto max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
+            Desde una presencia digital clara hasta automatizaciones y sistemas
+            que se adaptan a la forma en que trabaja tu negocio.
           </p>
-        </motion.div>
+        </motion.header>
 
-        {/* Grid */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
-        >
-          {services.map((service) => {
-            const Icon = service.icon;
-            return (
-              <motion.div
-                key={service.title}
-                variants={item}
-                className={`group relative glass rounded-2xl p-6 border ${service.border} card-hover shine cursor-default`}
-              >
-                {/* Gradient bg on hover */}
-                <div
-                  className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                />
+        <div className="grid gap-5 lg:grid-cols-3">
+          {packages.map((servicePackage, packageIndex) => (
+            <motion.article
+              key={servicePackage.name}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.45, delay: packageIndex * 0.08 }}
+              className={`glass card-hover rounded-2xl border ${servicePackage.accent.split(" ")[0]} bg-gradient-to-b ${servicePackage.accent.split(" ")[1]} to-transparent p-5 sm:p-6`}
+            >
+              <h3 className="mb-2 text-2xl font-bold text-white">
+                {servicePackage.name}
+              </h3>
+              <p className="mb-3 text-sm leading-relaxed text-white/80">
+                {servicePackage.summary}
+              </p>
+              <p className="mb-6 text-sm font-medium text-cyan-200">
+                {servicePackage.ideal}
+              </p>
 
-                <div className="relative z-10">
-                  <div className={`w-10 h-10 rounded-xl ${service.iconBg} flex items-center justify-center mb-4`}>
-                    <Icon className="w-5 h-5" />
-                  </div>
-
-                  <h3
-                    className="text-base font-bold text-white mb-2"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    {service.title}
-                  </h3>
-
-                  <p className="text-sm text-white/45 leading-relaxed mb-4">
-                    {service.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-1.5">
-                    {service.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs font-medium text-white/30 bg-white/[0.04] border border-white/[0.06] rounded-full px-2.5 py-0.5"
+              <div className="space-y-4">
+                {servicePackage.services.map((service) => {
+                  const Icon = service.icon;
+                  return (
+                    <section
+                      key={service.title}
+                      className="rounded-xl border border-white/10 bg-black/25 p-4"
+                    >
+                      <div className="mb-2 flex items-center gap-2.5">
+                        <Icon
+                          className="h-4 w-4 shrink-0 text-cyan-200"
+                          aria-hidden="true"
+                        />
+                        <h4 className="text-sm font-bold text-white">
+                          {service.title}
+                        </h4>
+                      </div>
+                      <p className="mb-3 text-sm leading-relaxed text-white/75">
+                        {service.description}
+                      </p>
+                      <ul
+                        aria-label={`Tecnologías de ${service.title}`}
+                        className="flex flex-wrap gap-1.5"
                       >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+                        {service.tags.map((tag) => (
+                          <li
+                            key={tag}
+                            className="rounded-full border border-white/15 bg-white/[0.05] px-2.5 py-1 text-xs font-medium text-white/80"
+                          >
+                            {tag}
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  );
+                })}
+              </div>
+            </motion.article>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -21,8 +21,8 @@ export default function Home() {
       <PricingSection />
       <PortfolioSection />
       <TestimonialsSection />
-      <StackSection />
       <ProcessSection />
+      <StackSection />
       <AboutSection />
       <ContactForm />
       <Footer />
