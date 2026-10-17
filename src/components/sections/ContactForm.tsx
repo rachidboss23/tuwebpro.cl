@@ -141,14 +141,24 @@ export default function ContactForm() {
               required
               className={`${inputClassName} [color-scheme:dark]`}
             >
-              <option value="" disabled>
+              <option value="" disabled className="bg-white text-black">
                 Selecciona una opción
               </option>
-              <option>Ordenar mis clientes y seguimientos</option>
-              <option>Automatizar tareas repetitivas</option>
-              <option>Sitio web o landing</option>
-              <option>Sistema o app a medida</option>
-              <option>No estoy seguro, necesito orientación</option>
+              <option className="bg-white text-black">
+                Ordenar mis clientes y seguimientos
+              </option>
+              <option className="bg-white text-black">
+                Automatizar tareas repetitivas
+              </option>
+              <option className="bg-white text-black">
+                Sitio web o landing
+              </option>
+              <option className="bg-white text-black">
+                Sistema o app a medida
+              </option>
+              <option className="bg-white text-black">
+                No estoy seguro, necesito orientación
+              </option>
             </select>
           </div>
 
