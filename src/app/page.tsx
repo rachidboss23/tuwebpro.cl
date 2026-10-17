@@ -9,12 +9,14 @@ import StackSection from "@/components/sections/StackSection";
 import ProcessSection from "@/components/sections/ProcessSection";
 import AboutSection from "@/components/sections/AboutSection";
 import ContactForm from "@/components/sections/ContactForm";
+import ProblemsSection from "@/components/sections/ProblemsSection";
 
 export default function Home() {
   return (
     <main className="relative bg-[#090909] min-h-screen">
       <Navbar />
       <HeroSection />
+      <ProblemsSection />
       <ServicesSection />
       <PricingSection />
       <PortfolioSection />
