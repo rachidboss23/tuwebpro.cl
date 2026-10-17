@@ -1,14 +1,29 @@
 "use client";
 
+import { siteConfig } from "@/lib/siteConfig";
+
+declare global {
+  interface Window {
+    gtag?: (command: string, eventName: string) => void;
+  }
+}
+
 export default function WhatsAppButton() {
+  const trackWhatsAppClick = () => {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "whatsapp_click");
+    }
+  };
+
   return (
     <div className="fixed bottom-5 right-5 z-[10000] group">
       <a
-        href="https://wa.me/56987257444?text=Hola%20Rachid%2C%20me%20interesa%20cotizar%20un%20proyecto"
+        href={siteConfig.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Escríbeme por WhatsApp"
-        className="relative flex items-center justify-center rounded-full shadow-lg w-12 h-12 md:w-14 md:h-14"
+        onClick={trackWhatsAppClick}
+        className="relative flex h-12 w-12 items-center justify-center rounded-full shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black md:h-14 md:w-14"
         style={{ backgroundColor: "#25D366" }}
       >
         {/* Pulse ring */}

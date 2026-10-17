@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, Code2, Layers, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { siteConfig } from "@/lib/siteConfig";
 
 const floatVariants = {
   initial: { y: 0 },
@@ -53,16 +54,20 @@ function ProjectMockup() {
 
         {/* Bottom bar */}
         <div className="px-5 py-3 bg-white/[0.02] border-t border-white/[0.06] flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1.5 text-xs text-emerald-400">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="flex items-center gap-1.5 text-xs text-emerald-300">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               En producción
             </span>
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1.5 text-xs text-white/30">
+            <span className="flex items-center gap-1.5 text-xs text-white/70">
               <Code2 className="w-3 h-3" />
               Next.js · Supabase · IA
+            </span>
+            <span className="text-xs font-medium text-white/80">
+              Webs desde {siteConfig.startingWebTimeline}
+            </span>
+            <span className="text-xs font-medium text-white/80">
+              El código es tuyo una vez pagado el proyecto
             </span>
           </div>
         </div>
@@ -77,7 +82,7 @@ function ProjectMockup() {
       >
         <div className="flex items-center gap-2">
           <Zap className="w-3 h-3 text-yellow-400" />
-          <span className="text-xs font-medium text-white">Entrega en 3–5 días</span>
+          <span className="text-xs font-medium text-white">Webs desde 2–3 días hábiles</span>
         </div>
       </motion.div>
 
@@ -86,11 +91,13 @@ function ProjectMockup() {
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1 }}
-        className="absolute -right-4 bottom-1/3 glass-strong rounded-xl px-3 py-2 border border-white/[0.08]"
+        className="absolute -right-4 bottom-1/3 max-w-56 glass-strong rounded-xl px-3 py-2 border border-white/[0.08]"
       >
         <div className="flex items-center gap-2">
           <Layers className="w-3 h-3 text-violet-400" />
-          <span className="text-xs font-medium text-white">Código es tuyo</span>
+          <span className="text-xs font-medium text-white">
+            El código es tuyo una vez pagado el proyecto
+          </span>
         </div>
       </motion.div>
     </div>
@@ -98,11 +105,6 @@ function ProjectMockup() {
 }
 
 export default function HeroSection() {
-  const handleScroll = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
       {/* Background layers */}
@@ -127,7 +129,7 @@ export default function HeroSection() {
             >
               <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
               <span className="text-xs font-medium text-white/60">
-                Desarrollo web profesional — Chile
+                Software y automatización para pymes en Chile
               </span>
               <ChevronRight className="w-3 h-3 text-white/30" />
             </motion.div>
@@ -137,16 +139,13 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight mb-6"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              <span className="text-white">Tu negocio,</span>
-              <br />
-              <span className="gradient-text">sin límites.</span>
-              <br />
-              <span className="text-white">Software que</span>
-              <br />
-              <span className="text-white/40">trabaja solo.</span>
+              <span className="text-white">
+                ¿Clientes, pedidos y tareas repartidos entre Excel y WhatsApp?{" "}
+              </span>
+              <span className="gradient-text">Los juntamos en un solo lugar.</span>
             </motion.h1>
 
             {/* Subheadline */}
@@ -154,11 +153,17 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg text-white/50 leading-relaxed mb-10 max-w-md"
+              className="text-lg text-white/70 leading-relaxed mb-8 max-w-xl"
             >
-              Desarrollamos plataformas SaaS, automatizaciones con IA y software a medida
-              para empresas en Chile que quieren dejar de operar en Excel.
+              Digitalizamos procesos, conectamos tus herramientas y desarrollamos sistemas para
+              que tu empresa trabaje con más orden, menos tareas repetitivas y más control.
             </motion.p>
+
+            <ul className="grid gap-2 mb-8 text-sm text-white/75 sm:grid-cols-3">
+              <li><strong className="text-blue-300">Más tiempo:</strong> menos trabajo repetitivo</li>
+              <li><strong className="text-cyan-300">Más orden:</strong> información en un solo lugar</li>
+              <li><strong className="text-violet-300">Más control:</strong> procesos conectados</li>
+            </ul>
 
             {/* CTAs */}
             <motion.div
@@ -168,20 +173,22 @@ export default function HeroSection() {
               className="flex flex-wrap gap-3 mb-12"
             >
               <Button
+                asChild
                 size="xl"
                 variant="glow"
                 className="group"
-                onClick={() => handleScroll("#proyectos")}
               >
-                Ver proyectos
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <a href="#contacto">
+                  Cuéntame qué necesitas resolver
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
               <Button
+                asChild
                 size="xl"
                 variant="outline"
-                onClick={() => handleScroll("#contacto")}
               >
-                Contactar
+                <a href="#proyectos">Ver proyectos reales</a>
               </Button>
             </motion.div>
 
@@ -190,16 +197,18 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex items-center gap-8"
+              className="grid grid-cols-2 gap-5 sm:flex sm:flex-wrap sm:items-center sm:gap-8"
             >
               {[
-                { value: "4", label: "Proyectos lanzados" },
-                { value: "100%", label: "Entregas a tiempo" },
-                { value: "24h", label: "Tiempo de respuesta" },
+                {
+                  value: String(siteConfig.projectsInProduction),
+                  label: "proyectos en producción",
+                },
+                { value: `Menos de ${siteConfig.responseTime}`, label: "para responder" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <div
-                    className="text-2xl font-bold text-white"
+                    className="text-xl sm:text-2xl font-bold text-white"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     {stat.value}
