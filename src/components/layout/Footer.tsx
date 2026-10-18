@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Github, Linkedin, Mail, MessageSquare, Star } from "lucide-react";
 import { GOOGLE_REVIEW_URL, trackReviewClick } from "@/lib/reviews";
 import { trackGA4Event } from "@/lib/analytics";
@@ -29,7 +30,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-white/[0.08] bg-black/40">
       <div className="mx-auto max-w-7xl px-4 pb-20 pt-14 sm:px-6 md:pb-14 lg:px-8">
-        <div className="mb-12 grid grid-cols-1 gap-10 sm:grid-cols-3">
+        <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-3 md:mb-12 md:gap-10">
           <div>
             <div className="mb-4">
               <Image
@@ -47,10 +48,10 @@ export default function Footer() {
             </p>
           </div>
 
-          <nav aria-label="Navegación del pie de página">
-            <h2 className="mb-5 text-xs font-semibold uppercase tracking-widest text-white/75">
+          <nav aria-label="Navegación del pie de página" className="hidden md:block">
+            <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-white/75">
               Navegación
-            </h2>
+            </p>
             <ul className="grid grid-cols-2 gap-x-4 gap-y-1">
               {navLinks.map((link) => (
                 <li key={link.label}>
@@ -66,10 +67,10 @@ export default function Footer() {
           </nav>
 
           <div>
-            <h2 className="mb-5 text-xs font-semibold uppercase tracking-widest text-white/75">
+            <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-white/75">
               Contacto
-            </h2>
-            <div className="flex flex-col gap-1">
+            </p>
+            <div className="flex flex-row flex-wrap gap-2 md:flex-col md:gap-1">
               {socials.map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
@@ -81,10 +82,10 @@ export default function Footer() {
                   }}
                   className="group flex min-h-11 items-center gap-3 rounded-lg text-sm text-white/80 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
                 >
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/15 bg-white/[0.04] transition-colors group-hover:border-white/30">
+                  <span className="flex h-8 w-8 max-md:h-11 max-md:w-11 items-center justify-center rounded-lg border border-white/15 bg-white/[0.04] transition-colors group-hover:border-white/30">
                     <Icon className="h-4 w-4" aria-hidden="true" />
                   </span>
-                  {label}
+                  <span className="sr-only md:not-sr-only">{label}</span>
                 </a>
               ))}
               <a
@@ -94,19 +95,27 @@ export default function Footer() {
                 onClick={trackReviewClick}
                 className="group flex min-h-11 items-center gap-3 rounded-lg text-sm text-white/80 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
               >
-                <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/15 bg-white/[0.04] transition-colors group-hover:border-white/30">
+                <span className="flex h-8 w-8 max-md:h-11 max-md:w-11 items-center justify-center rounded-lg border border-white/15 bg-white/[0.04] transition-colors group-hover:border-white/30">
                   <Star className="h-4 w-4" aria-hidden="true" />
                 </span>
-                Reseña en Google
+                <span className="sr-only md:not-sr-only">Reseña en Google</span>
               </a>
             </div>
           </div>
         </div>
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
-          <p className="text-xs text-white/70">
-            © {new Date().getFullYear()} TuWebPro · Rachid Boss Ibarra
-          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-3">
+            <p className="text-xs text-white/70">
+              © {new Date().getFullYear()} TuWebPro · Rachid Boss Ibarra
+            </p>
+            <Link
+              href="/privacidad"
+              className="inline-flex min-h-11 items-center rounded text-xs text-white/75 underline underline-offset-4 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+            >
+              Política de privacidad
+            </Link>
+          </div>
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-emerald-300" aria-hidden="true" />
             <span className="text-xs text-white/75">

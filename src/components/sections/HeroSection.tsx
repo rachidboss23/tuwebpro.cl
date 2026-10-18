@@ -47,7 +47,7 @@ function ProjectMockup() {
             width={1280}
             height={720}
             className="w-full h-auto object-cover"
-            priority
+            sizes="(min-width: 1024px) 640px, 1px"
           />
           {/* Overlay gradient at bottom */}
           <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/60 to-transparent" />
@@ -107,7 +107,7 @@ export default function HeroSection() {
 
             {/* Headline */}
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-3xl sm:text-5xl font-bold leading-[1.1] tracking-tight mb-4 sm:mb-6"
@@ -121,13 +121,18 @@ export default function HeroSection() {
 
             {/* Subheadline */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-base sm:text-lg text-white/70 leading-relaxed mb-6 sm:mb-6 max-w-xl"
             >
-              Sistemas y automatizaciones para que tu empresa trabaje con más orden y menos
-              tareas repetitivas.
+              <span className="md:hidden">
+                Sistemas y automatizaciones para trabajar con más orden.
+              </span>
+              <span className="hidden md:inline">
+                Sistemas y automatizaciones para que tu empresa trabaje con más
+                orden y menos tareas repetitivas.
+              </span>
             </motion.p>
 
             <ul className="hidden md:grid gap-2 mb-6 text-sm text-white/75 md:grid-cols-3">
@@ -136,9 +141,24 @@ export default function HeroSection() {
               <li><strong className="text-violet-300">Más control:</strong> procesos conectados</li>
             </ul>
 
+            <div className="mb-6 flex items-center gap-4 md:hidden">
+              <span className="inline-flex items-center gap-1.5 whitespace-nowrap text-[12.5px] text-white/80">
+                <span className="h-1.5 w-1.5 rounded-full bg-blue-300" aria-hidden="true" />
+                Más tiempo
+              </span>
+              <span className="inline-flex items-center gap-1.5 whitespace-nowrap text-[12.5px] text-white/80">
+                <span className="h-1.5 w-1.5 rounded-full bg-cyan-300" aria-hidden="true" />
+                Más orden
+              </span>
+              <span className="inline-flex items-center gap-1.5 whitespace-nowrap text-[12.5px] text-white/80">
+                <span className="h-1.5 w-1.5 rounded-full bg-violet-300" aria-hidden="true" />
+                Más control
+              </span>
+            </div>
+
             {/* CTAs */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-col gap-3 sm:flex-row sm:flex-wrap mb-6 sm:mb-8"
@@ -158,26 +178,20 @@ export default function HeroSection() {
                 asChild
                 size="xl"
                 variant="outline"
-                className="hidden sm:inline-flex"
+                className="hidden md:inline-flex"
               >
                 <a href="#proyectos">Ver proyectos reales</a>
               </Button>
-              <a
-                href="#proyectos"
-                className="inline-flex min-h-11 items-center justify-center rounded-lg text-sm font-medium text-white/80 underline underline-offset-4 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 sm:hidden"
-              >
-                Ver proyectos reales
-              </a>
             </motion.div>
 
             <HeroProjectsCarousel />
 
             {/* Social proof stats */}
             <motion.div
-              initial={{ opacity: 0 }}
+              initial={false}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="hidden sm:flex sm:flex-wrap sm:items-center sm:gap-8"
+              className="hidden md:flex md:flex-wrap md:items-center md:gap-8"
             >
               {[
                 {
@@ -197,10 +211,6 @@ export default function HeroSection() {
                 </div>
               ))}
             </motion.div>
-            <p className="text-xs leading-relaxed text-white/75 sm:hidden">
-              {siteConfig.projectsInProduction} proyectos en producción · Respondo en menos de{" "}
-              {siteConfig.responseTime}
-            </p>
           </div>
 
           {/* Right: Project mockup */}

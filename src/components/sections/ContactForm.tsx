@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
+import Link from "next/link";
 import { trackGA4Event } from "@/lib/analytics";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -13,12 +14,28 @@ const inputClassName =
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
+  const [contactError, setContactError] = useState(false);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const phoneRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
+    setContactError(false);
+    setStatus("idle");
+    const emailValue = emailRef.current?.value.trim() ?? "";
+    const phoneValue = phoneRef.current?.value.trim() ?? "";
+
+    if (!emailValue && !phoneValue) {
+      setContactError(true);
+      emailRef.current?.focus();
+      return;
+    }
+
     setStatus("sending");
     const formData = new FormData(form);
+    if (!emailValue) formData.delete("email");
+    if (!phoneValue) formData.delete("phone");
     formData.append("access_key", "10748499-4eab-455f-868c-2e9b029018a2");
     formData.append("subject", "Nuevo mensaje desde tuwebpro.cl");
     formData.append("from_name", "TuWebPro Formulario");
@@ -85,6 +102,15 @@ export default function ContactForm() {
           aria-busy={status === "sending"}
           className="glass-strong space-y-5 rounded-2xl border border-white/10 p-5 sm:p-8"
         >
+          <input
+            name="botcheck"
+            type="checkbox"
+            className="hidden"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+          />
+
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <div className="flex flex-col gap-2">
               <label htmlFor="name" className="text-sm font-medium text-white/90">
@@ -103,14 +129,16 @@ export default function ContactForm() {
 
             <div className="flex flex-col gap-2">
               <label htmlFor="email" className="text-sm font-medium text-white/90">
-                Tu email
+                Tu email (opcional)
               </label>
               <input
                 id="email"
+                ref={emailRef}
                 name="email"
                 type="email"
                 autoComplete="email"
-                required
+                aria-describedby="contact-hint"
+                onChange={() => setContactError(false)}
                 placeholder="juan@empresa.cl"
                 className={inputClassName}
               />
@@ -123,12 +151,18 @@ export default function ContactForm() {
             </label>
             <input
               id="phone"
+              ref={phoneRef}
               name="phone"
               type="tel"
               autoComplete="tel"
+              aria-describedby="contact-hint"
+              onChange={() => setContactError(false)}
               placeholder="+56 9 1234 5678"
               className={inputClassName}
             />
+            <p id="contact-hint" className="text-xs text-white/60">
+              Déjame al menos uno (email o WhatsApp) para poder responderte.
+            </p>
           </div>
 
           <div className="flex flex-col gap-2">
@@ -187,7 +221,13 @@ export default function ContactForm() {
           </button>
 
           <p className="text-center text-xs leading-relaxed text-white/60">
-            Uso tus datos solo para responder tu consulta.
+            Uso tus datos solo para responder tu consulta.{" "}
+            <Link
+              href="/privacidad"
+              className="underline underline-offset-4 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 rounded"
+            >
+              Política de privacidad
+            </Link>
           </p>
 
           <p className="text-center text-sm text-white/80">
@@ -214,6 +254,15 @@ export default function ContactForm() {
                 ? "Enviando tu mensaje..."
                 : ""}
           </p>
+
+          {contactError && (
+            <p
+              role="alert"
+              className="text-center text-sm font-medium text-red-200"
+            >
+              Déjame tu email o tu WhatsApp para poder responderte.
+            </p>
+          )}
 
           {status === "error" && (
             <p

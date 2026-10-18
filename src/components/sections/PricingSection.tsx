@@ -155,7 +155,7 @@ export default function PricingSection() {
           </p>
         </motion.header>
 
-        <div className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="grid grid-cols-1 items-stretch gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-5">
           {plans.map((plan, index) => (
             <motion.article
               key={plan.name}
@@ -171,36 +171,48 @@ export default function PricingSection() {
                     plan.popular
                       ? "bg-violet-600"
                       : "bg-emerald-700"
-                  }`}
+                  } max-md:order-1`}
                 >
                   {plan.badge}
                 </span>
               )}
               {plan.result ? (
-                <p className="mb-2 text-sm font-semibold leading-snug text-cyan-200 md:min-h-10">
+                <p className="mb-2 hidden text-sm font-semibold leading-snug text-cyan-200 md:block md:min-h-10">
                   {plan.result}
                 </p>
               ) : (
                 <div className="hidden md:block md:min-h-10" aria-hidden="true" />
               )}
-              <h3 className="mb-2 text-xl font-bold text-white">{plan.name}</h3>
+              <h3 className="mb-2 text-xl font-bold text-white max-md:order-2">{plan.name}</h3>
               {plan.idealFor ? (
-                <p className="mb-4 text-sm text-white/75 md:mb-5 md:min-h-10">
+                <p className="mb-4 hidden text-sm text-white/75 md:mb-5 md:block md:min-h-10">
                   Ideal para: {plan.idealFor}
                 </p>
               ) : (
                 <div className="hidden md:mb-5 md:block md:min-h-10" aria-hidden="true" />
               )}
-              <div className="mb-4 border-b border-white/10 pb-4 md:mb-5 md:min-h-[4.5rem]">
+              <div className="mb-3 border-b border-white/10 pb-3 md:mb-5 md:min-h-[4.5rem] md:pb-4 max-md:order-3 max-md:flex max-md:items-baseline max-md:gap-2">
                 <p className="text-2xl font-bold leading-tight text-white">
                   {plan.price}
                 </p>
                 {plan.currency && (
-                  <p className="mt-1 text-sm text-white/70">{plan.currency}</p>
+                  <p className="mt-1 text-sm text-white/70 max-md:mt-0">{plan.currency}</p>
                 )}
               </div>
 
-              <MobileCollapse label="Ver qué incluye" className="flex-1">
+              <MobileCollapse label="Ver qué incluye" className="flex-1 max-md:order-6">
+                <div className="mb-4 space-y-1 md:hidden">
+                  {plan.result && (
+                    <p className="text-sm font-semibold leading-snug text-cyan-200">
+                      {plan.result}
+                    </p>
+                  )}
+                  {plan.idealFor && (
+                    <p className="text-sm text-white/75">
+                      Ideal para: {plan.idealFor}
+                    </p>
+                  )}
+                </div>
               <ul className="mb-4 space-y-3 md:mb-6">
                 {plan.features.map((feature) => (
                   <li
@@ -223,7 +235,7 @@ export default function PricingSection() {
               </ul>
               </MobileCollapse>
 
-              <p className="mb-4 text-sm text-white/75 md:mb-5">
+              <p className="mb-4 text-sm text-white/75 md:mb-5 max-md:order-4">
                 <span className="mr-1" aria-hidden="true">⏱</span>
                 <span className="sr-only">Plazo estimado: </span>
                 {plan.time}
@@ -232,7 +244,7 @@ export default function PricingSection() {
                 asChild
                 variant={plan.popular ? "glow" : "outline"}
                 size="lg"
-                className="w-full"
+                className="w-full max-md:order-5"
               >
                 <a
                   href={getWhatsAppUrl(plan.ctaMessage)}
@@ -261,8 +273,14 @@ export default function PricingSection() {
             y armo una propuesta a medida sin costo.
           </p>
           <p className="text-sm leading-relaxed text-white/70">
-            Precios en CLP. Emito boleta de honorarios; los valores no llevan IVA adicional. Proyectos con integraciones o necesidades especiales se cotizan según alcance.
+            Precios en CLP. Emito boleta de honorarios; los valores no llevan IVA adicional. Pago: 50% al iniciar y 50% al entregar en webs; sistemas y automatizaciones, por hitos. Proyectos con integraciones o necesidades especiales se cotizan según alcance.
           </p>
+          <a
+            href="#preguntas"
+            className="inline-flex min-h-11 items-center rounded text-sm font-medium text-cyan-200 underline underline-offset-4 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+          >
+            Más detalles en preguntas frecuentes
+          </a>
         </div>
       </div>
     </section>

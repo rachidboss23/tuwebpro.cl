@@ -15,21 +15,21 @@ import FaqSection from "@/components/sections/FaqSection";
 
 export default function Home() {
   return (
-    <main className="relative bg-[#090909] min-h-screen">
+    <main className="relative bg-[#090909] min-h-screen max-md:flex max-md:flex-col">
       <Navbar />
-      <HeroSection />
-      <ProblemsSection />
-      <ServicesSection />
-      <PricingSection />
-      <PortfolioSection />
-      <UseCasesSection />
-      <TestimonialsSection />
-      <ProcessSection />
-      <StackSection />
-      <AboutSection />
-      <FaqSection />
-      <ContactForm />
-      <Footer />
+      <div className="max-md:order-1"><HeroSection /></div>
+      <div className="max-md:order-2"><ProblemsSection /></div>
+      <div className="max-md:order-5"><ServicesSection /></div>
+      <div className="max-md:order-6"><PricingSection /></div>
+      <div className="max-md:order-3"><PortfolioSection /></div>
+      <div className="max-md:order-9"><UseCasesSection /></div>
+      <div className="max-md:order-4"><TestimonialsSection /></div>
+      <div className="max-md:order-7"><ProcessSection /></div>
+      <div className="max-md:order-10"><StackSection /></div>
+      <div className="max-md:order-8"><AboutSection /></div>
+      <div className="max-md:order-11"><FaqSection /></div>
+      <div className="max-md:order-12"><ContactForm /></div>
+      <div className="max-md:order-[13]"><Footer /></div>
     </main>
   );
 }

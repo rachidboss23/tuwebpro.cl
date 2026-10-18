@@ -10,8 +10,16 @@ const faqs = [
     a: "No. Emito boleta de honorarios y los valores publicados no llevan IVA adicional.",
   },
   {
+    q: "¿Cómo se paga?",
+    a: "En proyectos web, 50% al iniciar y 50% al entregar. En sistemas y automatizaciones, el pago se divide en hitos que acordamos antes de empezar. Todo queda por escrito en la propuesta.",
+  },
+  {
     q: "¿Cuánto se demora?",
     a: "Web Básica: 2–3 días hábiles. Landing Page: 3–5 días hábiles. Web Profesional: 1–2 semanas. Los sistemas y las automatizaciones dependen del alcance del proyecto.",
+  },
+  {
+    q: "¿Puedo pedir factura?",
+    a: "Emito boleta de honorarios. Si tu empresa necesita otro documento tributario, dímelo antes de cotizar para revisarlo contigo.",
   },
   {
     q: "¿El código del proyecto es mío?",
@@ -20,6 +28,14 @@ const faqs = [
   {
     q: "¿Qué soporte incluyen los planes?",
     a: "Web Básica: 1 semana. Landing Page: 2 semanas. Web Profesional: 1 mes. Sistema / SaaS: 3 meses de soporte y mantenimiento.",
+  },
+  {
+    q: "¿Hay mantención después del soporte?",
+    a: "Sí. Al terminar el soporte incluido puedes contratar un plan de mantención mensual para actualizaciones, correcciones y cambios menores. Su valor se cotiza según el proyecto.",
+  },
+  {
+    q: "¿Qué pasa con el dominio y el hosting?",
+    a: "El dominio queda a tu nombre y yo lo configuro. Su renovación anual la pagas tú directamente al proveedor. Antes de empezar te indico si el proyecto tiene otros costos externos (hosting o servicios de terceros) y quién los paga.",
   },
   {
     q: "¿Cómo empiezo?",

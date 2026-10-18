@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Workflow } from "lucide-react";
+import { ArrowRight, ChevronDown, Workflow } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MobileCollapse } from "@/components/ui/mobile-collapse";
+import { useState } from "react";
 
 const problems = [
   {
@@ -45,6 +46,8 @@ const problems = [
 ];
 
 export default function ProblemsSection() {
+  const [showAll, setShowAll] = useState(false);
+
   return (
     <section id="soluciones" className="relative overflow-hidden py-14 sm:py-28">
       <div className="absolute inset-0 dot-pattern opacity-25" aria-hidden="true" />
@@ -68,7 +71,7 @@ export default function ProblemsSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div id="problems-grid" className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {problems.map((problem, index) => (
             <motion.article
               key={problem.client}
@@ -76,7 +79,9 @@ export default function ProblemsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.4, delay: index * 0.04 }}
-              className="glass card-hover rounded-2xl border border-white/10 p-4 sm:p-6"
+              className={`glass card-hover rounded-2xl border border-white/10 p-4 sm:p-6 ${
+                index >= 4 && !showAll ? "hidden md:block" : ""
+              }`}
             >
               <div className="mb-2 flex items-start gap-3 md:mb-4">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-cyan-400/25 bg-cyan-400/10 text-cyan-200">
@@ -109,6 +114,22 @@ export default function ProblemsSection() {
             </motion.article>
           ))}
         </div>
+
+        <button
+          type="button"
+          aria-expanded={showAll}
+          aria-controls="problems-grid"
+          onClick={() => setShowAll((value) => !value)}
+          className="mx-auto mt-4 flex min-h-11 items-center gap-1 text-sm font-semibold text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 md:hidden"
+        >
+          {showAll ? "Ver menos" : "Ver 3 situaciones más"}
+          <ChevronDown
+            className={`h-4 w-4 transition-transform motion-reduce:transition-none ${
+              showAll ? "rotate-180" : ""
+            }`}
+            aria-hidden="true"
+          />
+        </button>
 
         <div className="mt-8 flex flex-col items-center gap-5 text-center sm:mt-12">
           <p className="max-w-2xl text-sm leading-relaxed text-white/75 sm:text-base">

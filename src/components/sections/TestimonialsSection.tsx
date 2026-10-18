@@ -120,13 +120,13 @@ export default function TestimonialsSection() {
                   >
                     {t.initial}
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <div className="text-sm font-semibold text-white">{t.author}</div>
                     <div className="text-xs text-white/75">{t.role}</div>
                   </div>
-                  <div className="ml-auto">
+                  <div className="ml-auto shrink-0">
                     <span
-                      className={`text-[10px] font-medium px-2 py-0.5 rounded-full border ${
+                      className={`whitespace-nowrap text-[10px] font-medium px-2 py-0.5 rounded-full border ${
                         t.color === "blue"
                           ? "bg-blue-500/10 text-blue-400 border-blue-500/20"
                           : t.color === "violet"

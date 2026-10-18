@@ -1,16 +1,22 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { projects } from "@/lib/projects";
 
 export default function HeroProjectsCarousel() {
   const carouselRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const handleScroll = () => {
-    if (carouselRef.current) {
-      const { scrollLeft } = carouselRef.current;
-      void scrollLeft;
+    const carousel = carouselRef.current;
+    const firstCard = carousel?.firstElementChild;
+    if (carousel && firstCard instanceof HTMLElement) {
+      const gap = Number.parseFloat(getComputedStyle(carousel).columnGap) || 0;
+      const index = Math.round(
+        carousel.scrollLeft / (firstCard.offsetWidth + gap),
+      );
+      setActiveIndex(Math.min(index, projects.length - 1));
     }
   };
 
@@ -63,6 +69,16 @@ export default function HeroProjectsCarousel() {
               <span className="mt-2 block text-[11px] text-white/70">{project.heroTags.join(" · ")}</span>
             </div>
           </a>
+        ))}
+      </div>
+      <div className="mt-3 flex justify-center gap-1.5" aria-hidden="true">
+        {projects.map((project, index) => (
+          <span
+            key={project.slug}
+            className={`h-1.5 rounded-full transition-[width,background-color] motion-reduce:transition-none ${
+              index === activeIndex ? "w-4 bg-cyan-300" : "w-1.5 bg-white/30"
+            }`}
+          />
         ))}
       </div>
     </div>

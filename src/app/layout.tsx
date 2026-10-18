@@ -3,7 +3,22 @@ import "./globals.css";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
+import { DM_Sans, Syne } from "next/font/google";
 import { siteConfig } from "@/lib/siteConfig";
+
+const syne = Syne({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-syne",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  display: "swap",
+  variable: "--font-dm-sans",
+});
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -98,10 +113,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className="dark">
+    <html lang="es" className={`dark ${syne.variable} ${dmSans.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <meta name="geo.region" content="CL-RM" />
         <meta name="geo.placename" content="Santiago, Chile" />
         <meta name="language" content="es" />
@@ -116,7 +129,7 @@ export default function RootLayout({
         <Analytics />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-DN93NXFZNQ"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
