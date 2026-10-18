@@ -16,7 +16,7 @@ const testimonials = [
     border: "border-blue-500/20",
     accent: "text-blue-400",
     bg: "from-blue-500/[0.05] to-transparent",
-    initial: "C",
+    initial: "P",
     avatarGradient: "from-blue-500 to-blue-700",
   },
   {
@@ -51,7 +51,7 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section id="testimonios" className="py-28 relative overflow-hidden">
+    <section id="testimonios" className="py-14 sm:py-28 relative overflow-hidden">
       <div className="absolute inset-0 dot-pattern opacity-30" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] bg-blue-500/[0.04] rounded-full blur-3xl" />
 
@@ -62,24 +62,26 @@ export default function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
           <span className="code-label text-blue-400/70 block mb-4">{"// Clientes"}</span>
           <h2
-            className="text-4xl sm:text-5xl font-bold text-white mb-5"
+            className="text-3xl sm:text-5xl font-bold text-white mb-5"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Lo que dicen quienes
             <br />
-            <span className="gradient-text">trabajaron con nosotros</span>
+            <span className="gradient-text">trabajaron conmigo</span>
           </h2>
-          <p className="text-white/75 text-lg max-w-lg mx-auto">
-            Proyectos reales, resultados reales, clientes reales.
-          </p>
         </motion.div>
 
         {/* Grid 2 columnas desktop, 1 mobile */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div
+          role="region"
+          aria-label="Testimonios de clientes"
+          tabIndex={0}
+          className="-mx-4 flex max-w-6xl snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-auto md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0"
+        >
           {testimonials.map((t, index) => (
             <motion.div
               key={t.author}
@@ -87,7 +89,7 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative glass rounded-2xl p-7 border ${t.border} flex flex-col`}
+              className={`relative glass rounded-2xl p-5 sm:p-7 border ${t.border} flex w-[86%] shrink-0 snap-center flex-col md:w-auto`}
             >
               {/* Gradient bg */}
               <div
@@ -140,8 +142,11 @@ export default function TestimonialsSection() {
             </motion.div>
           ))}
         </div>
+        <p className="mt-2 text-center text-xs text-white/60 md:hidden" aria-hidden="true">
+          Desliza para ver más opiniones →
+        </p>
 
-        <div className="glass card-hover glow-blue relative max-w-6xl mx-auto mt-8 overflow-hidden rounded-2xl border border-blue-500/30 p-7 sm:p-9 motion-reduce:transform-none motion-reduce:transition-none">
+        <div className="glass card-hover glow-blue relative max-w-6xl mx-auto mt-6 sm:mt-8 overflow-hidden rounded-2xl border border-blue-500/30 p-5 sm:p-9 motion-reduce:transform-none motion-reduce:transition-none">
           <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/[0.12] via-violet-500/[0.05] to-transparent" />
           <div className="relative z-10 flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
             <div className="max-w-2xl">
@@ -155,11 +160,11 @@ export default function TestimonialsSection() {
                 ¿Trabajaste con TuWebPro?
               </h3>
               <p className="text-sm leading-relaxed text-white/70 sm:text-base">
-                Tu reseña en Google ayuda a otros negocios a decidir. Cuéntanos
+                Tu reseña en Google ayuda a otros negocios a decidir. Cuéntame
                 cómo fue la experiencia.
               </p>
               <div
-                className="mt-4 flex items-center gap-0.5"
+                className="mt-4 hidden items-center gap-0.5 sm:flex"
                 aria-hidden="true"
               >
                 {Array.from({ length: 5 }).map((_, index) => (

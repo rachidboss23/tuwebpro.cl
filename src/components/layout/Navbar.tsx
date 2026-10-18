@@ -13,7 +13,7 @@ const navLinks = [
   { label: "Precios", href: "#precios" },
   { label: "Proyectos", href: "#proyectos" },
   { label: "Proceso", href: "#proceso" },
-  { label: "Nosotros", href: "#nosotros" },
+  { label: "Sobre mí", href: "#nosotros" },
   { label: "Contactar", href: "#contacto" },
 ];
 
@@ -60,12 +60,12 @@ export default function Navbar() {
               onClick={closeMenu}
             >
               <Image
-                src="/images/logo_tuwebpro.png"
+                src="/images/logo_tuwebpro_trim.png"
                 alt="TuWebPro"
-                width={144}
-                height={96}
-                sizes="(max-width: 767px) 120px, 144px"
-                className="h-12 w-auto object-contain"
+                width={640}
+                height={156}
+                sizes="(max-width: 767px) 148px, 164px"
+                className="h-9 w-auto object-contain md:h-10"
                 priority
               />
             </Link>

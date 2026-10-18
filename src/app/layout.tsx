@@ -10,6 +10,16 @@ const structuredData = {
   "@type": "ProfessionalService",
   name: "TuWebPro",
   url: "https://www.tuwebpro.cl",
+  logo: "https://www.tuwebpro.cl/images/logo_tuwebpro_trim.png",
+  image: "https://www.tuwebpro.cl/images/logo_tuwebpro_trim.png",
+  description:
+    "Desarrollo web, software a medida y automatización para pymes en Chile.",
+  founder: { "@type": "Person", name: "Rachid Boss Ibarra" },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Santiago",
+    addressCountry: "CL",
+  },
   areaServed: {
     "@type": "Country",
     name: "Chile",
@@ -27,7 +37,7 @@ export const metadata: Metadata = {
     default: "Desarrollo web y software a medida para pymes | TuWebPro",
     template: "%s | TuWebPro",
   },
-  description: `Desarrollo web en Santiago y software a medida en Chile. ${siteConfig.projectsInProduction} proyectos lanzados. Sistemas de gestión para pymes y automatización para empresas, con soluciones adaptadas a cada operación.`,
+  description: `Desarrollo web en Santiago y software a medida para pymes. Automatización y sistemas de gestión. ${siteConfig.projectsInProduction} proyectos lanzados.`,
   keywords: [
     "agencia tecnológica Chile",
     "desarrollo web Santiago",

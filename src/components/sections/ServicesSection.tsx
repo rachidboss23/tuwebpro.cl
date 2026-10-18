@@ -11,6 +11,7 @@ import {
   Settings2,
   Users,
 } from "lucide-react";
+import { MobileCollapse } from "@/components/ui/mobile-collapse";
 
 const packages = [
   {
@@ -24,7 +25,7 @@ const packages = [
         icon: Globe,
         title: "Desarrollo Web",
         description:
-          "Sitios y aplicaciones web de alto rendimiento con las mejores tecnologías del mercado actual. También desarrollamos sitios corporativos y soluciones WordPress optimizadas para conversión y SEO.",
+          "Sitios y aplicaciones web de alto rendimiento con las mejores tecnologías del mercado actual. También desarrollo sitios corporativos y soluciones WordPress optimizadas para conversión y SEO.",
         tags: ["Next.js", "React", "TypeScript", "WordPress", "WooCommerce"],
       },
     ],
@@ -40,21 +41,21 @@ const packages = [
         icon: Brain,
         title: "Automatización IA",
         description:
-          "Implementamos flujos inteligentes con modelos de lenguaje, visión y razonamiento para automatizar tareas complejas.",
+          "Implemento flujos inteligentes con modelos de lenguaje, visión y razonamiento para automatizar tareas complejas.",
         tags: ["OpenAI", "LangChain", "n8n"],
       },
       {
         icon: Plug,
         title: "Integraciones API",
         description:
-          "Conectamos tus herramientas existentes: CRMs, ERPs, pasarelas de pago y servicios externos.",
+          "Conecto tus herramientas existentes: CRMs, ERPs, pasarelas de pago y servicios externos.",
         tags: ["REST", "GraphQL", "Webhooks"],
       },
       {
         icon: MessageSquare,
         title: "Automatización WhatsApp",
         description:
-          "Bots inteligentes para WhatsApp Business que atienden, califican y nutren leads 24/7.",
+          "Bots inteligentes para WhatsApp Business que atienden consultas y hacen seguimiento a posibles clientes.",
         tags: ["WhatsApp API", "IA", "CRM"],
       },
     ],
@@ -100,7 +101,7 @@ const packages = [
 
 export default function ServicesSection() {
   return (
-    <section id="servicios" className="relative overflow-hidden py-24 sm:py-28">
+    <section id="servicios" className="relative overflow-hidden py-14 sm:py-28">
       <div className="absolute inset-0 dot-pattern opacity-25" aria-hidden="true" />
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.header
@@ -108,12 +109,12 @@ export default function ServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5 }}
-          className="mb-12 text-center sm:mb-16"
+          className="mb-8 text-center sm:mb-16"
         >
           <span className="code-label mb-4 block text-blue-300">
             {"// Servicios"}
           </span>
-          <h2 className="mb-5 text-4xl font-bold text-white sm:text-5xl">
+          <h2 className="mb-5 text-3xl font-bold text-white sm:text-5xl">
             Soluciones para que tu empresa trabaje con más orden
           </h2>
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
@@ -130,7 +131,7 @@ export default function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.45, delay: packageIndex * 0.08 }}
-              className={`glass card-hover rounded-2xl border ${servicePackage.accent.split(" ")[0]} bg-gradient-to-b ${servicePackage.accent.split(" ")[1]} to-transparent p-5 sm:p-6`}
+              className={`glass card-hover rounded-2xl border ${servicePackage.accent.split(" ")[0]} bg-gradient-to-b ${servicePackage.accent.split(" ")[1]} to-transparent p-4 sm:p-6`}
             >
               <h3 className="mb-2 text-2xl font-bold text-white">
                 {servicePackage.name}
@@ -138,10 +139,11 @@ export default function ServicesSection() {
               <p className="mb-3 text-sm leading-relaxed text-white/80">
                 {servicePackage.summary}
               </p>
-              <p className="mb-6 text-sm font-medium text-cyan-200">
+              <p className="mb-3 text-sm font-medium text-cyan-200 md:mb-6">
                 {servicePackage.ideal}
               </p>
 
+              <MobileCollapse label={`Ver servicios incluidos (${servicePackage.services.length})`}>
               <div className="space-y-4">
                 {servicePackage.services.map((service) => {
                   const Icon = service.icon;
@@ -179,6 +181,7 @@ export default function ServicesSection() {
                   );
                 })}
               </div>
+              </MobileCollapse>
             </motion.article>
           ))}
         </div>

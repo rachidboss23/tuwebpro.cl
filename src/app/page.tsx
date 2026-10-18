@@ -11,6 +11,7 @@ import AboutSection from "@/components/sections/AboutSection";
 import ContactForm from "@/components/sections/ContactForm";
 import ProblemsSection from "@/components/sections/ProblemsSection";
 import UseCasesSection from "@/components/sections/UseCasesSection";
+import FaqSection from "@/components/sections/FaqSection";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <ProcessSection />
       <StackSection />
       <AboutSection />
+      <FaqSection />
       <ContactForm />
       <Footer />
     </main>

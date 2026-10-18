@@ -5,6 +5,7 @@ import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { MobileCollapse } from "@/components/ui/mobile-collapse";
 
 const projects = [
   {
@@ -80,8 +81,8 @@ function ComingSoonCard() {
       className="glass overflow-hidden rounded-2xl border border-white/10"
     >
       <div className="grid gap-0 md:grid-cols-2">
-        <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
-          <div className="mb-6 flex items-center gap-3">
+        <div className="flex flex-col justify-center p-5 sm:p-8 lg:p-10">
+          <div className="mb-4 flex items-center gap-3 md:mb-6">
             <Badge variant="secondary" className="code-label">2026</Badge>
             <span className="rounded-full border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 text-xs font-medium text-emerald-200">
               En progreso
@@ -94,7 +95,7 @@ function ComingSoonCard() {
             Algo nuevo está siendo construido.
           </p>
           <div className="mb-8 flex flex-wrap gap-2">
-            {["???", "Next.js", "TypeScript"].map((tag) => (
+            {["Next.js", "TypeScript"].map((tag) => (
               <span
                 key={tag}
                 className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-white/75"
@@ -108,7 +109,7 @@ function ComingSoonCard() {
             2026 · En progreso
           </span>
         </div>
-        <div className="flex items-center p-5 sm:p-7">
+        <div className="hidden items-center p-5 sm:p-7 md:flex">
           <div className="relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-black/60">
             <div className="absolute inset-0 grid-bg opacity-40" aria-hidden="true" />
             <div
@@ -134,7 +135,7 @@ function ComingSoonCard() {
 
 export default function PortfolioSection() {
   return (
-    <section id="proyectos" className="relative overflow-hidden py-24 sm:py-28">
+    <section id="proyectos" className="relative overflow-hidden py-14 sm:py-28">
       <div
         className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.01] to-transparent"
         aria-hidden="true"
@@ -145,19 +146,18 @@ export default function PortfolioSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5 }}
-          className="mb-12 text-center sm:mb-16"
+          className="mb-8 text-center sm:mb-16"
         >
           <span className="code-label mb-4 block text-violet-300">
             {"// Proyectos"}
           </span>
-          <h2 className="mb-5 text-4xl font-bold text-white sm:text-5xl">
+          <h2 className="mb-5 text-3xl font-bold text-white sm:text-5xl">
             Trabajo real,
             <br />
             <span className="gradient-text">soluciones en producción</span>
           </h2>
           <p className="mx-auto max-w-lg text-base text-white/75 sm:text-lg">
-            Casos desarrollados para clientes, presentados con el contexto
-            disponible y sin promesas de resultados.
+            Casos reales desarrollados para clientes.
           </p>
         </motion.header>
 
@@ -174,8 +174,8 @@ export default function PortfolioSection() {
               }`}
             >
               <div className="grid gap-0 md:grid-cols-2">
-                <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
-                  <div className="mb-5 flex flex-wrap items-center gap-2">
+                <div className="flex flex-col justify-center p-5 sm:p-8 lg:p-10">
+                  <div className="mb-3 flex flex-wrap items-center gap-2 md:mb-5">
                     <Badge variant="secondary" className="code-label">
                       {project.year}
                     </Badge>
@@ -189,9 +189,10 @@ export default function PortfolioSection() {
                       </span>
                     )}
                   </div>
-                  <h3 className="mb-5 text-2xl font-bold text-white sm:text-3xl">
+                  <h3 className="mb-3 text-2xl font-bold text-white sm:text-3xl md:mb-5">
                     {project.title}
                   </h3>
+                  <MobileCollapse label="Ver el caso">
                   <dl className="space-y-4">
                     <div>
                       <dt className="mb-1 text-xs font-semibold uppercase tracking-wide text-blue-200">
@@ -218,7 +219,8 @@ export default function PortfolioSection() {
                       </dd>
                     </div>
                   </dl>
-                  <ul className="mt-6 flex flex-wrap gap-2" aria-label={`Tecnologías de ${project.title}`}>
+                  </MobileCollapse>
+                  <ul className="mt-4 flex flex-wrap gap-2 md:mt-6" aria-label={`Tecnologías de ${project.title}`}>
                     {project.tags.map((tag) => (
                       <li
                         key={tag}
@@ -232,7 +234,7 @@ export default function PortfolioSection() {
                     asChild
                     variant="outline"
                     size="sm"
-                    className="mt-6 w-fit"
+                    className="mt-4 w-fit md:mt-6"
                   >
                     <a
                       href={project.url}
@@ -244,7 +246,7 @@ export default function PortfolioSection() {
                     </a>
                   </Button>
                 </div>
-                <div className="flex items-center p-5 sm:p-7">
+                <div className="flex items-center p-4 pb-0 max-md:order-first md:p-7">
                   <ProjectImage project={project} />
                 </div>
               </div>

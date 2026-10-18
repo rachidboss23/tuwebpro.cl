@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Workflow } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { MobileCollapse } from "@/components/ui/mobile-collapse";
 
 const problems = [
   {
@@ -45,7 +46,7 @@ const problems = [
 
 export default function ProblemsSection() {
   return (
-    <section id="soluciones" className="relative overflow-hidden py-24 sm:py-28">
+    <section id="soluciones" className="relative overflow-hidden py-14 sm:py-28">
       <div className="absolute inset-0 dot-pattern opacity-25" aria-hidden="true" />
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -53,17 +54,17 @@ export default function ProblemsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5 }}
-          className="mb-12 text-center sm:mb-16"
+          className="mb-8 text-center sm:mb-16"
         >
           <span className="code-label mb-4 block text-cyan-300">
             {"// Soluciones"}
           </span>
-          <h2 className="mb-5 text-4xl font-bold text-white sm:text-5xl">
+          <h2 className="mb-5 text-3xl font-bold text-white sm:text-5xl">
             ¿Te suena familiar?
           </h2>
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
-            Cada negocio es distinto. Identificamos qué te hace perder tiempo y
-            armamos la solución que realmente necesitas.
+            Cada negocio es distinto. Identifico qué te hace perder tiempo y
+            armo la solución que realmente necesitas.
           </p>
         </motion.div>
 
@@ -75,9 +76,9 @@ export default function ProblemsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.4, delay: index * 0.04 }}
-              className="glass card-hover rounded-2xl border border-white/10 p-5 sm:p-6"
+              className="glass card-hover rounded-2xl border border-white/10 p-4 sm:p-6"
             >
-              <div className="mb-4 flex items-start gap-3">
+              <div className="mb-2 flex items-start gap-3 md:mb-4">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-cyan-400/25 bg-cyan-400/10 text-cyan-200">
                   <Workflow className="h-4 w-4" aria-hidden="true" />
                 </span>
@@ -85,6 +86,7 @@ export default function ProblemsSection() {
                   {problem.client}
                 </h3>
               </div>
+              <MobileCollapse label="Ver solución y beneficio">
               <dl className="space-y-4">
                 <div>
                   <dt className="mb-1 text-xs font-semibold uppercase tracking-wide text-blue-200">
@@ -103,11 +105,12 @@ export default function ProblemsSection() {
                   </dd>
                 </div>
               </dl>
+              </MobileCollapse>
             </motion.article>
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center gap-5 text-center">
+        <div className="mt-8 flex flex-col items-center gap-5 text-center sm:mt-12">
           <p className="max-w-2xl text-sm leading-relaxed text-white/75 sm:text-base">
             Cada solución se adapta a tu empresa. Cuéntame tu caso y te propongo
             algo a la medida.

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import { trackGA4Event } from "@/lib/analytics";
+import { siteConfig } from "@/lib/siteConfig";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -41,7 +42,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contacto" className="relative overflow-hidden py-24">
+    <section id="contacto" className="relative overflow-hidden py-14 sm:py-24">
       <div
         className="pointer-events-none absolute inset-0 flex items-center justify-center"
         aria-hidden="true"
@@ -184,6 +185,23 @@ export default function ContactForm() {
             <Send className="h-4 w-4" aria-hidden="true" />
             {status === "sending" ? "Enviando..." : "Enviar mensaje"}
           </button>
+
+          <p className="text-center text-xs leading-relaxed text-white/60">
+            Uso tus datos solo para responder tu consulta.
+          </p>
+
+          <p className="text-center text-sm text-white/80">
+            ¿Prefieres WhatsApp?{" "}
+            <a
+              href={siteConfig.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackGA4Event("whatsapp_click")}
+              className="font-semibold text-emerald-200 underline underline-offset-4 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300"
+            >
+              Escríbeme directo
+            </a>
+          </p>
 
           <p
             role="status"

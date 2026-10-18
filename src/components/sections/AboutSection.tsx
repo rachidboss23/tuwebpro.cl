@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, MessageSquare } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
+import { MobileCollapse } from "@/components/ui/mobile-collapse";
 
 const stack = [
   "React.js", "Node.js", "JavaScript", "TypeScript",
@@ -53,7 +54,7 @@ const links = [
 
 export default function AboutSection() {
   return (
-    <section id="nosotros" className="py-28 relative overflow-hidden">
+    <section id="nosotros" className="py-14 sm:py-28 relative overflow-hidden">
       <div className="absolute inset-0 dot-pattern opacity-30" />
       <div className="absolute top-1/2 right-0 w-96 h-96 bg-violet-500/[0.04] rounded-full blur-3xl -translate-y-1/2" />
 
@@ -64,13 +65,13 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
           <span className="code-label text-violet-400/70 block mb-4">
             {'// Quién está detrás'}
           </span>
           <h2
-            className="text-4xl sm:text-5xl font-bold text-white mb-5"
+            className="text-3xl sm:text-5xl font-bold text-white mb-5"
             style={{ fontFamily: "var(--font-display)" }}
           >
             El fundador
@@ -85,7 +86,7 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
-          className="glass rounded-3xl border border-white/[0.07] p-8 sm:p-12 gradient-border"
+          className="glass rounded-3xl border border-white/[0.07] p-5 sm:p-12 gradient-border"
         >
           {/* Top row */}
           <div className="flex items-center gap-5 mb-8">
@@ -106,14 +107,14 @@ export default function AboutSection() {
           </div>
 
           {/* Bio */}
-          <p className="text-sm text-white/80 leading-relaxed mb-10 max-w-2xl">
+          <p className="text-sm text-white/80 leading-relaxed mb-6 sm:mb-10 max-w-2xl">
             Desarrollador Full Stack especializado en JavaScript, React y Node.js.
             Construyo los sistemas que ofrezco en TuWebPro: desde la arquitectura
             hasta el deploy. Sin intermediarios.
           </p>
 
           {/* Stats */}
-          <div className="flex flex-wrap items-center gap-8 mb-10 pb-10 border-b border-white/[0.06]">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-4 sm:gap-8 mb-6 sm:mb-10 pb-6 sm:pb-10 border-b border-white/[0.06]">
             {stats.map((stat, i) => (
               <div key={stat.label} className="flex items-center gap-8">
                 <div>
@@ -135,7 +136,8 @@ export default function AboutSection() {
           </div>
 
           {/* Two columns */}
-          <div className="grid sm:grid-cols-2 gap-10 mb-10">
+          <MobileCollapse label="Ver stack y especialidades" className="mb-4 sm:mb-10">
+          <div className="grid sm:grid-cols-2 gap-6 sm:gap-10">
             {/* Stack */}
             <div>
               <p className="code-label text-white/75 mb-4">Stack principal</p>
@@ -166,6 +168,7 @@ export default function AboutSection() {
               </div>
             </div>
           </div>
+          </MobileCollapse>
 
           {/* Links */}
           <div className="flex flex-wrap gap-3 mb-6">

@@ -90,7 +90,7 @@ const item = {
 
 export default function StackSection() {
   return (
-    <section id="stack" className="py-28 relative overflow-hidden">
+    <section id="stack" className="py-14 sm:py-28 relative overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-30" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -100,19 +100,19 @@ export default function StackSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
           <span className="code-label text-emerald-400/70 block mb-4">{'// Stack Tecnológico'}</span>
           <h2
-            className="text-4xl sm:text-5xl font-bold text-white mb-5"
+            className="text-3xl sm:text-5xl font-bold text-white mb-5"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Herramientas de
+            Tecnología
             <br />
-            <span className="gradient-text">clase mundial</span>
+            <span className="gradient-text">que uso</span>
           </h2>
           <p className="text-white/75 text-lg max-w-lg mx-auto">
-            Usamos las tecnologías más modernas y confiables del ecosistema actual.
+            Herramientas modernas y confiables; el stack se adapta a cada proyecto.
           </p>
         </motion.div>
 
@@ -122,14 +122,14 @@ export default function StackSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-9 gap-3"
+          className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-9 gap-2 sm:gap-3"
         >
           {techStack.map((tech) => (
             <motion.div
               key={tech.name}
               variants={item}
               whileHover={{ scale: 1.05, y: -2 }}
-              className={`group flex flex-col items-center gap-3 p-4 rounded-2xl bg-gradient-to-b ${tech.color} border ${tech.border} cursor-default transition-all duration-300 hover:shadow-lg`}
+              className={`group flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-4 rounded-2xl bg-gradient-to-b ${tech.color} border ${tech.border} cursor-default transition-all duration-300 hover:shadow-lg`}
             >
               <div className="text-2xl leading-none">
                 {tech.isText ? (
@@ -144,7 +144,7 @@ export default function StackSection() {
                 <div className={`text-xs font-bold ${tech.textColor}`} style={{ fontFamily: "var(--font-display)" }}>
                   {tech.name}
                 </div>
-                <div className="text-[10px] text-white/70 mt-0.5">{tech.description}</div>
+                <div className="hidden sm:block text-[10px] text-white/70 mt-0.5">{tech.description}</div>
               </div>
             </motion.div>
           ))}
@@ -156,18 +156,17 @@ export default function StackSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-16 glass rounded-2xl p-8 border border-white/[0.06] text-center"
+          className="mt-8 sm:mt-16 glass rounded-2xl p-5 sm:p-8 border border-white/[0.06] text-center"
         >
           <p className="text-white/75 text-sm leading-relaxed max-w-2xl mx-auto">
-            También trabajamos con{" "}
+            También trabajo con{" "}
             <span className="text-white/70">PostgreSQL</span>,{" "}
             <span className="text-white/70">Redis</span>,{" "}
             <span className="text-white/70">Docker</span>,{" "}
             <span className="text-white/70">AWS</span>,{" "}
             <span className="text-white/70">Stripe</span>,{" "}
             <span className="text-white/70">n8n</span>,{" "}
-            <span className="text-white/70">Make (Integromat)</span> y más.{" "}
-            El stack se adapta a las necesidades de cada proyecto.
+            <span className="text-white/70">Make (Integromat)</span> y más.
           </p>
         </motion.div>
       </div>

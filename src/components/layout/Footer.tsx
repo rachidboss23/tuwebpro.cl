@@ -20,7 +20,8 @@ const navLinks = [
   { label: "Proyectos", href: "#proyectos" },
   { label: "Proceso", href: "#proceso" },
   { label: "Stack", href: "#stack" },
-  { label: "Nosotros", href: "#nosotros" },
+  { label: "Sobre mí", href: "#nosotros" },
+  { label: "Preguntas", href: "#preguntas" },
   { label: "Contacto", href: "#contacto" },
 ];
 
@@ -32,17 +33,17 @@ export default function Footer() {
           <div>
             <div className="mb-4">
               <Image
-                src="/images/logo_tuwebpro.png"
+                src="/images/logo_tuwebpro_trim.png"
                 alt="TuWebPro"
-                width={144}
-                height={96}
-                sizes="144px"
-                className="h-14 w-auto object-contain"
+                width={640}
+                height={156}
+                sizes="180px"
+                className="h-11 w-auto object-contain"
               />
             </div>
             <p className="max-w-xs text-sm leading-relaxed text-white/75">
-              Sistemas inteligentes que automatizan, escalan y transforman
-              negocios modernos.
+              Software y automatización para pymes en Chile: más orden, menos
+              tareas manuales.
             </p>
           </div>
 

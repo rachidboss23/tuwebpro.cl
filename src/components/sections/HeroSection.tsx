@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronRight, Code2, Layers, Zap } from "lucide-react";
+import { ArrowRight, ChevronRight, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { siteConfig } from "@/lib/siteConfig";
@@ -64,49 +64,19 @@ function ProjectMockup() {
               Next.js · Supabase · IA
             </span>
             <span className="text-xs font-medium text-white/80">
-              Webs desde {siteConfig.startingWebTimeline}
-            </span>
-            <span className="text-xs font-medium text-white/80">
               El código es tuyo una vez pagado el proyecto
             </span>
           </div>
         </div>
       </motion.div>
 
-      {/* Floating badge left */}
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.8 }}
-        className="absolute -left-4 top-1/3 glass-strong rounded-xl px-3 py-2 border border-white/[0.08]"
-      >
-        <div className="flex items-center gap-2">
-          <Zap className="w-3 h-3 text-yellow-400" />
-          <span className="text-xs font-medium text-white">Webs desde 2–3 días hábiles</span>
-        </div>
-      </motion.div>
-
-      {/* Floating badge right */}
-      <motion.div
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1 }}
-        className="absolute -right-4 bottom-1/3 max-w-56 glass-strong rounded-xl px-3 py-2 border border-white/[0.08]"
-      >
-        <div className="flex items-center gap-2">
-          <Layers className="w-3 h-3 text-violet-400" />
-          <span className="text-xs font-medium text-white">
-            El código es tuyo una vez pagado el proyecto
-          </span>
-        </div>
-      </motion.div>
     </div>
   );
 }
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+    <section className="relative flex items-center pt-16 overflow-hidden lg:min-h-screen">
       {/* Background layers */}
       <div className="absolute inset-0 grid-bg opacity-100" />
       <div className="absolute inset-0 bg-mesh-gradient" />
@@ -116,7 +86,7 @@ export default function HeroSection() {
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-violet-500/[0.07] rounded-full blur-3xl" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-cyan-500/[0.04] rounded-full blur-3xl" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14 w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Copy */}
           <div>
@@ -125,7 +95,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 border border-white/[0.08] mb-8"
+              className="hidden md:inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 border border-white/[0.08] mb-6"
             >
               <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
               <span className="text-xs font-medium text-white/60">
@@ -139,13 +109,13 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight mb-6"
+              className="text-3xl sm:text-5xl font-bold leading-[1.1] tracking-tight mb-4 sm:mb-6"
               style={{ fontFamily: "var(--font-display)" }}
             >
               <span className="text-white">
-                ¿Clientes, pedidos y tareas repartidos entre Excel y WhatsApp?{" "}
+                ¿Todo en Excel y WhatsApp?{" "}
               </span>
-              <span className="gradient-text">Los juntamos en un solo lugar.</span>
+              <span className="gradient-text">Lo juntamos en un solo lugar.</span>
             </motion.h1>
 
             {/* Subheadline */}
@@ -153,13 +123,13 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg text-white/70 leading-relaxed mb-8 max-w-xl"
+              className="text-base sm:text-lg text-white/70 leading-relaxed mb-6 sm:mb-6 max-w-xl"
             >
-              Digitalizamos procesos, conectamos tus herramientas y desarrollamos sistemas para
-              que tu empresa trabaje con más orden, menos tareas repetitivas y más control.
+              Sistemas y automatizaciones para que tu empresa trabaje con más orden y menos
+              tareas repetitivas.
             </motion.p>
 
-            <ul className="grid gap-2 mb-8 text-sm text-white/75 sm:grid-cols-3">
+            <ul className="hidden md:grid gap-2 mb-6 text-sm text-white/75 md:grid-cols-3">
               <li><strong className="text-blue-300">Más tiempo:</strong> menos trabajo repetitivo</li>
               <li><strong className="text-cyan-300">Más orden:</strong> información en un solo lugar</li>
               <li><strong className="text-violet-300">Más control:</strong> procesos conectados</li>
@@ -170,13 +140,13 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap gap-3 mb-12"
+              className="flex flex-col gap-3 sm:flex-row sm:flex-wrap mb-6 sm:mb-8"
             >
               <Button
                 asChild
                 size="xl"
                 variant="glow"
-                className="group"
+                className="group w-full sm:w-auto"
               >
                 <a href="#contacto">
                   Cuéntame qué necesitas resolver
@@ -187,9 +157,16 @@ export default function HeroSection() {
                 asChild
                 size="xl"
                 variant="outline"
+                className="hidden sm:inline-flex"
               >
                 <a href="#proyectos">Ver proyectos reales</a>
               </Button>
+              <a
+                href="#proyectos"
+                className="inline-flex min-h-11 items-center justify-center rounded-lg text-sm font-medium text-white/80 underline underline-offset-4 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 sm:hidden"
+              >
+                Ver proyectos reales
+              </a>
             </motion.div>
 
             {/* Social proof stats */}
@@ -197,7 +174,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="grid grid-cols-2 gap-5 sm:flex sm:flex-wrap sm:items-center sm:gap-8"
+              className="hidden sm:flex sm:flex-wrap sm:items-center sm:gap-8"
             >
               {[
                 {
@@ -217,6 +194,10 @@ export default function HeroSection() {
                 </div>
               ))}
             </motion.div>
+            <p className="text-xs leading-relaxed text-white/75 sm:hidden">
+              {siteConfig.projectsInProduction} proyectos en producción · Respondo en menos de{" "}
+              {siteConfig.responseTime}
+            </p>
           </div>
 
           {/* Right: Project mockup */}

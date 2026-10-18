@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Check, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { MobileCollapse } from "@/components/ui/mobile-collapse";
 
 const WHATSAPP_NUMBER = "56987257444";
 const WHATSAPP_BASE =
@@ -129,7 +130,7 @@ function getWhatsAppUrl(message: string) {
 
 export default function PricingSection() {
   return (
-    <section id="precios" className="relative overflow-hidden py-24 sm:py-28">
+    <section id="precios" className="relative overflow-hidden py-14 sm:py-28">
       <div className="absolute inset-0 dot-pattern opacity-20" aria-hidden="true" />
       <div className="absolute left-1/2 top-1/2 h-[300px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-500/[0.04] blur-3xl" />
 
@@ -139,12 +140,12 @@ export default function PricingSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5 }}
-          className="mb-12 text-center sm:mb-16"
+          className="mb-8 text-center sm:mb-16"
         >
           <span className="code-label mb-4 block text-blue-300">
             {"// Precios"}
           </span>
-          <h2 className="mb-5 text-4xl font-bold text-white sm:text-5xl">
+          <h2 className="mb-5 text-3xl font-bold text-white sm:text-5xl">
             Inversión clara,
             <br />
             <span className="gradient-text">solución a tu medida</span>
@@ -162,7 +163,7 @@ export default function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.45, delay: index * 0.06 }}
-              className={`relative flex flex-col rounded-2xl border p-5 transition-colors duration-300 sm:p-6 ${plan.border} ${plan.gradient} ${plan.popular ? "shadow-lg shadow-violet-950/30" : "glass"}`}
+              className={`relative flex flex-col rounded-2xl border p-4 transition-colors duration-300 sm:p-6 ${plan.border} ${plan.gradient} ${plan.popular ? "shadow-lg shadow-violet-950/30" : "glass"}`}
             >
               {plan.badge && (
                 <span
@@ -176,21 +177,21 @@ export default function PricingSection() {
                 </span>
               )}
               {plan.result ? (
-                <p className="mb-2 min-h-10 text-sm font-semibold leading-snug text-cyan-200">
+                <p className="mb-2 text-sm font-semibold leading-snug text-cyan-200 md:min-h-10">
                   {plan.result}
                 </p>
               ) : (
-                <div className="min-h-10" aria-hidden="true" />
+                <div className="hidden md:block md:min-h-10" aria-hidden="true" />
               )}
               <h3 className="mb-2 text-xl font-bold text-white">{plan.name}</h3>
               {plan.idealFor ? (
-                <p className="mb-5 min-h-10 text-sm text-white/75">
+                <p className="mb-4 text-sm text-white/75 md:mb-5 md:min-h-10">
                   Ideal para: {plan.idealFor}
                 </p>
               ) : (
-                <div className="mb-5 min-h-10" aria-hidden="true" />
+                <div className="hidden md:mb-5 md:block md:min-h-10" aria-hidden="true" />
               )}
-              <div className="mb-5 min-h-[4.5rem] border-b border-white/10 pb-4">
+              <div className="mb-4 border-b border-white/10 pb-4 md:mb-5 md:min-h-[4.5rem]">
                 <p className="text-2xl font-bold leading-tight text-white">
                   {plan.price}
                 </p>
@@ -199,7 +200,8 @@ export default function PricingSection() {
                 )}
               </div>
 
-              <ul className="mb-6 flex-1 space-y-3">
+              <MobileCollapse label="Ver qué incluye" className="flex-1">
+              <ul className="mb-4 space-y-3 md:mb-6">
                 {plan.features.map((feature) => (
                   <li
                     key={feature}
@@ -219,8 +221,9 @@ export default function PricingSection() {
                   </li>
                 ))}
               </ul>
+              </MobileCollapse>
 
-              <p className="mb-5 text-sm text-white/75">
+              <p className="mb-4 text-sm text-white/75 md:mb-5">
                 <span className="mr-1" aria-hidden="true">⏱</span>
                 <span className="sr-only">Plazo estimado: </span>
                 {plan.time}
@@ -244,7 +247,7 @@ export default function PricingSection() {
           ))}
         </div>
 
-        <div className="mt-10 space-y-3 text-center">
+        <div className="mt-8 space-y-3 text-center sm:mt-10">
           <p className="text-sm leading-relaxed text-white/80">
             ¿Necesitas algo diferente?{" "}
             <a
@@ -255,11 +258,10 @@ export default function PricingSection() {
             >
               Escríbeme
             </a>{" "}
-            y armamos una propuesta a medida sin costo.
+            y armo una propuesta a medida sin costo.
           </p>
           <p className="text-sm leading-relaxed text-white/70">
-            Precios en CLP. Proyectos con integraciones o necesidades especiales
-            se cotizan según alcance.
+            Precios en CLP. Emito boleta de honorarios; los valores no llevan IVA adicional. Proyectos con integraciones o necesidades especiales se cotizan según alcance.
           </p>
         </div>
       </div>
