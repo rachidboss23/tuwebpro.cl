@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import HeroProjectsCarousel from "@/components/sections/HeroProjectsCarousel";
 import Image from "next/image";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -168,6 +169,8 @@ export default function HeroSection() {
                 Ver proyectos reales
               </a>
             </motion.div>
+
+            <HeroProjectsCarousel />
 
             {/* Social proof stats */}
             <motion.div

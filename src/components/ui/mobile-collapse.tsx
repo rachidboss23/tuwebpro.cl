@@ -1,12 +1,13 @@
 "use client";
 
-import { useId, useState, type ReactNode } from "react";
+import { useEffect, useId, useState, type ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
 
 type MobileCollapseProps = {
   label: string;
   children: ReactNode;
   className?: string;
+  openOnHash?: string;
 };
 
 /**
@@ -14,9 +15,48 @@ type MobileCollapseProps = {
  * El contenido siempre está en el DOM (SEO y lectores de pantalla) y no usa
  * matchMedia, así que no hay diferencias entre servidor y cliente.
  */
-export function MobileCollapse({ label, children, className }: MobileCollapseProps) {
+export function MobileCollapse({ label, children, className, openOnHash }: MobileCollapseProps) {
   const [open, setOpen] = useState(false);
   const id = useId();
+
+  useEffect(() => {
+    if (!openOnHash) {
+      return;
+    }
+
+    const hash = `#${openOnHash}`;
+    const syncOpenState = () => {
+      if (window.location.hash === hash) {
+        setOpen(true);
+      }
+    };
+
+    syncOpenState();
+
+    const handleHashChange = () => {
+      syncOpenState();
+    };
+
+    const handleDocumentClick = (event: MouseEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element)) {
+        return;
+      }
+
+      const anchor = target.closest(`a[href="${hash}"]`);
+      if (anchor) {
+        setOpen(true);
+      }
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+    document.addEventListener("click", handleDocumentClick);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+      document.removeEventListener("click", handleDocumentClick);
+    };
+  }, [openOnHash]);
 
   return (
     <div className={className}>
