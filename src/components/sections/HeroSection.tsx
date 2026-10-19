@@ -90,7 +90,7 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14 w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Copy */}
-          <div>
+          <div className="min-w-0">
             {/* Pill badge */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -110,7 +110,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl sm:text-5xl font-bold leading-[1.1] tracking-tight mb-4 sm:mb-6"
+              className="min-w-0 text-3xl sm:text-5xl font-bold leading-[1.1] tracking-tight mb-4 sm:mb-6"
               style={{ fontFamily: "var(--font-display)" }}
             >
               <span className="text-white">
@@ -147,7 +147,7 @@ export default function HeroSection() {
                 asChild
                 size="xl"
                 variant="glow"
-                className="group w-full sm:w-auto"
+                className="group w-full max-w-full whitespace-normal px-4 text-center leading-snug sm:w-auto sm:whitespace-nowrap sm:px-8"
               >
                 <a href="#contacto">
                   Cuéntame qué necesitas resolver
