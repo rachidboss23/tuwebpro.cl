@@ -57,4 +57,24 @@ export const projects = [
     heroLine: "Sitio de arte en cerámica y mosaicos.",
     heroTags: ["WordPress", "Diseño Web", "Branding"],
   },
+  {
+    title: "ALC Studio Home",
+    url: "https://alcstudiohome.cl",
+    problem:
+      "Necesitaba una presencia digital que mostrara sus proyectos y comunicara la calidad de sus muebles a medida.",
+    solution:
+      "Sitio web para ALC Studio Home, estudio de diseño, fabricación e instalación de muebles a medida y soluciones para el hogar.",
+    result:
+      "Una vitrina digital para presentar sus servicios y proyectos, con acceso directo a solicitudes de cotización.",
+    tags: ["Diseño Web", "Muebles a medida", "Diseño de interiores"],
+    category: "Web Corporativa",
+    image: "/images/alcstudio.png",
+    borderColor: "border-amber-500/20 hover:border-amber-400/40",
+    year: "2026",
+    alt: "Captura del sitio de ALC Studio Home, diseño y fabricación de muebles a medida",
+    slug: "alcstudiohome",
+    heroLabel: "Web corporativa",
+    heroLine: "Diseño, fabricación e instalación para el hogar.",
+    heroTags: ["Diseño Web", "Muebles a medida", "Interiorismo"],
+  },
 ];

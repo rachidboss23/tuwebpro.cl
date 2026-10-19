@@ -1,5 +1,5 @@
 export const siteConfig = {
-  projectsInProduction: 3,
+  projectsInProduction: 4,
   responseTime: "24 horas",
   whatsappUrl:
     "https://wa.me/56987257444?text=Hola%20Rachid%2C%20me%20interesa%20cotizar%20un%20proyecto",
