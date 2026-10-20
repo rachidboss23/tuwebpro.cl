@@ -41,7 +41,7 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 section[id] {
@@ -242,4 +242,45 @@ h1, h2, h3, h4, h5, h6 {
 
 .shine:hover::after {
   left: 150%;
+}
+
+/* ==========================================================================
+   Mobile Stacked Cards Effect (Mercado Pago style) - Solo pantallas <= 767px
+   ========================================================================== */
+@media (max-width: 767px) {
+  .project-card-sticky-wrapper {
+    position: sticky;
+    top: var(--stack-top, 76px);
+    z-index: var(--stack-z, 10);
+    margin-bottom: 2rem;
+  }
+
+  .project-card-inner {
+    background-color: #111116 !important;
+    border-radius: 1.25rem;
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    transform-origin: top center;
+    will-change: transform, filter, opacity;
+  }
+}
+
+@media (min-width: 768px) {
+  .project-card-sticky-wrapper {
+    position: static;
+    margin-bottom: 0;
+  }
+
+  .project-card-inner {
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card-inner {
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+  }
 }
