@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import HeroProjectsCarousel from "@/components/sections/HeroProjectsCarousel";
+import HeroServices from "@/components/sections/HeroServices";
 import Image from "next/image";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -105,6 +105,11 @@ export default function HeroSection() {
               <ChevronRight className="w-3 h-3 text-white/30" />
             </motion.div>
 
+            {/* Móvil: qué hago, en una línea */}
+            <p className="mb-3 text-base font-bold leading-snug text-sky-300 md:hidden">
+              Páginas web, apps y automatizaciones para pymes
+            </p>
+
             {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -170,7 +175,7 @@ export default function HeroSection() {
               </a>
             </motion.div>
 
-            <HeroProjectsCarousel />
+            <HeroServices />
 
             {/* Social proof stats */}
             <motion.div

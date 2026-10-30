@@ -1,7 +1,9 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
 import {
+  ArrowRight,
   BarChart3,
   Brain,
   Globe,
@@ -10,16 +12,37 @@ import {
   Plug,
   Settings2,
   Users,
+  type LucideIcon,
 } from "lucide-react";
-import { MobileCollapse } from "@/components/ui/mobile-collapse";
 
-const packages = [
+type Service = {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  tags: string[];
+};
+
+type ServicePackage = {
+  name: string;
+  summary: string;
+  ideal: string;
+  color: string;
+  art: "web" | "chat" | "app";
+  cta: string;
+  openFirst?: boolean;
+  services: Service[];
+};
+
+const packages: ServicePackage[] = [
   {
     name: "Presencia digital",
     summary:
       "Sitios web y tiendas online pensados para explicar lo que haces y facilitar el contacto.",
     ideal: "Ideal si hoy dependes solo de redes sociales.",
-    accent: "border-blue-400/30 from-blue-500/10",
+    color: "#3b82f6",
+    art: "web",
+    cta: "Cotizar mi web",
+    openFirst: true,
     services: [
       {
         icon: Globe,
@@ -35,7 +58,9 @@ const packages = [
     summary:
       "Conecta tus herramientas y automatiza tareas repetitivas con flujos adaptados a tu operación.",
     ideal: "Ideal si pierdes tiempo en tareas repetitivas o copiando datos.",
-    accent: "border-cyan-400/30 from-cyan-500/10",
+    color: "#22d3ee",
+    art: "chat",
+    cta: "Cotizar una automatización",
     services: [
       {
         icon: Brain,
@@ -65,7 +90,9 @@ const packages = [
     summary:
       "Software conectado a tus procesos para centralizar la gestión y consultar la información con claridad.",
     ideal: "Ideal si tu operación vive en planillas y mensajes.",
-    accent: "border-violet-400/30 from-violet-500/10",
+    color: "#8b5cf6",
+    art: "app",
+    cta: "Cotizar un sistema",
     services: [
       {
         icon: Layers,
@@ -99,6 +126,59 @@ const packages = [
   },
 ];
 
+function PackageArt({ kind, color }: { kind: ServicePackage["art"]; color: string }) {
+  const common = "h-[124px] w-[170px] transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none";
+  if (kind === "web") {
+    return (
+      <svg viewBox="0 0 60 44" className={common} aria-hidden="true">
+        <rect x="2" y="3" width="56" height="38" rx="5" fill="#0b1220" stroke="#60a5fa" strokeWidth="1.2" />
+        <path d="M2 12h56" stroke="#60a5fa" strokeWidth="1.2" />
+        <circle cx="8" cy="7.5" r="1.4" fill="#60a5fa" />
+        <circle cx="13" cy="7.5" r="1.4" fill="#60a5fa" />
+        <rect x="8" y="17" width="30" height="4" rx="2" fill="#fff" />
+        <rect x="8" y="24" width="22" height="3" rx="1.5" fill="#fff" opacity=".4" />
+        <rect x="8" y="31" width="18" height="6" rx="3" fill="#22d3ee" />
+        <rect x="42" y="17" width="12" height="20" rx="3" fill="#60a5fa" opacity=".25" />
+      </svg>
+    );
+  }
+  if (kind === "chat") {
+    return (
+      <svg viewBox="0 0 60 44" className={common} aria-hidden="true">
+        <rect x="2" y="3" width="36" height="14" rx="7" fill="#fff" opacity=".14" />
+        <rect x="9" y="8" width="22" height="3" rx="1.5" fill="#fff" opacity=".7" />
+        <rect x="22" y="20" width="36" height="14" rx="7" fill={color} />
+        <rect x="29" y="25" width="22" height="3" rx="1.5" fill="#06222a" />
+        {[8, 15, 22].map((cx, i) => (
+          <circle
+            key={cx}
+            cx={cx}
+            cy="40"
+            r="2"
+            fill={color}
+            className="animate-pulse motion-reduce:animate-none"
+            style={{ animationDelay: `${i * 200}ms` }}
+          />
+        ))}
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 60 44" className={common} aria-hidden="true">
+      <rect x="2" y="3" width="56" height="38" rx="5" fill="#0b1220" stroke="#a78bfa" strokeWidth="1.2" />
+      <rect x="7" y="9" width="46" height="7" rx="2.5" fill="#a78bfa" opacity=".28" />
+      <circle cx="12" cy="12.5" r="2.2" fill="#34d399" />
+      <rect x="18" y="11" width="22" height="3" rx="1.5" fill="#fff" />
+      <rect x="7" y="19" width="46" height="7" rx="2.5" fill="#fff" opacity=".1" />
+      <circle cx="12" cy="22.5" r="2.2" fill="#fbbf24" />
+      <rect x="18" y="21" width="18" height="3" rx="1.5" fill="#fff" opacity=".7" />
+      <rect x="7" y="29" width="46" height="7" rx="2.5" fill="#fff" opacity=".1" />
+      <circle cx="12" cy="32.5" r="2.2" fill="#60a5fa" />
+      <rect x="18" y="31" width="26" height="3" rx="1.5" fill="#fff" opacity=".7" />
+    </svg>
+  );
+}
+
 export default function ServicesSection() {
   return (
     <section id="servicios" className="relative overflow-hidden py-14 sm:py-28">
@@ -109,13 +189,14 @@ export default function ServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5 }}
-          className="mb-8 text-center sm:mb-16"
+          className="mx-auto mb-8 max-w-4xl text-center sm:mb-14"
         >
           <span className="code-label mb-4 block text-blue-300">
             {"// Servicios"}
           </span>
           <h2 className="mb-5 text-3xl font-bold text-white sm:text-5xl">
-            Soluciones para que tu empresa trabaje con más orden
+            Soluciones para que tu empresa trabaje con{" "}
+            <span className="gradient-text">más orden</span>
           </h2>
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
             Desde una presencia digital clara hasta automatizaciones y sistemas
@@ -124,64 +205,87 @@ export default function ServicesSection() {
         </motion.header>
 
         <div className="grid gap-5 lg:grid-cols-3">
-          {packages.map((servicePackage, packageIndex) => (
+          {packages.map((pkg, packageIndex) => (
             <motion.article
-              key={servicePackage.name}
+              key={pkg.name}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.45, delay: packageIndex * 0.08 }}
-              className={`glass card-hover rounded-2xl border ${servicePackage.accent.split(" ")[0]} bg-gradient-to-b ${servicePackage.accent.split(" ")[1]} to-transparent p-4 sm:p-6`}
+              style={{ "--c": pkg.color } as CSSProperties}
+              className="group flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.05] to-white/[0.015] transition-shadow duration-300 hover:shadow-[0_24px_60px_-24px_var(--c)] motion-reduce:transition-none"
             >
-              <h3 className="mb-2 text-2xl font-bold text-white">
-                {servicePackage.name}
-              </h3>
-              <p className="mb-3 text-sm leading-relaxed text-white/80">
-                {servicePackage.summary}
-              </p>
-              <p className="mb-3 text-sm font-medium text-cyan-200 md:mb-6">
-                {servicePackage.ideal}
-              </p>
-
-              <MobileCollapse label={`Ver servicios incluidos (${servicePackage.services.length})`}>
-              <div className="space-y-4">
-                {servicePackage.services.map((service) => {
-                  const Icon = service.icon;
-                  return (
-                    <section
-                      key={service.title}
-                      className="rounded-xl border border-white/10 bg-black/25 p-4"
-                    >
-                      <div className="mb-2 flex items-center gap-2.5">
-                        <Icon
-                          className="h-4 w-4 shrink-0 text-cyan-200"
-                          aria-hidden="true"
-                        />
-                        <h4 className="text-sm font-bold text-white">
-                          {service.title}
-                        </h4>
-                      </div>
-                      <p className="mb-3 text-sm leading-relaxed text-white/75">
-                        {service.description}
-                      </p>
-                      <ul
-                        aria-label={`Tecnologías de ${service.title}`}
-                        className="flex flex-wrap gap-1.5"
-                      >
-                        {service.tags.map((tag) => (
-                          <li
-                            key={tag}
-                            className="rounded-full border border-white/15 bg-white/[0.05] px-2.5 py-1 text-xs font-medium text-white/80"
-                          >
-                            {tag}
-                          </li>
-                        ))}
-                      </ul>
-                    </section>
-                  );
-                })}
+              <div
+                className="hidden h-[150px] items-center justify-center border-b border-white/10 md:flex"
+                style={{
+                  background: `radial-gradient(70% 90% at 50% 0, ${pkg.color}4d, transparent 75%), ${pkg.color}14`,
+                }}
+              >
+                <PackageArt kind={pkg.art} color={pkg.color} />
               </div>
-              </MobileCollapse>
+
+              <div className="flex flex-1 flex-col p-5 sm:p-6">
+                <h3 className="mb-2 text-2xl font-bold text-white">{pkg.name}</h3>
+                <p className="mb-3 text-sm leading-relaxed text-white/80">{pkg.summary}</p>
+                <p
+                  className="mb-5 border-l-[3px] py-0.5 pl-3 text-sm font-semibold text-cyan-100"
+                  style={{ borderColor: pkg.color }}
+                >
+                  {pkg.ideal}
+                </p>
+
+                <div className="mb-5 border-t border-white/10">
+                  {pkg.services.map((service, index) => {
+                    const Icon = service.icon;
+                    return (
+                      <details
+                        key={service.title}
+                        open={pkg.openFirst && index === 0}
+                        className="group/d border-b border-white/10"
+                      >
+                        <summary className="flex min-h-12 cursor-pointer list-none items-center gap-2.5 text-[15px] font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 [&::-webkit-details-marker]:hidden">
+                          <Icon
+                            className="h-4 w-4 shrink-0"
+                            style={{ color: pkg.color }}
+                            aria-hidden="true"
+                          />
+                          {service.title}
+                          <span
+                            aria-hidden="true"
+                            className="ml-auto text-xl leading-none text-white/60 transition-transform group-open/d:rotate-45 motion-reduce:transition-none"
+                          >
+                            +
+                          </span>
+                        </summary>
+                        <p className="mb-3 text-sm leading-relaxed text-white/75">
+                          {service.description}
+                        </p>
+                        <ul
+                          aria-label={`Tecnologías de ${service.title}`}
+                          className="mb-4 flex flex-wrap gap-1.5"
+                        >
+                          {service.tags.map((tag) => (
+                            <li
+                              key={tag}
+                              className="rounded-full border border-white/15 bg-white/[0.05] px-2.5 py-1 text-xs font-medium text-white/80"
+                            >
+                              {tag}
+                            </li>
+                          ))}
+                        </ul>
+                      </details>
+                    );
+                  })}
+                </div>
+
+                <a
+                  href="#contacto"
+                  className="mt-auto inline-flex min-h-11 items-center gap-1.5 rounded-lg text-[15px] font-semibold text-white underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
+                >
+                  {pkg.cta}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </div>
             </motion.article>
           ))}
         </div>
