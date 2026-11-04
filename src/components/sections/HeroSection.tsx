@@ -118,7 +118,7 @@ export default function HeroSection() {
               <span className="text-white">
                 ¿Todo en Excel y WhatsApp?{" "}
               </span>
-              <span className="gradient-text">Lo juntamos en un solo lugar.</span>
+              <span className="gradient-text">Te lo dejo en un solo lugar.</span>
             </motion.h1>
 
             {/* Subheadline */}

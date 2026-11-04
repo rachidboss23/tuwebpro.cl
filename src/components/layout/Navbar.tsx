@@ -8,13 +8,12 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Soluciones", href: "#soluciones" },
-  { label: "Servicios", href: "#servicios" },
-  { label: "Precios", href: "#precios" },
-  { label: "Proyectos", href: "#proyectos" },
-  { label: "Proceso", href: "#proceso" },
-  { label: "Sobre mí", href: "#nosotros" },
-  { label: "Contactar", href: "#contacto" },
+  { label: "Servicios", href: "#servicios", cta: false },
+  { label: "Precios", href: "#precios", cta: false },
+  { label: "Proyectos", href: "#proyectos", cta: false },
+  { label: "Proceso", href: "#proceso", cta: false },
+  { label: "Sobre mí", href: "#nosotros", cta: false },
+  { label: "Contactar", href: "#contacto", cta: true },
 ];
 
 export default function Navbar() {
@@ -71,7 +70,7 @@ export default function Navbar() {
             </Link>
 
             <nav aria-label="Navegación principal" className="hidden lg:flex items-center gap-0.5">
-              {navLinks.map((link) => (
+              {navLinks.filter((link) => !link.cta).map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
@@ -80,6 +79,12 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
+              <a
+                href="#contacto"
+                className="ml-2 inline-flex min-h-11 items-center rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 px-4 text-xs font-medium text-white shadow-lg shadow-blue-500/20 transition-all hover:from-blue-700 hover:to-violet-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 xl:text-sm"
+              >
+                Contactar
+              </a>
             </nav>
 
             <button

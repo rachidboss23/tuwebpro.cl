@@ -9,7 +9,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-blue-500 text-white hover:bg-blue-400 shadow-lg shadow-blue-500/20 hover:shadow-blue-400/30",
+          "bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-500/20 hover:shadow-blue-400/30",
         outline:
           "border border-white/10 bg-white/[0.03] text-white hover:bg-white/[0.07] hover:border-white/20",
         ghost:
@@ -17,7 +17,7 @@ const buttonVariants = cva(
         secondary:
           "bg-white/[0.06] text-white hover:bg-white/[0.1] border border-white/[0.08]",
         glow:
-          "bg-gradient-to-r from-blue-500 to-violet-500 text-white hover:from-blue-400 hover:to-violet-400 shadow-lg shadow-blue-500/25 hover:shadow-blue-400/35",
+          "bg-gradient-to-r from-blue-600 to-violet-600 text-white hover:from-blue-700 hover:to-violet-700 shadow-lg shadow-blue-500/25 hover:shadow-blue-400/35",
         link: "text-blue-400 underline-offset-4 hover:underline p-0 h-auto",
       },
       size: {

@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -24,8 +22,8 @@
   --ring: 210 100% 60%;
   --radius: 0.75rem;
 
-  --font-display: 'Syne', system-ui, sans-serif;
-  --font-geist-sans: 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Arial', 'Helvetica Neue', sans-serif;
+  --font-geist-sans: 'Arial', 'Helvetica Neue', sans-serif;
   --font-geist-mono: 'Courier New', monospace;
 
   /* Brand colors */
@@ -197,10 +195,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Code style */
 .code-label {
-  font-family: var(--font-geist-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 /* WhatsApp button pulse */

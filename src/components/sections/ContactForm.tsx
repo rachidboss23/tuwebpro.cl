@@ -85,6 +85,14 @@ export default function ContactForm() {
           aria-busy={status === "sending"}
           className="glass-strong space-y-5 rounded-2xl border border-white/10 p-5 sm:p-8"
         >
+          <input
+            type="checkbox"
+            name="botcheck"
+            className="hidden"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+          />
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <div className="flex flex-col gap-2">
               <label htmlFor="name" className="text-sm font-medium text-white/90">

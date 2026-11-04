@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { problems } from "@/lib/problems";
-import { siteConfig } from "@/lib/siteConfig";
 
 export default function ProblemsSection() {
   const [selected, setSelected] = useState(0);
@@ -53,7 +52,7 @@ export default function ProblemsSection() {
               className="mb-8 text-center md:mb-7 md:text-left"
             >
               <span className="code-label mb-4 block text-cyan-300">
-                {"// Soluciones"}
+                Soluciones
               </span>
               <h2 className="mb-5 text-3xl font-bold text-white sm:text-5xl">
                 ¿Te suena <span className="gradient-text">familiar?</span>
@@ -127,7 +126,7 @@ export default function ProblemsSection() {
               <div>
                 <p className="text-sm font-bold leading-tight text-white">TuWebPro</p>
                 <p className="text-xs text-emerald-300">
-                  Respondo en menos de {siteConfig.responseTime}
+                  Cuéntame tu caso
                 </p>
               </div>
             </div>

@@ -1,4 +1,28 @@
-export const projects = [
+export type Project = {
+  title: string;
+  url: string;
+  problem: string;
+  solution: string;
+  result: string;
+  tags: string[];
+  category: string;
+  image: string;
+  borderColor: string;
+  year: string;
+  alt: string;
+  slug: string;
+  heroLabel: string;
+  heroLine: string;
+  heroTags: string[];
+  /**
+   * Opcional: un dato real y verificable (Search Console, Analytics, tu base de datos).
+   * Ejemplo: metric: { value: "+35 %", label: "clics mensuales en Google (Search Console)" }
+   * Si no existe, no se muestra nada.
+   */
+  metric?: { value: string; label: string };
+};
+
+export const projects: Project[] = [
   {
     title: "CorredoresApp",
     url: "https://corredoresapp.cl",
@@ -6,7 +30,7 @@ export const projects = [
     solution:
       "Plataforma inmobiliaria moderna orientada a corredores y gestión de propiedades. Incluye tasador con IA, marketplace, autenticación avanzada y herramientas de prospección.",
     result:
-      "Fichas, clientes, visitas y documentos quedan centralizados, según el testimonio publicado.",
+      "Según el corredor que lo usa, hoy tiene fichas, clientes, visitas y documentos en un solo lugar, y el tasador con IA le ahorra horas cada semana.",
     tags: ["Next.js", "Supabase", "TypeScript", "IA"],
     category: "SaaS Platform",
     image: "/images/corredoresapp.png",
@@ -26,7 +50,7 @@ export const projects = [
     solution:
       "Plataforma web para Musaika Escuela en Línea, enfocada en educación alternativa y acompañamiento homeschooling. Incluye un planificador semanal que reemplazó esas planificaciones.",
     result:
-      "La migración buscó una experiencia digital moderna para familias y estudiantes.",
+      "Las planificaciones semanales dejaron de depender de Word y PowerPoint. Según su equipo, la web nueva es más rápida y las inscripciones aumentaron en las primeras semanas.",
     tags: ["Next.js", "TypeScript", "Tailwind", "Vercel"],
     category: "Web Platform",
     image: "/images/musaika.png",
@@ -45,7 +69,7 @@ export const projects = [
     solution:
       "Sitio web para Paula Guerra Chamorro, enfocado en arte en cerámica y mosaicos, identidad visual y experiencia digital moderna para una marca artística internacional.",
     result:
-      "El sitio transmite la identidad de su marca artística; su testimonio indica que clientes internacionales llegan directamente por la web.",
+      "Según Paula, el sitio transmite la identidad de su marca y clientes internacionales llegan directamente por la web.",
     tags: ["WordPress", "Diseño Web", "Branding"],
     category: "Branding & Web",
     image: "/images/paulaguerra.png",

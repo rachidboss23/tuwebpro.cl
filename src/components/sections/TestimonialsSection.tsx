@@ -64,7 +64,7 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-8 sm:mb-16"
         >
-          <span className="code-label text-blue-400/70 block mb-4">{"// Clientes"}</span>
+          <span className="code-label text-blue-300 block mb-4">Clientes</span>
           <h2
             className="text-3xl sm:text-5xl font-bold text-white mb-5"
             style={{ fontFamily: "var(--font-display)" }}
@@ -150,8 +150,8 @@ export default function TestimonialsSection() {
           <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/[0.12] via-violet-500/[0.05] to-transparent" />
           <div className="relative z-10 flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
             <div className="max-w-2xl">
-              <span className="code-label mb-3 block text-blue-400/80">
-                {"// Tu opinión"}
+              <span className="code-label mb-3 block text-blue-300">
+                Tu opinión
               </span>
               <h3
                 className="mb-3 text-2xl font-bold text-white sm:text-3xl"

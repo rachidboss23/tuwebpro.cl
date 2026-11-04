@@ -19,7 +19,6 @@ const navLinks = [
   { label: "Precios", href: "#precios" },
   { label: "Proyectos", href: "#proyectos" },
   { label: "Proceso", href: "#proceso" },
-  { label: "Stack", href: "#stack" },
   { label: "Sobre mí", href: "#nosotros" },
   { label: "Preguntas", href: "#preguntas" },
   { label: "Contacto", href: "#contacto" },

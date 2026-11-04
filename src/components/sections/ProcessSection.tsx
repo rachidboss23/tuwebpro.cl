@@ -86,7 +86,7 @@ export default function ProcessSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-8 sm:mb-20"
         >
-          <span className="code-label text-cyan-400/70 block mb-4">{'// Proceso'}</span>
+          <span className="code-label text-cyan-300 block mb-4">Proceso</span>
           <h2
             className="text-3xl sm:text-5xl font-bold text-white mb-5"
             style={{ fontFamily: "var(--font-display)" }}
@@ -168,7 +168,7 @@ export default function ProcessSection() {
         </div>
 
         <p className="mt-6 text-center text-sm leading-relaxed text-white/75 sm:mt-8">
-          El plazo total depende del alcance del proyecto.
+          Estas etapas aplican a sistemas y automatizaciones. Las páginas web se entregan en los plazos indicados en cada plan.
         </p>
         <p className="mt-6 text-center text-base font-semibold text-cyan-100">
           Diagnóstico inicial sin costo: conversamos tu caso y te propongo una

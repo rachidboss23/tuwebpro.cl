@@ -136,7 +136,7 @@ export default function UseCasesSection() {
         <div className="mb-4 flex flex-col gap-4 sm:mb-8 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <span className="code-label mb-3 block text-cyan-200">
-              {"// Ejemplos de uso"}
+              Ejemplos de uso
             </span>
             <h2
               id="use-cases-title"

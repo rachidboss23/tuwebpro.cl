@@ -6,6 +6,10 @@ const faqs = [
     a: "La Web Básica (1 a 3 páginas) parte en $150.000 CLP. La Landing Page cuesta $290.000 y la Web Profesional $590.000. Los sistemas a medida parten desde $2.500.000 y las automatizaciones se cotizan según alcance.",
   },
   {
+    q: "¿Cuál es la diferencia entre Web Básica y Landing Page?",
+    a: "La Web Básica es un sitio de 1 a 3 páginas sobre una base probada, con tu logo, tus colores y los textos que tú me entregas. La Landing Page es una sola página diseñada a medida para conseguir contactos: te ayudo a ordenar el mensaje y a redactar los textos, e incluye SEO básico y medición de visitas.",
+  },
+  {
     q: "¿Los precios llevan IVA?",
     a: "No. Emito boleta de honorarios y los valores publicados no llevan IVA adicional.",
   },
@@ -32,7 +36,7 @@ export default function FaqSection() {
     <section id="preguntas" className="relative overflow-hidden py-12 sm:py-24">
       <div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <header className="mb-6 text-center sm:mb-10">
-          <span className="code-label mb-3 block text-cyan-300">{"// Preguntas"}</span>
+          <span className="code-label mb-3 block text-cyan-300">Preguntas</span>
           <h2 className="text-3xl font-bold text-white sm:text-4xl">Preguntas frecuentes</h2>
         </header>
 

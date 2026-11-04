@@ -24,12 +24,23 @@ const structuredData = {
     "@type": "Country",
     name: "Chile",
   },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    email: "contacto@tuwebpro.cl",
+    telephone: "+56987257444",
+    availableLanguage: "Spanish",
+    areaServed: "CL",
+  },
   sameAs: [
     siteConfig.socialLinks.linkedin,
     siteConfig.socialLinks.github,
     siteConfig.socialLinks.whatsapp,
   ],
 };
+
+// Se escapa "<" para que el JSON nunca pueda cerrar la etiqueta <script>.
+const structuredDataJson = JSON.stringify(structuredData).replace(/</g, "\\u003c");
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.tuwebpro.cl"),
@@ -38,24 +49,6 @@ export const metadata: Metadata = {
     template: "%s | TuWebPro",
   },
   description: `Desarrollo web en Santiago y software a medida para pymes. Automatización y sistemas de gestión. ${siteConfig.projectsInProduction} proyectos lanzados.`,
-  keywords: [
-    "agencia tecnológica Chile",
-    "desarrollo web Santiago",
-    "automatización IA Chile",
-    "software a medida Chile",
-    "apps SaaS Chile",
-    "Next.js Chile",
-    "desarrollo web Chile",
-    "programador freelance Chile",
-    "sistemas personalizados Chile",
-    "inteligencia artificial empresas Chile",
-    "dashboard empresarial Chile",
-    "TuWebPro",
-    "desarrollo web precio Chile",
-    "crear sitio web Santiago",
-    "cuánto cuesta página web Chile",
-    "freelancer desarrollo web Chile",
-  ],
   authors: [{ name: "Rachid Boss Ibarra", url: "https://www.tuwebpro.cl" }],
   creator: "TuWebPro",
   publisher: "TuWebPro",
@@ -100,16 +93,13 @@ export default function RootLayout({
   return (
     <html lang="es" className="dark">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <meta name="geo.region" content="CL-RM" />
         <meta name="geo.placename" content="Santiago, Chile" />
-        <meta name="language" content="es" />
       </head>
       <body className="antialiased">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{ __html: structuredDataJson }}
         />
         {children}
         <WhatsAppButton />

@@ -48,7 +48,7 @@ const packages: ServicePackage[] = [
         icon: Globe,
         title: "Desarrollo Web",
         description:
-          "Sitios y aplicaciones web de alto rendimiento con las mejores tecnologías del mercado actual. También desarrollo sitios corporativos y soluciones WordPress optimizadas para conversión y SEO.",
+          "Sitios rápidos, que se ven bien en el celular y se encuentran en Google, con formulario de contacto y WhatsApp. También sitios corporativos y tiendas online con WordPress y WooCommerce.",
         tags: ["Next.js", "React", "TypeScript", "WordPress", "WooCommerce"],
       },
     ],
@@ -66,21 +66,21 @@ const packages: ServicePackage[] = [
         icon: Brain,
         title: "Automatización IA",
         description:
-          "Implemento flujos inteligentes con modelos de lenguaje, visión y razonamiento para automatizar tareas complejas.",
+          "Flujos que leen, clasifican y responden por ti: correos, formularios, documentos y consultas de clientes, apoyados en IA.",
         tags: ["OpenAI", "LangChain", "n8n"],
       },
       {
         icon: Plug,
-        title: "Integraciones API",
+        title: "Conexión entre herramientas",
         description:
-          "Conecto tus herramientas existentes: CRMs, ERPs, pasarelas de pago y servicios externos.",
-        tags: ["REST", "GraphQL", "Webhooks"],
+          "Hago que tus planillas, tu CRM, tu sistema de pagos y WhatsApp se comuniquen entre sí, para no copiar datos a mano.",
+        tags: ["APIs", "Webhooks", "Google Sheets"],
       },
       {
         icon: MessageSquare,
         title: "Automatización WhatsApp",
         description:
-          "Bots inteligentes para WhatsApp Business que atienden consultas y hacen seguimiento a posibles clientes.",
+          "Asistentes en WhatsApp Business que responden las consultas frecuentes y dan seguimiento a quienes te escriben.",
         tags: ["WhatsApp API", "IA", "CRM"],
       },
     ],
@@ -96,31 +96,31 @@ const packages: ServicePackage[] = [
     services: [
       {
         icon: Layers,
-        title: "Apps SaaS",
+        title: "Plataformas web (SaaS)",
         description:
-          "Plataformas completas con autenticación, billing, roles y multi-tenancy listas para escalar.",
+          "Plataformas con usuarios y roles, planes de pago y varias empresas dentro del mismo sistema, listas para crecer.",
         tags: ["Supabase", "Stripe", "Vercel"],
       },
       {
         icon: BarChart3,
         title: "Dashboards",
         description:
-          "Paneles de control interactivos con datos en tiempo real, gráficos avanzados y KPIs accionables.",
-        tags: ["Recharts", "Postgres", "Real-time"],
+          "Paneles con tus datos al día, gráficos claros e indicadores para decidir más rápido.",
+        tags: ["Gráficos", "PostgreSQL", "Tiempo real"],
       },
       {
         icon: Settings2,
         title: "Sistemas Personalizados",
         description:
-          "Software empresarial a medida: ERP, inventarios, facturación y gestión de procesos internos.",
+          "Software a medida para tu operación: inventarios, facturación, órdenes de trabajo y procesos internos.",
         tags: ["Node.js", "PostgreSQL", "Docker"],
       },
       {
         icon: Users,
-        title: "CRM Empresariales",
+        title: "Gestión de clientes (CRM)",
         description:
-          "Sistemas de gestión de clientes personalizados para tu industria, con pipelines, seguimiento y analítica.",
-        tags: ["CRM", "Pipeline", "Analytics"],
+          "Seguimiento de clientes adaptado a tu industria: etapas de venta, historial y reportes.",
+        tags: ["Clientes", "Seguimiento", "Reportes"],
       },
     ],
   },
@@ -192,7 +192,7 @@ export default function ServicesSection() {
           className="mx-auto mb-8 max-w-4xl text-center sm:mb-14"
         >
           <span className="code-label mb-4 block text-blue-300">
-            {"// Servicios"}
+            Servicios
           </span>
           <h2 className="mb-5 text-3xl font-bold text-white sm:text-5xl">
             Soluciones para que tu empresa trabaje con{" "}

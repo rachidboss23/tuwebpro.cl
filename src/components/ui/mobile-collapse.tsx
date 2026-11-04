@@ -8,6 +8,7 @@ type MobileCollapseProps = {
   children: ReactNode;
   className?: string;
   openOnHash?: string;
+  defaultOpen?: boolean;
 };
 
 /**
@@ -15,8 +16,8 @@ type MobileCollapseProps = {
  * El contenido siempre está en el DOM (SEO y lectores de pantalla) y no usa
  * matchMedia, así que no hay diferencias entre servidor y cliente.
  */
-export function MobileCollapse({ label, children, className, openOnHash }: MobileCollapseProps) {
-  const [open, setOpen] = useState(false);
+export function MobileCollapse({ label, children, className, openOnHash, defaultOpen = false }: MobileCollapseProps) {
+  const [open, setOpen] = useState(defaultOpen);
   const id = useId();
 
   useEffect(() => {

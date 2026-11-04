@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, MessageSquare } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
@@ -24,6 +25,42 @@ const stats = [
   { value: "2024", label: "Cert. Full Stack" },
   { value: "100%", label: "Remoto & disponible" },
 ];
+
+/**
+ * Muestra tu foto si existe /public/images/rachid.jpg; mientras no esté, muestra la inicial.
+ * Para activarla solo hay que subir el archivo con ese nombre (cuadrada, mínimo 400x400 px).
+ */
+function ProfilePhoto() {
+  const [failed, setFailed] = useState(false);
+  const ref = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    // Si la imagen falló antes de la hidratación, React no recibe el evento onError.
+    const img = ref.current;
+    if (img && img.complete && img.naturalWidth === 0) setFailed(true);
+  }, []);
+
+  if (failed) {
+    return (
+      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-violet-500 flex items-center justify-center text-xl font-bold text-white shadow-lg shadow-blue-500/20 flex-shrink-0">
+        R
+      </div>
+    );
+  }
+
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      ref={ref}
+      src="/images/rachid.jpg"
+      alt="Rachid Boss Ibarra, fundador de TuWebPro"
+      width={96}
+      height={96}
+      onError={() => setFailed(true)}
+      className="h-20 w-20 flex-shrink-0 rounded-2xl border border-white/10 object-cover shadow-lg shadow-blue-500/20 sm:h-24 sm:w-24"
+    />
+  );
+}
 
 const links = [
   {
@@ -67,16 +104,16 @@ export default function AboutSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-8 sm:mb-16"
         >
-          <span className="code-label text-violet-400/70 block mb-4">
-            {'// Quién está detrás'}
+          <span className="code-label text-violet-300 block mb-4">
+            Quién está detrás
           </span>
           <h2
             className="text-3xl sm:text-5xl font-bold text-white mb-5"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            El fundador
+            Hablas directo con
             <br />
-            <span className="gradient-text">detrás del código</span>
+            <span className="gradient-text">quien programa tu proyecto</span>
           </h2>
         </motion.div>
 
@@ -90,9 +127,7 @@ export default function AboutSection() {
         >
           {/* Top row */}
           <div className="flex items-center gap-5 mb-8">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-violet-500 flex items-center justify-center text-xl font-bold text-white shadow-lg shadow-blue-500/20 flex-shrink-0">
-              R
-            </div>
+            <ProfilePhoto />
             <div>
               <h3
                 className="text-xl font-bold text-white"
@@ -110,7 +145,8 @@ export default function AboutSection() {
           <p className="text-sm text-white/80 leading-relaxed mb-6 sm:mb-10 max-w-2xl">
             Desarrollador Full Stack especializado en JavaScript, React y Node.js.
             Construyo los sistemas que ofrezco en TuWebPro: desde la arquitectura
-            hasta el deploy. Sin intermediarios.
+            hasta el deploy. Sin intermediarios: hablas conmigo desde la primera
+            conversación hasta el soporte posterior al lanzamiento.
           </p>
 
           {/* Stats */}

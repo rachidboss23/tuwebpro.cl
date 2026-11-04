@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -167,7 +167,7 @@ export default function PortfolioSection() {
           className="mb-8 text-center sm:mb-16"
         >
           <span className="code-label mb-4 block text-violet-300">
-            {"// Proyectos"}
+            Proyectos
           </span>
           <h2 className="mb-5 text-3xl font-bold text-white sm:text-5xl">
             Trabajo real,
@@ -220,7 +220,17 @@ export default function PortfolioSection() {
                     <h3 className="mb-3 text-2xl font-bold text-white sm:text-3xl md:mb-5">
                       {project.title}
                     </h3>
-                    <MobileCollapse label="Ver el caso" openOnHash={`proyecto-${project.slug}`}>
+                    {project.metric && (
+                      <p className="mb-4 flex items-baseline gap-2">
+                        <span className="text-2xl font-bold text-white">{project.metric.value}</span>
+                        <span className="text-sm text-white/75">{project.metric.label}</span>
+                      </p>
+                    )}
+                    <MobileCollapse
+                      label="Ver el caso"
+                      openOnHash={`proyecto-${project.slug}`}
+                      defaultOpen={index === 0}
+                    >
                       <dl className="space-y-4">
                         <div>
                           <dt className="mb-1 text-xs font-semibold uppercase tracking-wide text-blue-200">
@@ -281,6 +291,18 @@ export default function PortfolioSection() {
               </article>
             </div>
           ))}
+        </div>
+
+        <div className="mt-10 text-center md:mt-14">
+          <p className="mb-4 text-base text-white/80">
+            ¿Tienes un proceso parecido, en Excel, WhatsApp o papel?
+          </p>
+          <Button asChild variant="glow" size="lg">
+            <a href="#contacto">
+              Cuéntame tu caso
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </Button>
         </div>
       </div>
     </section>

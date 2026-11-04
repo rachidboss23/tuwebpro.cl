@@ -23,19 +23,20 @@ const plans = [
     gradient: "",
     badge: "Para partir",
     features: [
-      "Sitio web de 1 a 3 páginas",
+      "Sitio web de 1 a 3 páginas sobre una base probada",
+      "Tu logo, tus colores y los textos que tú me entregas",
       "Diseño limpio y responsivo",
       "Formulario de contacto",
-      "Dominio + deploy en producción",
+      "Dominio + publicación en producción",
       "SSL incluido",
       "1 semana de soporte post-lanzamiento",
     ],
-    ctaLabel: "Lo quiero",
+    ctaLabel: "Cotizar este plan",
     ctaMessage: "Hola Rachid, me interesa el plan Web Básica",
   },
   {
     name: "Landing Page",
-    result: "Una página que presenta tu servicio y capta contactos",
+    result: "Una página diseñada para que te contacten",
     price: "$290.000",
     currency: "CLP",
     idealFor: "Profesionales y emprendedores",
@@ -46,14 +47,14 @@ const plans = [
     gradient: "",
     badge: "",
     features: [
-      "1 página profesional completa",
+      "1 página diseñada a medida para conseguir contactos",
       "Diseño moderno y responsivo",
-      "Formulario de contacto",
-      "SEO básico incluido",
-      "SSL + deploy en producción",
+      "Formulario de contacto + botón de WhatsApp",
+      "SEO básico para aparecer en Google",
+      "SSL + publicación en producción",
       "2 semanas de soporte post-lanzamiento",
     ],
-    ctaLabel: "Lo quiero",
+    ctaLabel: "Cotizar este plan",
     ctaMessage: "Hola Rachid, me interesa el plan Landing Page",
   },
   {
@@ -73,17 +74,19 @@ const plans = [
       "Blog o sección de noticias",
       "Formularios avanzados",
       "Integración WhatsApp + Google Maps",
-      "Panel de administración básico",
+      "Panel para editar tu contenido",
       "SEO optimizado",
       "1 mes de soporte",
     ],
-    ctaLabel: "Lo quiero",
+    ctaLabel: "Cotizar este plan",
     ctaMessage: "Hola Rachid, me interesa el plan Web Profesional",
   },
   {
     name: "Automatización a medida",
+    result: "Las tareas repetitivas se hacen solas",
     price: "Cotiza según alcance",
     currency: "",
+    idealFor: "Pymes que copian datos a mano entre planillas, correos y WhatsApp",
     time: "Según alcance del proyecto",
     popular: false,
     color: "cyan",
@@ -92,7 +95,8 @@ const plans = [
     badge: "",
     features: [
       "Flujos entre formularios, correo, planillas y WhatsApp",
-      "Integraciones con tus herramientas",
+      "Conexión con las herramientas que ya usas",
+      "Propuesta con alcance y precio claros antes de empezar",
       "Soporte según alcance",
     ],
     ctaLabel: "Cotizar automatización",
@@ -142,9 +146,7 @@ export default function PricingSection() {
           transition={{ duration: 0.5 }}
           className="mb-8 text-center sm:mb-16"
         >
-          <span className="code-label mb-4 block text-blue-300">
-            {"// Precios"}
-          </span>
+          <span className="code-label mb-4 block text-blue-300">Precios</span>
           <h2 className="mb-5 text-3xl font-bold text-white sm:text-5xl">
             Inversión clara,
             <br />
@@ -167,7 +169,7 @@ export default function PricingSection() {
             >
               {plan.badge && (
                 <span
-                  className={`mb-4 inline-flex min-h-7 w-fit items-center rounded-full px-3 py-1 text-[10px] font-bold tracking-wide text-white ${
+                  className={`mb-4 inline-flex min-h-7 w-fit items-center rounded-full px-3 py-1 text-xs font-bold tracking-wide text-white ${
                     plan.popular
                       ? "bg-violet-600"
                       : "bg-emerald-700"
@@ -249,6 +251,16 @@ export default function PricingSection() {
 
         <div className="mt-8 space-y-3 text-center sm:mt-10">
           <p className="text-sm leading-relaxed text-white/80">
+            ¿No sabes cuál elegir?{" "}
+            <a
+              href="#contacto"
+              className="font-semibold text-cyan-200 underline underline-offset-4 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+            >
+              Cuéntame tu caso
+            </a>{" "}
+            y te recomiendo el más conveniente. El diagnóstico inicial no tiene costo.
+          </p>
+          <p className="text-sm leading-relaxed text-white/80">
             ¿Necesitas algo diferente?{" "}
             <a
               href={WHATSAPP_BASE}
@@ -261,7 +273,7 @@ export default function PricingSection() {
             y armo una propuesta a medida sin costo.
           </p>
           <p className="text-sm leading-relaxed text-white/70">
-            Precios en CLP. Emito boleta de honorarios; los valores no llevan IVA adicional. Proyectos con integraciones o necesidades especiales se cotizan según alcance.
+            Precios en CLP. Emito boleta de honorarios; los valores no llevan IVA adicional. Automatización y sistemas se cotizan según alcance: el precio depende de cuántas herramientas se conectan, cuántas personas lo usan y cuánto cambia tu forma de trabajar hoy. Antes de empezar recibes una propuesta con alcance y precio claros.
           </p>
         </div>
       </div>
