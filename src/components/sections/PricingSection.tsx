@@ -23,7 +23,7 @@ const plans = [
     gradient: "",
     badge: "Para partir",
     features: [
-      "Sitio web de 1 a 3 páginas sobre una base probada",
+      "Sitio web de 1 a 3 páginas para presentar tu negocio y tus servicios",
       "Tu logo, tus colores y los textos que tú me entregas",
       "Diseño limpio y responsivo",
       "Formulario de contacto",

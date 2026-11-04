@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, MessageSquare } from "lucide-react";
+import Image from "next/image";
 import { siteConfig } from "@/lib/siteConfig";
 import { MobileCollapse } from "@/components/ui/mobile-collapse";
 
@@ -21,43 +22,30 @@ const specialties = [
 ];
 
 const stats = [
-  { value: String(siteConfig.projectsInProduction), label: "Proyectos lanzados" },
-  { value: "2024", label: "Cert. Full Stack" },
-  { value: "100%", label: "Remoto & disponible" },
+  "Santiago, Chile",
+  "100% Remoto",
 ];
 
-/**
- * Muestra tu foto si existe /public/images/rachid.jpg; mientras no esté, muestra la inicial.
- * Para activarla solo hay que subir el archivo con ese nombre (cuadrada, mínimo 400x400 px).
- */
 function ProfilePhoto() {
   const [failed, setFailed] = useState(false);
-  const ref = useRef<HTMLImageElement>(null);
-
-  useEffect(() => {
-    // Si la imagen falló antes de la hidratación, React no recibe el evento onError.
-    const img = ref.current;
-    if (img && img.complete && img.naturalWidth === 0) setFailed(true);
-  }, []);
 
   if (failed) {
     return (
-      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-violet-500 flex items-center justify-center text-xl font-bold text-white shadow-lg shadow-blue-500/20 flex-shrink-0">
+      <div className="h-20 w-20 flex-shrink-0 rounded-full bg-gradient-to-br from-blue-500 to-violet-500 flex items-center justify-center text-xl font-bold text-white shadow-lg shadow-blue-500/20 sm:h-24 sm:w-24">
         R
       </div>
     );
   }
 
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      ref={ref}
-      src="/images/rachid.jpg"
+    <Image
+      src="/Rachid.png"
       alt="Rachid Boss Ibarra, fundador de TuWebPro"
       width={96}
       height={96}
+      sizes="(max-width: 639px) 80px, 96px"
       onError={() => setFailed(true)}
-      className="h-20 w-20 flex-shrink-0 rounded-2xl border border-white/10 object-cover shadow-lg shadow-blue-500/20 sm:h-24 sm:w-24"
+      className="h-20 w-20 flex-shrink-0 rounded-full border border-white/10 object-cover object-top shadow-lg shadow-blue-500/20 sm:h-24 sm:w-24"
     />
   );
 }
@@ -150,23 +138,14 @@ export default function AboutSection() {
           </p>
 
           {/* Stats */}
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-4 sm:gap-8 mb-6 sm:mb-10 pb-6 sm:pb-10 border-b border-white/[0.06]">
-            {stats.map((stat, i) => (
-              <div key={stat.label} className="flex items-center gap-8">
-                <div>
-                  <div
-                    className="text-2xl font-bold text-white"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    {stat.value}
-                  </div>
-                  <div className="text-xs text-white/70 uppercase tracking-widest mt-0.5 font-mono">
-                    {stat.label}
-                  </div>
-                </div>
-                {i < stats.length - 1 && (
-                  <div className="w-px h-8 bg-white/[0.07]" />
-                )}
+          <div className="mb-6 grid grid-cols-1 gap-3 border-b border-white/[0.06] pb-6 sm:mb-10 sm:grid-cols-2 sm:gap-8 sm:pb-10">
+            {stats.map((stat) => (
+              <div
+                key={stat}
+                className="text-xl font-bold text-white sm:text-2xl"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {stat}
               </div>
             ))}
           </div>
@@ -232,7 +211,7 @@ export default function AboutSection() {
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-xs text-white/75">
-              Disponible para proyectos freelance y trabajo remoto
+              Disponible para nuevos proyectos
             </span>
           </div>
         </motion.div>

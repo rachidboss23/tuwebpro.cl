@@ -8,9 +8,9 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
+  { label: "Proyectos", href: "#proyectos", cta: false },
   { label: "Servicios", href: "#servicios", cta: false },
   { label: "Precios", href: "#precios", cta: false },
-  { label: "Proyectos", href: "#proyectos", cta: false },
   { label: "Proceso", href: "#proceso", cta: false },
   { label: "Sobre mí", href: "#nosotros", cta: false },
   { label: "Contactar", href: "#contacto", cta: true },

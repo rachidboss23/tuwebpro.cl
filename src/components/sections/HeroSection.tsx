@@ -55,7 +55,7 @@ function ProjectMockup() {
           <div className="px-5 py-3 bg-white/[0.02] border-t border-white/[0.06] flex flex-wrap items-center gap-x-4 gap-y-1">
             <span className="flex items-center gap-1.5 text-xs text-white/70">
               <Code2 className="w-3 h-3" />
-              Next.js · TypeScript · Tailwind
+              Web + planificador semanal
             </span>
             <span className="text-xs font-medium text-white/80">
               El código es tuyo una vez pagado el proyecto
@@ -158,17 +158,22 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-col gap-1 sm:gap-3 sm:flex-row sm:flex-wrap mb-2 sm:mb-8"
             >
-              <Button
-                asChild
-                size="xl"
-                variant="glow"
-                className="group w-full max-w-full whitespace-normal px-4 text-center leading-snug sm:w-auto sm:whitespace-nowrap sm:px-6"
-              >
-                <a href="#contacto">
-                  Cuéntame qué necesitas resolver
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
-              </Button>
+              <div className="flex flex-col items-center sm:items-start">
+                <Button
+                  asChild
+                  size="xl"
+                  variant="glow"
+                  className="group w-full max-w-full whitespace-normal px-4 text-center leading-snug sm:w-auto sm:whitespace-nowrap sm:px-6"
+                >
+                  <a href="#contacto">
+                    Cuéntame qué necesitas resolver
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </Button>
+                <span className="mt-1 text-xs text-white/60">
+                  Diagnóstico inicial sin costo
+                </span>
+              </div>
               <Button
                 asChild
                 size="xl"

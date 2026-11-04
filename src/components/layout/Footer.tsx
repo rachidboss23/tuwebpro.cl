@@ -15,9 +15,9 @@ const socials = [
 
 const navLinks = [
   { label: "Soluciones", href: "#soluciones" },
+  { label: "Proyectos", href: "#proyectos" },
   { label: "Servicios", href: "#servicios" },
   { label: "Precios", href: "#precios" },
-  { label: "Proyectos", href: "#proyectos" },
   { label: "Proceso", href: "#proceso" },
   { label: "Sobre mí", href: "#nosotros" },
   { label: "Preguntas", href: "#preguntas" },

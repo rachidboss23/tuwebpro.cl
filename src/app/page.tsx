@@ -18,11 +18,11 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <ProblemsSection />
-      <ServicesSection />
-      <PricingSection />
       <PortfolioSection />
-      <UseCasesSection />
       <TestimonialsSection />
+      <ServicesSection />
+      <UseCasesSection />
+      <PricingSection />
       <ProcessSection />
       <AboutSection />
       <FaqSection />

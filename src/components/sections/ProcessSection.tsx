@@ -9,7 +9,7 @@ const steps = [
     icon: Lightbulb,
     title: "Idea & Descubrimiento",
     description:
-      "Analizo tu negocio, tus problemas y tus objetivos. Defino el alcance, la arquitectura y el roadmap completo del proyecto.",
+      "Analizo tu negocio, tus problemas y tus objetivos. Defino qué se va a hacer, en qué orden y cuánto toma.",
     duration: "1–2 días",
     color: "yellow",
     iconColor: "text-yellow-400",
@@ -20,9 +20,9 @@ const steps = [
   {
     number: "02",
     icon: Palette,
-    title: "Diseño UI/UX",
+    title: "Diseño",
     description:
-      "Creo wireframes, prototipos y el diseño visual completo. Todo pensado para la experiencia del usuario y la identidad de tu marca.",
+      "Preparo bocetos y prototipos para que veas cómo quedará antes de programar. Todo pensado para que sea fácil de usar y refleje tu marca.",
     duration: "3–5 días",
     color: "violet",
     iconColor: "text-violet-400",
@@ -35,7 +35,7 @@ const steps = [
     icon: Code2,
     title: "Desarrollo",
     description:
-      "Implemento el producto con código limpio, arquitectura escalable y las mejores prácticas del mercado. Sprints cortos con entregables reales.",
+      "Construyo el sistema con entregas parciales que puedes revisar, para ajustar sobre la marcha.",
     duration: "2–6 semanas",
     color: "blue",
     iconColor: "text-blue-400",
@@ -48,7 +48,7 @@ const steps = [
     icon: Cpu,
     title: "Automatización",
     description:
-      "Integro IA, bots, flujos automáticos y conexiones con servicios externos para que tu sistema requiera menos trabajo manual.",
+      "Conecto tus herramientas y dejo flujos automáticos, con IA si corresponde, para que haya menos trabajo manual.",
     duration: "1–2 semanas",
     color: "cyan",
     iconColor: "text-cyan-400",
@@ -59,9 +59,9 @@ const steps = [
   {
     number: "05",
     icon: Rocket,
-    title: "Deploy & Soporte",
+    title: "Publicación y soporte",
     description:
-      "Lanzo en producción con CI/CD, monitoreo y soporte continuo. Te acompaño después del lanzamiento.",
+      "Publico el proyecto, reviso que funcione bien y te acompaño después del lanzamiento.",
     duration: "Continuo",
     color: "emerald",
     iconColor: "text-emerald-400",
@@ -96,7 +96,7 @@ export default function ProcessSection() {
             <span className="gradient-text">paso a paso</span>
           </h2>
           <p className="text-white/70 text-lg max-w-lg mx-auto">
-            Metodología ágil y transparente. Te informo el avance en cada etapa.
+            Trabajo por etapas y te aviso el avance en cada una.
           </p>
           <p className="mt-4 text-sm font-semibold text-cyan-200">
             Duración estimada por etapa

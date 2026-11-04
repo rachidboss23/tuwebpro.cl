@@ -18,6 +18,7 @@ import {
 type Service = {
   icon: LucideIcon;
   title: string;
+  summary?: string;
   description: string;
   tags: string[];
 };
@@ -65,6 +66,8 @@ const packages: ServicePackage[] = [
       {
         icon: Brain,
         title: "Automatización IA",
+        summary:
+          "Tareas repetitivas que se resuelven solas, con revisión tuya cuando importa.",
         description:
           "Flujos que leen, clasifican y responden por ti: correos, formularios, documentos y consultas de clientes, apoyados en IA.",
         tags: ["OpenAI", "LangChain", "n8n"],
@@ -72,6 +75,7 @@ const packages: ServicePackage[] = [
       {
         icon: Plug,
         title: "Conexión entre herramientas",
+        summary: "Los datos pasan de un lugar a otro sin copiarlos a mano.",
         description:
           "Hago que tus planillas, tu CRM, tu sistema de pagos y WhatsApp se comuniquen entre sí, para no copiar datos a mano.",
         tags: ["APIs", "Webhooks", "Google Sheets"],
@@ -79,6 +83,8 @@ const packages: ServicePackage[] = [
       {
         icon: MessageSquare,
         title: "Automatización WhatsApp",
+        summary:
+          "Respuestas a consultas frecuentes y seguimiento a posibles clientes.",
         description:
           "Asistentes en WhatsApp Business que responden las consultas frecuentes y dan seguimiento a quienes te escriben.",
         tags: ["WhatsApp API", "IA", "CRM"],
@@ -97,6 +103,7 @@ const packages: ServicePackage[] = [
       {
         icon: Layers,
         title: "Plataformas web (SaaS)",
+        summary: "Tu sistema en la web, con usuarios, roles y datos propios.",
         description:
           "Plataformas con usuarios y roles, planes de pago y varias empresas dentro del mismo sistema, listas para crecer.",
         tags: ["Supabase", "Stripe", "Vercel"],
@@ -104,6 +111,7 @@ const packages: ServicePackage[] = [
       {
         icon: BarChart3,
         title: "Dashboards",
+        summary: "Tu negocio en un panel, con cifras claras.",
         description:
           "Paneles con tus datos al día, gráficos claros e indicadores para decidir más rápido.",
         tags: ["Gráficos", "PostgreSQL", "Tiempo real"],
@@ -111,6 +119,7 @@ const packages: ServicePackage[] = [
       {
         icon: Settings2,
         title: "Sistemas Personalizados",
+        summary: "Inventario, órdenes y procesos internos en un solo lugar.",
         description:
           "Software a medida para tu operación: inventarios, facturación, órdenes de trabajo y procesos internos.",
         tags: ["Node.js", "PostgreSQL", "Docker"],
@@ -118,6 +127,8 @@ const packages: ServicePackage[] = [
       {
         icon: Users,
         title: "Gestión de clientes (CRM)",
+        summary:
+          "Clientes, cotizaciones y seguimientos sin que se pierda ninguno.",
         description:
           "Seguimiento de clientes adaptado a tu industria: etapas de venta, historial y reportes.",
         tags: ["Clientes", "Seguimiento", "Reportes"],
@@ -249,7 +260,14 @@ export default function ServicesSection() {
                             style={{ color: pkg.color }}
                             aria-hidden="true"
                           />
-                          {service.title}
+                          <span className="min-w-0 flex-1">
+                            <span className="block">{service.title}</span>
+                            {service.summary && (
+                              <span className="mt-1 block text-xs font-normal leading-relaxed text-white/65">
+                                {service.summary}
+                              </span>
+                            )}
+                          </span>
                           <span
                             aria-hidden="true"
                             className="ml-auto text-xl leading-none text-white/60 transition-transform group-open/d:rotate-45 motion-reduce:transition-none"
