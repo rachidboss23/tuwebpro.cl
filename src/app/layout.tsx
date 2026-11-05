@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Analytics } from "@vercel/analytics/react";
-import Script from "next/script";
 import { siteConfig } from "@/lib/siteConfig";
 
 const structuredData = {
@@ -104,18 +103,6 @@ export default function RootLayout({
         {children}
         <WhatsAppButton />
         <Analytics />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-DN93NXFZNQ"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-DN93NXFZNQ');
-          `}
-        </Script>
       </body>
     </html>
   );

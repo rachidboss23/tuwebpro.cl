@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { Github, Linkedin, Mail, MessageSquare, Star } from "lucide-react";
 import { GOOGLE_REVIEW_URL, trackReviewClick } from "@/lib/reviews";
-import { trackGA4Event } from "@/lib/analytics";
 import { siteConfig } from "@/lib/siteConfig";
 
 const socials = [
@@ -24,7 +23,7 @@ const navLinks = [
   { label: "Contacto", href: "#contacto" },
 ];
 
-export default function Footer() {
+export default function Footer({ homePath = "" }: { homePath?: "" | "/" }) {
   return (
     <footer className="border-t border-white/[0.08] bg-black/40">
       <div className="mx-auto max-w-7xl px-4 pb-20 pt-14 sm:px-6 md:pb-14 lg:px-8">
@@ -54,7 +53,7 @@ export default function Footer() {
               {navLinks.map((link) => (
                 <li key={link.label}>
                   <a
-                    href={link.href}
+                    href={`${homePath}${link.href}`}
                     className="inline-flex min-h-11 items-center rounded-md text-sm text-white/80 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
                   >
                     {link.label}
@@ -75,9 +74,6 @@ export default function Footer() {
                   href={href}
                   target={href.startsWith("mailto:") ? undefined : "_blank"}
                   rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                  onClick={() => {
-                    if (label === "WhatsApp") trackGA4Event("whatsapp_click");
-                  }}
                   className="group flex min-h-11 items-center gap-3 rounded-lg text-sm text-white/80 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
                 >
                   <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/15 bg-white/[0.04] transition-colors group-hover:border-white/30">
@@ -106,11 +102,19 @@ export default function Footer() {
           <p className="text-xs text-white/70">
             © {new Date().getFullYear()} TuWebPro · Rachid Boss Ibarra
           </p>
-          <div className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-emerald-300" aria-hidden="true" />
-            <span className="text-xs text-white/75">
-              Disponible para nuevos proyectos
-            </span>
+          <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-6">
+            <a
+              href="/politica-de-privacidad"
+              className="min-h-11 inline-flex items-center text-xs text-white/75 underline-offset-4 hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
+            >
+              Política de privacidad
+            </a>
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-emerald-300" aria-hidden="true" />
+              <span className="text-xs text-white/75">
+                Disponible para nuevos proyectos
+              </span>
+            </div>
           </div>
         </div>
       </div>

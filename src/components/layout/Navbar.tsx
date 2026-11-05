@@ -16,7 +16,7 @@ const navLinks = [
   { label: "Contactar", href: "#contacto", cta: true },
 ];
 
-export default function Navbar() {
+export default function Navbar({ homePath = "" }: { homePath?: "" | "/" }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -73,14 +73,14 @@ export default function Navbar() {
               {navLinks.filter((link) => !link.cta).map((link) => (
                 <a
                   key={link.href}
-                  href={link.href}
+                  href={`${homePath}${link.href}`}
                   className="min-h-11 inline-flex items-center rounded-lg px-2.5 text-xs xl:px-3 xl:text-sm font-medium text-white/75 transition-colors hover:bg-white/[0.07] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
                 >
                   {link.label}
                 </a>
               ))}
               <a
-                href="#contacto"
+                href={`${homePath}#contacto`}
                 className="ml-2 inline-flex min-h-11 items-center rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 px-4 text-xs font-medium text-white shadow-lg shadow-blue-500/20 transition-all hover:from-blue-700 hover:to-violet-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 xl:text-sm"
               >
                 Contactar
@@ -116,7 +116,7 @@ export default function Navbar() {
               {navLinks.map((link, index) => (
                 <motion.a
                   key={link.href}
-                  href={link.href}
+                  href={`${homePath}${link.href}`}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.04 }}

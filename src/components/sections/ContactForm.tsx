@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
-import { trackGA4Event } from "@/lib/analytics";
 import { siteConfig } from "@/lib/siteConfig";
 
 type Status = "idle" | "sending" | "success" | "error";
@@ -32,7 +31,6 @@ export default function ContactForm() {
       if (response.ok && data.success) {
         setStatus("success");
         form.reset();
-        trackGA4Event("form_submit");
       } else {
         setStatus("error");
       }
@@ -195,7 +193,17 @@ export default function ContactForm() {
           </button>
 
           <p className="text-center text-xs leading-relaxed text-white/60">
-            Uso tus datos solo para responder tu consulta.
+            Al enviar este mensaje aceptas que use tus datos para responder tu
+            consulta, según mi{" "}
+            <a
+              href="/politica-de-privacidad"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
+            >
+              Política de privacidad
+            </a>
+            .
           </p>
 
           <p className="text-center text-sm text-white/80">
@@ -204,7 +212,6 @@ export default function ContactForm() {
               href={siteConfig.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackGA4Event("whatsapp_click")}
               className="font-semibold text-emerald-200 underline underline-offset-4 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300"
             >
               Escríbeme directo
